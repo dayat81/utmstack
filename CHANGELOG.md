@@ -1,4 +1,3 @@
-# UTMStack 10.8.2 Release Notes
+# UTMStack 10.8.3 Release Notes
 
--- Fixed typo in compliance report status values.
--- Standardized internal compliance status labels to ensure consistency across reports and filters.
+- Fixed a potential delay in log input in O365, AWS, and Sophos Central integrations.
