@@ -1,3 +1,3 @@
-# UTMStack 10.8.3 Release Notes
+# UTMStack 10.8.4 Release Notes
 
-- Fixed a potential delay in log input in O365, AWS, and Sophos Central integrations.
+- Enhanced security and compliance by upgrading several internal components—most notably the update server—to exclusively support TLS 1.3.
