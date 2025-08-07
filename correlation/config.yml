@@ -1,0 +1,9 @@
+rulesFolder: /app/rulesets/
+elasticsearch: "http://localhost:9200"
+postgresql:
+  server: localhost
+  port: 5432
+  user: pos_user
+  password: "pos_password"
+  database: pos_db
+errorLevel: DEBUG

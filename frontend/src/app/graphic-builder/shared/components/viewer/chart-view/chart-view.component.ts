@@ -14,7 +14,7 @@ import {RunVisualizationService} from '../../../services/run-visualization.servi
 import {UtmChartClickActionService} from '../../../services/utm-chart-click-action.service';
 import {rebuildVisualizationFilterTime} from '../../../util/chart-filter/chart-filter.util';
 import {resolveDefaultVisualizationTime} from '../../../util/visualization/visualization-render.util';
-import EChartOption = echarts.EChartOption;
+// import EChartOption = echarts.EChartOption;
 // @ts-ignore
 require('echarts-wordcloud');
 
@@ -37,7 +37,7 @@ export class ChartViewComponent implements OnInit {
   loadingOption: boolean;
   data: any[] = [];
   chartFactory = new ChartFactory();
-  echartOption: EChartOption;
+  echartOption: any; // EChartOption;
   chartTypeEnum = ChartTypeEnum;
   operatorEnum = ElasticOperatorsEnum;
   runWithError: boolean;

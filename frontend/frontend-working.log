@@ -1,0 +1,48 @@
+
+> utm-stack@7.1.0 start /home/ptsec/utmstack/frontend
+> ng serve --host 0.0.0.0
+
+WARNING: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disableHostCheck" if that's the
+case.
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+
+Date: 2025-08-07T08:15:01.168Z
+Hash: a0ae2130511e5bc3b149
+Time: 16823ms
+chunk {es2015-polyfills} es2015-polyfills.js, es2015-polyfills.js.map (es2015-polyfills) 285 kB [initial] [rendered]
+chunk {main} main.js, main.js.map (main) 2.12 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 93.2 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.08 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 4.02 MB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.02 MB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 431 kB [initial] [rendered]
+
+ERROR in node_modules/@types/echarts/index.d.ts(1,23): error TS2688: Cannot find type definition file for 'zrender'.
+node_modules/@types/echarts/index.d.ts(132,25): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(140,26): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(140,49): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(148,49): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(156,38): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(1593,41): error TS2304: Cannot find name 'Omit'.
+
+[34mℹ[39m [90m｢wdm｣[39m: Failed to compile.
+[34mℹ[39m [90m｢wdm｣[39m: Compiling...
+
+Date: 2025-08-07T08:21:55.481Z - Hash: 85f3437f3133f8e11b00 - Time: 14944ms
+6 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 2.02 MB [initial] [rendered]
+[34mℹ[39m [90m｢wdm｣[39m: Compiled successfully.
+
+ERROR in node_modules/@types/echarts/index.d.ts(1,23): error TS2688: Cannot find type definition file for 'zrender'.
+node_modules/@types/echarts/index.d.ts(132,25): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(140,26): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(140,49): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(148,49): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(156,38): error TS2503: Cannot find namespace 'zrender'.
+node_modules/@types/echarts/index.d.ts(1593,41): error TS2304: Cannot find name 'Omit'.
+
