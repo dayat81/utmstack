@@ -1,0 +1,31 @@
+2025/08/07 14:31:07 Connecting to Postgres server: localhost using port: 5432
+2025/08/07 14:31:07 Loading GeoIP databases
+2025/08/07 14:31:07 Could not open file: open /app/asn-blocks-v4.csv: no such file or directory
+2025/08/07 14:31:07 Could not read CSV: invalid argument
+2025/08/07 14:31:07 Could not open file: open /app/asn-blocks-v6.csv: no such file or directory
+2025/08/07 14:31:07 Could not read CSV: invalid argument
+2025/08/07 14:31:07 Could not open file: open /app/blocks-v4.csv: no such file or directory
+2025/08/07 14:31:07 Could not read CSV: invalid argument
+2025/08/07 14:31:07 Could not open file: open /app/blocks-v6.csv: no such file or directory
+2025/08/07 14:31:07 Could not read CSV: invalid argument
+2025/08/07 14:31:07 Could not open file: open /app/locations-en.csv: no such file or directory
+2025/08/07 14:31:07 Could not read CSV: invalid argument
+2025/08/07 14:31:07 asnBlocks rows: 0
+2025/08/07 14:31:07 cityBlocks rows: 0
+2025/08/07 14:31:07 cityLocations rows: 0
+2025/08/07 14:31:07 GeoIP databases loaded
+2025/08/07 14:31:07 Loading Threat Intelligence Feeds
+2025/08/07 14:31:07 Could not open file: open /app/ip_level1.list: no such file or directory
+2025/08/07 14:31:07 Could not open file: open /app/ip_level2.list: no such file or directory
+2025/08/07 14:31:07 Could not open file: open /app/ip_level3.list: no such file or directory
+2025/08/07 14:31:07 Threat Intelligence feeds loaded
+2025/08/07 14:31:07 Listing rules files in /app/rulesets/
+2025/08/07 14:31:07 Logs in cache: 0
+2025/08/07 14:31:07 Memory used by engine: 26 MB
+panic: listen tcp :8080: bind: address already in use
+
+goroutine 51 [running]:
+main.main.func1()
+	/home/ptsec/utmstack/correlation/main.go:66 +0x21b
+created by main.main in goroutine 1
+	/home/ptsec/utmstack/correlation/main.go:51 +0x19d

@@ -1,0 +1,5 @@
+2025-08-07T07:30:55.512103699Z INFO df047767-3a71-4852-8399-a93cc4b4594f /home/ptsec/utmstack/agent-manager/main.go 25 Starting UTMStack Agent Manager
+2025-08-07T07:30:55.512155045Z INFO 9be6e3af-b7ec-4142-9f31-b5fe0bdf5e2a /home/ptsec/utmstack/agent-manager/main.go 34 Initializing database...
+2025-08-07T07:30:55.582206985Z INFO ba2eca9e-54c8-4694-80a0-565d63202612 /home/ptsec/utmstack/agent-manager/main.go 37 [OK] Database initialized
+2025-08-07T07:30:55.593127192Z INFO ea9a98e3-06ab-4684-94f5-8d5f06b842ed /home/ptsec/utmstack/agent-manager/main.go 87 Starting gRPC server on 0.0.0.0:50051
+2025-08-07T07:30:55.594493606Z INFO 9c881f44-ea0d-4d06-8386-8bc73f36b062 /home/ptsec/utmstack/agent-manager/updates/updates.go 56 Starting HTTP server on port 8080
