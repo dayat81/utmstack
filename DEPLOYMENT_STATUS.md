@@ -72,10 +72,13 @@
 
 ## 📋 Quick Start Commands
 
-### ✅ **NEW: Automated Start/Stop Scripts**
+### ✅ **NEW: Automated Service Management Scripts**
 ```bash
 # Start all available UTMStack services
 ./start-utmstack-simple.sh
+
+# Check status of all UTMStack services
+./status-utmstack.sh
 
 # Stop all UTMStack services  
 ./stop-utmstack.sh
@@ -148,7 +151,7 @@ curl http://localhost:4202/index.html
 
 **Production Access:** Frontend serves correctly on all configured ports with complete UTMStack interface.
 
-## 🚀 **NEW: Automated Start/Stop Scripts Verification**
+## 🚀 **NEW: Automated Service Management Scripts Verification**
 
 **Script Deployment: ✅ COMPLETE & VERIFIED**
 
@@ -167,6 +170,15 @@ curl http://localhost:4202/index.html
 - **Error Handling:** ✅ Handles missing PID files and unresponsive services
 - **Comprehensive Shutdown:** ✅ Ensures all UTMStack processes are terminated
 
+### ✅ **Status Script (`status-utmstack.sh`)**
+- **Infrastructure Monitoring:** ✅ PostgreSQL, Elasticsearch, Logstash health checks
+- **Service Status Tracking:** ✅ Real-time PID monitoring and process verification
+- **Port Monitoring:** ✅ Port availability and conflict detection with process identification
+- **Log Analysis:** ✅ Automatic error detection and recent activity tracking
+- **System Resources:** ✅ Memory, disk usage, and load average monitoring
+- **Health Reporting:** ✅ Comprehensive status summary with color-coded output
+- **Integration:** ✅ Seamless integration with start/stop script workflow
+
 ### 📊 **Verified Service Management**
 - **✅ Correlation Engine:** Starts on port 8085 (auto-detects 8080 conflict)
 - **✅ Frontend (Angular):** Starts on port 4200 with full dependency management
@@ -178,11 +190,13 @@ curl http://localhost:4202/index.html
 1. **Smart Port Management:** Automatically detects conflicts and uses alternative ports
 2. **Dependency Installation:** Auto-installs npm packages for frontend
 3. **Environment Variables:** Properly configures all required service connections
-4. **Service Health Monitoring:** Tracks service startup success/failure
+4. **Service Health Monitoring:** Real-time status tracking with detailed health reports
 5. **Full Lifecycle Management:** Complete start → monitor → stop workflow
-6. **Log Management:** All service logs centralized in `/logs/` directory
+6. **Log Management:** All service logs centralized with automated error detection
+7. **System Monitoring:** Resource usage tracking and infrastructure health checks
+8. **Process Management:** Intelligent PID tracking and conflict resolution
 
-**Scripts Status: 100% OPERATIONAL** - Ready for production use with intelligent conflict resolution.
+**Scripts Status: 100% OPERATIONAL** - Production-ready service management suite with comprehensive monitoring.
 
 ## 🔧 Remaining Actions (Optional Enhancements)
 
@@ -269,7 +283,7 @@ curl http://localhost:4202/index.html
 ✅ **Agent Manager:** gRPC + HTTP services operational  
 ✅ **Correlation Engine:** Functional with database connectivity on port 8085  
 ✅ **Backend:** Spring Boot operational (dependencies resolved)
-✅ **NEW: Automation:** Intelligent start/stop scripts with port conflict resolution
+✅ **NEW: Automation:** Complete service management suite (start/status/stop) with intelligent monitoring
 
 **Key Achievement:** Successfully deployed complex microservices SIEM platform with:
 - 🔧 **6 major dependency issues resolved**
@@ -277,6 +291,6 @@ curl http://localhost:4202/index.html
 - 📊 **Real-time log correlation capabilities**
 - 🔐 **Agent management infrastructure**
 - 💾 **Database migrations completed**
-- 🤖 **Automated deployment scripts** with intelligent service management
+- 🤖 **Automated service management** with comprehensive monitoring and health checks
 
-The system is ready for log ingestion, threat correlation, and security monitoring with **one-command deployment**!
+The system is ready for log ingestion, threat correlation, and security monitoring with **complete automated lifecycle management**!
