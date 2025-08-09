@@ -107,5 +107,10 @@
 
     <include file="/config/liquibase/changelog/20250605001_update_typos_config_report_status _values.xml" relativeToChangelogFile="false"/>
 
+    <!-- Multi-tenant foundation migrations -->
+    <include file="config/liquibase/changelog/20250801001_add_multi_tenant_foundation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250801002_add_tenant_id_to_core_tables.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250801003_enable_row_level_security.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250801004_create_default_tenant.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

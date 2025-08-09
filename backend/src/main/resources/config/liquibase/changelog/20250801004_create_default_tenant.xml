@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="20250801004" author="amp-agent">
+        <comment>Create default tenant and populate existing data</comment>
+        
+        <!-- Create default tenant for existing data -->
+        <sql>
+            INSERT INTO utm_tenant (id, name, subdomain, status, tier, created_at, updated_at, settings, resource_limits)
+            VALUES (
+                'default-tenant-00000000-0000-0000-0000-000000000001'::UUID,
+                'Default Tenant',
+                'default',
+                'active',
+                'enterprise',
+                NOW(),
+                NOW(),
+                '{"legacy_migration": true, "auto_provisioned": true}',
+                '{"max_users": 1000, "max_dashboards": 100, "max_alerts_per_day": 100000}'
+            )
+            ON CONFLICT (subdomain) DO NOTHING;
+        </sql>
+
+        <!-- Create default tenant configuration -->
+        <sql>
+            INSERT INTO utm_tenant_config (tenant_id, config_key, config_value, config_type, created_at, updated_at)
+            VALUES 
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'timezone', 'UTC', 'STRING', NOW(), NOW()),
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'date_format', 'YYYY-MM-DD', 'STRING', NOW(), NOW()),
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'max_retention_days', '365', 'INTEGER', NOW(), NOW()),
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'enable_sso', 'false', 'BOOLEAN', NOW(), NOW())
+            ON CONFLICT (tenant_id, config_key) DO NOTHING;
+        </sql>
+
+        <!-- Create default tenant roles -->
+        <sql>
+            INSERT INTO utm_tenant_role (tenant_id, role_name, permissions, created_at, updated_at)
+            VALUES 
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'TENANT_ADMIN', 
+             '["USER_MANAGEMENT", "DASHBOARD_MANAGEMENT", "ALERT_MANAGEMENT", "CONFIGURATION", "REPORTS"]'::JSONB, 
+             NOW(), NOW()),
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'TENANT_USER', 
+             '["DASHBOARD_VIEW", "ALERT_VIEW", "REPORTS_VIEW"]'::JSONB, 
+             NOW(), NOW()),
+            ('default-tenant-00000000-0000-0000-0000-000000000001'::UUID, 'ANALYST', 
+             '["DASHBOARD_VIEW", "DASHBOARD_CREATE", "ALERT_MANAGEMENT", "INCIDENT_MANAGEMENT"]'::JSONB, 
+             NOW(), NOW())
+            ON CONFLICT (tenant_id, role_name) DO NOTHING;
+        </sql>
+
+        <!-- Update existing users to belong to default tenant -->
+        <sql>
+            UPDATE jhi_user 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing dashboards to belong to default tenant -->
+        <sql>
+            UPDATE utm_dashboard 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing visualizations to belong to default tenant -->
+        <sql>
+            UPDATE utm_visualization 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing alert logs to belong to default tenant -->
+        <sql>
+            UPDATE utm_alert_log 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing alert last to belong to default tenant -->
+        <sql>
+            UPDATE utm_alert_last 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing alert response rules to belong to default tenant -->
+        <sql>
+            UPDATE utm_alert_response_rule 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing alert response rule executions to belong to default tenant -->
+        <sql>
+            UPDATE utm_alert_response_rule_execution 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing alert response rule history to belong to default tenant -->
+        <sql>
+            UPDATE utm_alert_response_rule_history 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing alert tags to belong to default tenant -->
+        <sql>
+            UPDATE utm_alert_tag 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing filter groups to belong to default tenant (except system-owned) -->
+        <sql>
+            UPDATE utm_logstash_filter_group 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL AND (system_owner IS NULL OR system_owner = false);
+        </sql>
+
+        <!-- Update existing filters to belong to default tenant -->
+        <sql>
+            UPDATE utm_logstash_filter 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL;
+        </sql>
+
+        <!-- Update existing index patterns to belong to default tenant (except system patterns) -->
+        <sql>
+            UPDATE utm_index_pattern 
+            SET tenant_id = 'default-tenant-00000000-0000-0000-0000-000000000001'::UUID 
+            WHERE tenant_id IS NULL AND (pattern_system IS NULL OR pattern_system = false);
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="20250801003" author="amp-agent">
+        <comment>Enable Row-Level Security (RLS) for multi-tenant data isolation</comment>
+        
+        <!-- Create function to set tenant context -->
+        <sql>
+            CREATE OR REPLACE FUNCTION set_tenant_context(tenant_uuid UUID)
+            RETURNS void AS $$
+            BEGIN
+                PERFORM set_config('app.current_tenant_id', tenant_uuid::TEXT, TRUE);
+            END;
+            $$ LANGUAGE plpgsql SECURITY DEFINER;
+        </sql>
+
+        <!-- Create function to get current tenant context -->
+        <sql>
+            CREATE OR REPLACE FUNCTION get_current_tenant_id()
+            RETURNS UUID AS $$
+            BEGIN
+                RETURN current_setting('app.current_tenant_id', true)::UUID;
+            EXCEPTION
+                WHEN OTHERS THEN
+                    RETURN NULL;
+            END;
+            $$ LANGUAGE plpgsql SECURITY DEFINER;
+        </sql>
+
+        <!-- Enable RLS on core tables -->
+        <sql>ALTER TABLE jhi_user ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_dashboard ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_visualization ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_alert_log ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_alert_last ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_alert_response_rule ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_alert_response_rule_execution ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_alert_response_rule_history ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_alert_tag ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_logstash_filter_group ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_logstash_filter ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_index_pattern ENABLE ROW LEVEL SECURITY;</sql>
+
+        <!-- Create RLS policies for tenant isolation -->
+        
+        <!-- User table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON jhi_user
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Dashboard table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_dashboard
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Visualization table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_visualization
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Alert log table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_alert_log
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Alert last table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_alert_last
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Alert response rule table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_alert_response_rule
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Alert response rule execution table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_alert_response_rule_execution
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Alert response rule history table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_alert_response_rule_history
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Alert tag table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_alert_tag
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Logstash filter group table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_logstash_filter_group
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Logstash filter table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_logstash_filter
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Index pattern table policy -->
+        <sql>
+            CREATE POLICY tenant_isolation_policy ON utm_index_pattern
+            USING (tenant_id = get_current_tenant_id() OR get_current_tenant_id() IS NULL);
+        </sql>
+
+        <!-- Create policy for tenant management tables (admin access only) -->
+        <sql>
+            CREATE POLICY admin_full_access ON utm_tenant
+            USING (true);
+        </sql>
+
+        <sql>
+            CREATE POLICY admin_full_access ON utm_tenant_config
+            USING (true);
+        </sql>
+
+        <sql>
+            CREATE POLICY admin_full_access ON utm_tenant_role
+            USING (true);
+        </sql>
+
+        <!-- Enable RLS on tenant management tables -->
+        <sql>ALTER TABLE utm_tenant ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_tenant_config ENABLE ROW LEVEL SECURITY;</sql>
+        <sql>ALTER TABLE utm_tenant_role ENABLE ROW LEVEL SECURITY;</sql>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="20250801001" author="amp-agent">
+        <comment>Add multi-tenant foundation tables and columns</comment>
+        
+        <!-- Create tenant management table -->
+        <createTable tableName="utm_tenant">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subdomain" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="status" type="VARCHAR(50)" defaultValue="active">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="settings" type="JSONB" defaultValue="'{}'">
+                <constraints nullable="true"/>
+            </column>
+            <column name="resource_limits" type="JSONB" defaultValue="'{}'">
+                <constraints nullable="true"/>
+            </column>
+            <column name="tier" type="VARCHAR(50)" defaultValue="standard">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpu_threshold" type="DECIMAL(5,2)" defaultValue="80.0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="memory_threshold" type="DECIMAL(5,2)" defaultValue="80.0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="error_rate_threshold" type="DECIMAL(5,2)" defaultValue="5.0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Create tenant configuration table -->
+        <createTable tableName="utm_tenant_config">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="config_key" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="config_value" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="config_type" type="VARCHAR(50)" defaultValue="STRING">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Create tenant role table for RBAC -->
+        <createTable tableName="utm_tenant_role">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permissions" type="JSONB" defaultValue="'[]'">
+                <constraints nullable="true"/>
+            </column>
+            <column name="parent_role_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Add foreign key constraints -->
+        <addForeignKeyConstraint baseTableName="utm_tenant_config" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_tenant_config_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_tenant_role" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_tenant_role_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_tenant_role" 
+                                 baseColumnNames="parent_role_id"
+                                 constraintName="fk_tenant_role_parent_id"
+                                 referencedTableName="utm_tenant_role"
+                                 referencedColumnNames="id"
+                                 onDelete="SET NULL"/>
+
+        <!-- Create indexes for performance -->
+        <createIndex indexName="idx_utm_tenant_subdomain" tableName="utm_tenant">
+            <column name="subdomain"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_tenant_status" tableName="utm_tenant">
+            <column name="status"/>
+        </createIndex>
+
+        <createIndex indexName="idx_utm_tenant_config_tenant_key" tableName="utm_tenant_config">
+            <column name="tenant_id"/>
+            <column name="config_key"/>
+        </createIndex>
+
+        <createIndex indexName="idx_utm_tenant_role_tenant" tableName="utm_tenant_role">
+            <column name="tenant_id"/>
+        </createIndex>
+
+        <!-- Create unique constraint for tenant config -->
+        <addUniqueConstraint tableName="utm_tenant_config" 
+                             columnNames="tenant_id, config_key"
+                             constraintName="uk_tenant_config_key"/>
+
+        <!-- Create unique constraint for tenant role -->
+        <addUniqueConstraint tableName="utm_tenant_role" 
+                             columnNames="tenant_id, role_name"
+                             constraintName="uk_tenant_role_name"/>
+
+    </changeSet>
+
+</databaseChangeLog>

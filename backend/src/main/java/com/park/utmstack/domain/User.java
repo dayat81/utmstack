@@ -16,6 +16,9 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Type;
 
 /**
  * A user.
@@ -95,6 +98,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
+
+    @Column(name = "tenant_id")
+    @Type(type = "uuid-char")
+    private UUID tenantId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tenant_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties(value = "users", allowSetters = true)
+    private UtmTenant tenant;
 
     public Long getId() {
         return id;
@@ -223,6 +235,25 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setDefaultPassword(Boolean defaultPassword) {
         this.defaultPassword = defaultPassword;
+    }
+
+    public UUID getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(UUID tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public UtmTenant getTenant() {
+        return tenant;
+    }
+
+    public void setTenant(UtmTenant tenant) {
+        this.tenant = tenant;
+        if (tenant != null) {
+            this.tenantId = tenant.getId();
+        }
     }
 
     @Override

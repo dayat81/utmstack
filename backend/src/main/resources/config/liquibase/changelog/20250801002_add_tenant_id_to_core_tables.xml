@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="20250801002" author="amp-agent">
+        <comment>Add tenant_id columns to core tables for multi-tenant isolation</comment>
+        
+        <!-- Add tenant_id to user table -->
+        <addColumn tableName="jhi_user">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <!-- Add tenant_id to core UTM tables -->
+        <addColumn tableName="utm_dashboard">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_visualization">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_alert_log">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_alert_last">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_alert_response_rule">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_alert_response_rule_execution">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_alert_response_rule_history">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_alert_tag">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_logstash_filter_group">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_logstash_filter">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        
+        <addColumn tableName="utm_index_pattern">
+            <column name="tenant_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!-- Create foreign key constraints -->
+        <addForeignKeyConstraint baseTableName="jhi_user" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_user_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="SET NULL"/>
+
+        <addForeignKeyConstraint baseTableName="utm_dashboard" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_dashboard_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_visualization" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_visualization_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_alert_log" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_alert_log_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_alert_last" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_alert_last_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_alert_response_rule" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_alert_rule_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_logstash_filter_group" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_filter_group_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="utm_index_pattern" 
+                                 baseColumnNames="tenant_id"
+                                 constraintName="fk_index_pattern_tenant_id"
+                                 referencedTableName="utm_tenant"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+        <!-- Create indexes for performance -->
+        <createIndex indexName="idx_jhi_user_tenant_id" tableName="jhi_user">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_dashboard_tenant_id" tableName="utm_dashboard">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_visualization_tenant_id" tableName="utm_visualization">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_alert_log_tenant_id" tableName="utm_alert_log">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_alert_last_tenant_id" tableName="utm_alert_last">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_alert_response_rule_tenant_id" tableName="utm_alert_response_rule">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_logstash_filter_group_tenant_id" tableName="utm_logstash_filter_group">
+            <column name="tenant_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_utm_index_pattern_tenant_id" tableName="utm_index_pattern">
+            <column name="tenant_id"/>
+        </createIndex>
+
+        <!-- Update user email unique constraint to include tenant -->
+        <dropUniqueConstraint tableName="jhi_user" constraintName="ux_user_email"/>
+        <addUniqueConstraint tableName="jhi_user" 
+                             columnNames="email, tenant_id"
+                             constraintName="ux_user_email_tenant"/>
+
+    </changeSet>
+
+</databaseChangeLog>
