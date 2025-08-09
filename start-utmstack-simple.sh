@@ -96,6 +96,7 @@ echo -e "\n${YELLOW}=== Checking Available Services ===${NC}"
 start_service_simple "correlation" "PORT=8085 go run main.go" "$BASE_DIR/correlation" "8085" || true
 start_service_simple "agent-manager" "go run main.go" "$BASE_DIR/agent-manager" "9000" || true
 start_service_simple "log-auth-proxy" "go run main.go" "$BASE_DIR/log-auth-proxy" "8081" || true
+start_service_simple "api-mock" "node simple-api.js" "$BASE_DIR" "8090" || true
 start_service_simple "backend" "./mvnw spring-boot:run" "$BASE_DIR/backend" "8080" || true
 
 # Check if node is available for frontend

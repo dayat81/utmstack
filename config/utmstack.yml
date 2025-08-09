@@ -1,0 +1,318 @@
+# UTMStack Unified Configuration
+# This file contains all configuration for UTMStack services
+---
+# Global settings
+global:
+  version: "10.1.0"
+  environment: "development"  # development, production, test
+  debug: true
+  log_level: "INFO"
+
+# Infrastructure configuration
+infrastructure:
+  # Database configuration
+  database:
+    host: "localhost"
+    port: 5432
+    name: "utmstack"
+    user: "postgres"
+    password: "admin"
+    # Connection pool settings
+    max_connections: 20
+    connection_timeout: 30
+    
+  # Elasticsearch/OpenSearch configuration
+  elasticsearch:
+    host: "localhost"
+    port: 9200
+    protocol: "http"
+    cluster_name: "utmstack-cluster"
+    # Index settings
+    index_prefix: "utmstack"
+    max_result_window: 10000
+    
+  # Message queue configuration
+  message_queue:
+    host: "localhost"
+    port: 5672
+    user: "utmstack"
+    password: "utmstack"
+    virtual_host: "/"
+
+# Service-specific configurations
+services:
+  # Backend API service
+  backend:
+    name: "UTMStack-API"
+    port: 8080
+    context_path: ""
+    # Security settings
+    jwt:
+      secret: "your-jwt-secret-key-here-change-in-production"
+      expiration: 86400  # 24 hours in seconds
+    # Database settings (inherits from infrastructure.database)
+    datasource:
+      url: "jdbc:postgresql://${infrastructure.database.host}:${infrastructure.database.port}/${infrastructure.database.name}"
+      username: "${infrastructure.database.user}"
+      password: "${infrastructure.database.password}"
+      driver_class_name: "org.postgresql.Driver"
+    # Elasticsearch settings
+    elasticsearch:
+      url: "${infrastructure.elasticsearch.protocol}://${infrastructure.elasticsearch.host}:${infrastructure.elasticsearch.port}"
+    # Mail configuration
+    mail:
+      enabled: false
+      host: "localhost"
+      port: 587
+      username: ""
+      password: ""
+      protocol: "smtp"
+      tls: false
+      auth: false
+    # Management endpoints
+    management:
+      endpoints:
+        web:
+          base_path: "/management"
+          exposure:
+            include: ['health', 'info', 'metrics', 'prometheus']
+      health:
+        show_details: "when_authorized"
+        
+  # Frontend application
+  frontend:
+    name: "UTMStack-Frontend"
+    port: 4200
+    host: "0.0.0.0"
+    api_base_url: "http://localhost:8080"
+    # Angular build settings
+    build:
+      base_href: "/"
+      production: false
+      source_map: true
+      optimization: false
+      
+  # Correlation engine
+  correlation:
+    name: "UTMStack-Correlation"
+    port: 8085
+    rules_folder: "/app/rulesets/"
+    # Database connection
+    postgresql:
+      server: "${infrastructure.database.host}"
+      port: ${infrastructure.database.port}
+      user: "${infrastructure.database.user}"
+      password: "${infrastructure.database.password}"
+      database: "${infrastructure.database.name}"
+    # Elasticsearch connection
+    elasticsearch: "${infrastructure.elasticsearch.protocol}://${infrastructure.elasticsearch.host}:${infrastructure.elasticsearch.port}"
+    error_level: "DEBUG"
+    
+  # Agent manager service
+  agent_manager:
+    name: "UTMStack-Agent-Manager"
+    port: 9000
+    grpc_port: 9001
+    # Database settings
+    database:
+      host: "${infrastructure.database.host}"
+      port: ${infrastructure.database.port}
+      user: "${infrastructure.database.user}"
+      password: "${infrastructure.database.password}"
+      name: "${infrastructure.database.name}"
+    # gRPC settings
+    grpc:
+      max_receive_message_size: 4194304  # 4MB
+      max_send_message_size: 4194304     # 4MB
+      
+  # Log authentication proxy
+  log_auth_proxy:
+    name: "UTMStack-Log-Auth-Proxy"
+    port: 8081
+    # Log ingestion settings
+    max_log_size: 1048576  # 1MB
+    batch_size: 1000
+    flush_interval: 5  # seconds
+    
+  # SOC AI service
+  soc_ai:
+    name: "UTMStack-SOC-AI"
+    port: 8084
+    # AI/ML settings
+    openai:
+      api_key: ""  # Set via environment variable
+      model: "gpt-3.5-turbo"
+      max_tokens: 2048
+      temperature: 0.7
+      
+  # User auditor service
+  user_auditor:
+    name: "UTMStack-User-Auditor"
+    port: 8082
+    # Audit settings
+    audit_retention_days: 90
+    max_audit_entries: 1000000
+    
+  # Web PDF service
+  web_pdf:
+    name: "UTMStack-Web-PDF"
+    port: 8083
+    # PDF generation settings
+    timeout: 30  # seconds
+    max_pages: 100
+    quality: "medium"
+    
+  # Mutate service (Python)
+  mutate:
+    name: "UTMStack-Mutate"
+    # Docker settings
+    docker_enabled: true
+    docker_socket: "/var/run/docker.sock"
+    # Pipeline settings
+    correlation_url: "http://localhost:8085"
+    encryption_key: "your-encryption-key-here"
+    
+  # Cloud connectors
+  connectors:
+    # AWS connector
+    aws:
+      name: "UTMStack-AWS-Connector"
+      enabled: false
+      # AWS credentials (use environment variables)
+      access_key_id: ""
+      secret_access_key: ""
+      region: "us-east-1"
+      
+    # Office 365 connector
+    office365:
+      name: "UTMStack-Office365-Connector"
+      enabled: false
+      # O365 settings
+      tenant_id: ""
+      client_id: ""
+      client_secret: ""
+      
+    # Sophos connector
+    sophos:
+      name: "UTMStack-Sophos-Connector"
+      enabled: false
+      # Sophos Central settings
+      client_id: ""
+      client_secret: ""
+      tenant_id: ""
+      
+    # Bitdefender connector
+    bitdefender:
+      name: "UTMStack-Bitdefender-Connector"
+      enabled: false
+      # Bitdefender settings
+      api_key: ""
+      endpoint: ""
+
+# Monitoring and observability
+monitoring:
+  # Prometheus metrics
+  prometheus:
+    enabled: true
+    port: 9090
+    scrape_interval: "15s"
+    
+  # Health checks
+  health_checks:
+    enabled: true
+    interval: 30  # seconds
+    timeout: 5   # seconds
+    
+  # Logging configuration
+  logging:
+    level: "${global.log_level}"
+    format: "json"
+    output: "console"
+    # Log rotation
+    max_file_size: "100MB"
+    max_files: 10
+    
+# Security configuration
+security:
+  # TLS/SSL settings
+  tls:
+    enabled: false
+    cert_file: "/etc/ssl/certs/utmstack.crt"
+    key_file: "/etc/ssl/private/utmstack.key"
+    
+  # Authentication settings
+  authentication:
+    type: "jwt"  # jwt, ldap, oauth2
+    session_timeout: 3600  # seconds
+    max_login_attempts: 5
+    lockout_duration: 300  # seconds
+    
+  # Authorization settings
+  authorization:
+    default_role: "USER"
+    admin_role: "ADMIN"
+    
+# Performance settings
+performance:
+  # Thread pool settings
+  thread_pools:
+    core_size: 2
+    max_size: 1000
+    queue_capacity: 10000
+    
+  # Cache settings
+  cache:
+    enabled: true
+    max_size: 1000
+    ttl: 3600  # seconds
+    
+  # Rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 1000
+    burst_capacity: 100
+
+# Development settings (only active in development environment)
+development:
+  # Hot reload settings
+  hot_reload: true
+  
+  # Debug settings
+  debug_mode: true
+  sql_logging: true
+  
+  # CORS settings
+  cors:
+    enabled: true
+    allowed_origins: ["http://localhost:4200", "http://localhost:3000"]
+    allowed_methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    allowed_headers: ["*"]
+    
+# Production settings (only active in production environment)
+production:
+  # Security enhancements
+  security:
+    strict_transport_security: true
+    content_security_policy: "default-src 'self'"
+    
+  # Performance optimizations
+  compression: true
+  caching: true
+  
+  # Error handling
+  show_error_details: false
+  
+# Backup and recovery
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  retention_days: 30
+  storage_path: "/var/backups/utmstack"
+  
+# Feature flags
+features:
+  multi_tenant: false
+  advanced_analytics: true
+  threat_intelligence: true
+  compliance_reporting: true
+  automated_response: false

@@ -1,0 +1,3 @@
+🚀 Simple API Mock listening on http://localhost:8090
+📡 CORS enabled for all origins
+GET /api/date-format

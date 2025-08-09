@@ -1,0 +1,9 @@
+🚀 Simple API Mock listening on http://localhost:8090
+📡 CORS enabled for all origins
+GET /api/date-format
+GET /api/date-format
+GET /api/images/all
+POST /api/authenticate
+GET /api/date-format
+GET /api/images/all
+POST /api/authenticate

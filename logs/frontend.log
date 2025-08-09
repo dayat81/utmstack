@@ -1,0 +1,3875 @@
+
+> utm-stack@7.1.0 start
+> ng serve --host 0.0.0.0
+
+(node:685534) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:685534) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
+WARNING: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disableHostCheck" if that's the
+case.
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+7 │ @import "assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 7:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │ @import "assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 8:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+9 │ @import "assets/styles/custom-elements";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 9:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "assets/styles/icons";
+   │         ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    stdin 10:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │ @import "assets/styles/timeline";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    stdin 11:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 7:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 7:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 7:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 7:9                           root stylesheet
+
+[34mℹ[39m [90m｢wdm｣[39m: wait until bundle finished: /
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "../../../../assets/styles/custom-elements";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 3:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "./theme";
+  │         ^^^^^^^^^
+  ╵
+    src/assets/styles/custom-elements.scss 1:9  @import
+    stdin 3:9                                   root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "./var";
+  │         ^^^^^^^
+  ╵
+    src/assets/styles/custom-elements.scss 2:9  @import
+    stdin 3:9                                   root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use list.length instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+6 │     @if length($keys) == 1 {
+  │         ^^^^^^^^^^^^^
+  ╵
+    src/assets/styles/functions/_get.scss 6:9  get()
+    src/assets/styles/_svg-icon.scss 10:28     @import
+    stdin 15:9                                 root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use list.nth instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+7 │         $keys: nth($keys, 1);
+  │                ^^^^^^^^^^^^^
+  ╵
+    src/assets/styles/functions/_get.scss 7:16  get()
+    src/assets/styles/_svg-icon.scss 10:28      @import
+    stdin 15:9                                  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use meta.type-of instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │     @if type-of($map) != 'map' or $map == null {
+   │         ^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/functions/_get.scss 10:9  get()
+    src/assets/styles/_svg-icon.scss 10:28      @import
+    stdin 15:9                                  root stylesheet
+
+WARNING: 24 repetitive deprecation warnings omitted.
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "../../assets/styles/custom-elements";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 3:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "~src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "./theme";
+  │         ^^^^^^^^^
+  ╵
+    src/assets/styles/custom-elements.scss 1:9  @import
+    stdin 3:9                                   root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "./var";
+  │         ^^^^^^^
+  ╵
+    src/assets/styles/custom-elements.scss 2:9  @import
+    stdin 3:9                                   root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "../../../../../../assets/styles/custom-elements";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 3:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "./theme";
+  │         ^^^^^^^^^
+  ╵
+    src/assets/styles/custom-elements.scss 1:9  @import
+    stdin 3:9                                   root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "./var";
+  │         ^^^^^^^
+  ╵
+    src/assets/styles/custom-elements.scss 2:9  @import
+    stdin 3:9                                   root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 3:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "../../../../../../assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "../../../../../../assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+1 │ @import "~src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 1:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "~src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 2:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │ @import "src/assets/styles/theme";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 8:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+9 │ @import "src/assets/styles/var";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    stdin 9:9  root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 2:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 2:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 2:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 2:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 8:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -20.6756756757%)
+color.adjust($color, $lightness: -3%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │ $dark-hover: darken($dark, 3%) !default; // Custom variable
+   │              ^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 66:14  @import
+    stdin 8:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 1:9                           root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 8:9                           root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -4.3683083512%)
+color.adjust($color, $lightness: -4%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+78 │ $secondary-hover: darken($gray-300, 4%) !default; // Custom variable
+   │                   ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    src/assets/styles/theme.scss 78:19  @import
+    stdin 8:9                           root stylesheet
+
+
+Date: 2025-08-09T14:47:20.849Z
+Hash: 7ea18a2bb935068e19c8
+Time: 35209ms
+chunk {0} 0.js, 0.js.map () 506 kB  [rendered]
+chunk {1} 1.js, 1.js.map () 66 kB  [rendered]
+chunk {account-account-module} account-account-module.js, account-account-module.js.map (account-account-module) 26.4 kB  [rendered]
+chunk {active-directory-active-directory-module} active-directory-active-directory-module.js, active-directory-active-directory-module.js.map (active-directory-active-directory-module) 483 kB  [rendered]
+chunk {admin-admin-module} admin-admin-module.js, admin-admin-module.js.map (admin-admin-module) 58.8 kB  [rendered]
+chunk {alert-management-alert-management-module} alert-management-alert-management-module.js, alert-management-alert-management-module.js.map (alert-management-alert-management-module) 151 kB  [rendered]
+chunk {app-management-app-management-module} app-management-app-management-module.js, app-management-app-management-module.js.map (app-management-app-management-module) 321 kB  [rendered]
+chunk {app-module-app-module-module} app-module-app-module-module.js, app-module-app-module-module.js.map (app-module-app-module-module) 601 kB  [rendered]
+chunk {assets-discover-assets-discover-module} assets-discover-assets-discover-module.js, assets-discover-assets-discover-module.js.map (assets-discover-assets-discover-module) 367 kB  [rendered]
+chunk {automation-variables-automation-variables-module} automation-variables-automation-variables-module.js, automation-variables-automation-variables-module.js.map (automation-variables-automation-variables-module) 18.8 kB  [rendered]
+chunk {chart-builder-chart-builder-module} chart-builder-chart-builder-module.js, chart-builder-chart-builder-module.js.map (chart-builder-chart-builder-module) 442 kB  [rendered]
+chunk {common} common.js, common.js.map (common) 8.17 kB  [rendered]
+chunk {compliance-compliance-module} compliance-compliance-module.js, compliance-compliance-module.js.map (compliance-compliance-module) 144 kB  [rendered]
+chunk {data-management-data-management-module} data-management-data-management-module.js, data-management-data-management-module.js.map (data-management-data-management-module) 8.99 kB  [rendered]
+chunk {default~alert-management-alert-management-module~assets-discover-assets-discover-module~incident-inc~72651a3e} default~alert-management-alert-management-module~assets-discover-assets-discover-module~incident-inc~72651a3e.js, default~alert-management-alert-management-module~assets-discover-assets-discover-module~incident-inc~72651a3e.js.map (default~alert-management-alert-management-module~assets-discover-assets-discover-module~incident-inc~72651a3e) 51.9 kB  [rendered]
+chunk {default~app-management-app-management-module~compliance-compliance-module} default~app-management-app-management-module~compliance-compliance-module.js, default~app-management-app-management-module~compliance-compliance-module.js.map (default~app-management-app-management-module~compliance-compliance-module) 122 kB  [rendered]
+chunk {default~app-management-app-management-module~compliance-compliance-module~log-analyzer-log-analyzer-~bec16ce1} default~app-management-app-management-module~compliance-compliance-module~log-analyzer-log-analyzer-~bec16ce1.js, default~app-management-app-management-module~compliance-compliance-module~log-analyzer-log-analyzer-~bec16ce1.js.map (default~app-management-app-management-module~compliance-compliance-module~log-analyzer-log-analyzer-~bec16ce1) 300 kB  [rendered]
+chunk {default~chart-builder-chart-builder-module~compliance-compliance-module~dashboard-builder-dashboard-~c93e6b38} default~chart-builder-chart-builder-module~compliance-compliance-module~dashboard-builder-dashboard-~c93e6b38.js, default~chart-builder-chart-builder-module~compliance-compliance-module~dashboard-builder-dashboard-~c93e6b38.js.map (default~chart-builder-chart-builder-module~compliance-compliance-module~dashboard-builder-dashboard-~c93e6b38) 153 kB  [rendered]
+chunk {default~compliance-compliance-module~dashboard-builder-dashboard-builder-module} default~compliance-compliance-module~dashboard-builder-dashboard-builder-module.js, default~compliance-compliance-module~dashboard-builder-dashboard-builder-module.js.map (default~compliance-compliance-module~dashboard-builder-dashboard-builder-module) 268 kB  [rendered]
+chunk {default~compliance-compliance-module~log-analyzer-log-analyzer-module} default~compliance-compliance-module~log-analyzer-log-analyzer-module.js, default~compliance-compliance-module~log-analyzer-log-analyzer-module.js.map (default~compliance-compliance-module~log-analyzer-log-analyzer-module) 200 kB  [rendered]
+chunk {es2015-polyfills} es2015-polyfills.js, es2015-polyfills.js.map (es2015-polyfills) 285 kB [initial] [rendered]
+chunk {file-management-file-management-module} file-management-file-management-module.js, file-management-file-management-module.js.map (file-management-file-management-module) 190 kB  [rendered]
+chunk {filebrowser-filebrowser-module} filebrowser-filebrowser-module.js, filebrowser-filebrowser-module.js.map (filebrowser-filebrowser-module) 25.1 kB  [rendered]
+chunk {graphic-builder-graphic-builder-module} graphic-builder-graphic-builder-module.js, graphic-builder-graphic-builder-module.js.map (graphic-builder-graphic-builder-module) 162 kB  [rendered]
+chunk {incident-incident-module} incident-incident-module.js, incident-incident-module.js.map (incident-incident-module) 38.2 kB  [rendered]
+chunk {incident-response-incident-response-module} incident-response-incident-response-module.js, incident-response-incident-response-module.js.map (incident-response-incident-response-module) 67.8 kB  [rendered]
+chunk {logstash-logstash-module} logstash-logstash-module.js, logstash-logstash-module.js.map (logstash-logstash-module) 77.4 kB  [rendered]
+chunk {main} main.js, main.js.map (main) 3.36 MB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 236 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 11.2 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 4.03 MB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 2.01 MB [initial] [rendered]
+chunk {threatwind-threatwind-module} threatwind-threatwind-module.js, threatwind-threatwind-module.js.map (threatwind-threatwind-module) 8.72 kB  [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 16.9 MB [initial] [rendered]
+chunk {visualization-visualization-module} visualization-visualization-module.js, visualization-visualization-module.js.map (visualization-visualization-module) 7.65 kB  [rendered]
+[34mℹ[39m [90m｢wdm｣[39m: Compiled successfully.
