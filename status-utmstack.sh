@@ -21,9 +21,15 @@ LOG_DIR="$BASE_DIR/logs"
 echo -e "${BLUE}UTMStack SIEM Platform - Service Status${NC}"
 echo -e "${BLUE}=======================================${NC}"
 
-# Function to check if port is in use
+# Function to check if port is in use  
 port_in_use() {
-    ss -tuln | grep ":$1 " > /dev/null 2>&1
+    # Use lsof for more reliable port detection (supports IPv4/IPv6 and all states)
+    if command -v lsof >/dev/null 2>&1; then
+        lsof -iTCP:$1 -sTCP:LISTEN >/dev/null 2>&1
+    else
+        # Fallback to ss if lsof not available
+        ss -tuln | grep ":$1 " > /dev/null 2>&1
+    fi
 }
 
 # Function to check service status by PID
