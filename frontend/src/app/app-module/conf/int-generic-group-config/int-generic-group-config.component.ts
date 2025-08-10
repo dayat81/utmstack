@@ -71,14 +71,21 @@ export class IntGenericGroupConfigComponent implements OnInit {
     this.loading = true;
     return this.utmModuleGroupService.query({ moduleId: this.moduleId }).pipe(
         tap(response => {
-          this.groups = response.body.map(group => {
-            group.moduleGroupConfigurations.forEach(config => {
-              if (config.confOptions) {
-                config.confOptions = JSON.parse(config.confOptions);
+          if (response.body && Array.isArray(response.body)) {
+            this.groups = response.body.map(group => {
+              if (group.moduleGroupConfigurations && Array.isArray(group.moduleGroupConfigurations)) {
+                group.moduleGroupConfigurations.forEach(config => {
+                  if (config.confOptions) {
+                    config.confOptions = JSON.parse(config.confOptions);
+                  }
+                });
               }
+              return group;
             });
-            return group;
-          });
+          } else {
+            console.warn('Module groups API returned invalid data structure:', response.body);
+            this.groups = [];
+          }
           this.configValidChange.emit(this.tenantGroupConfigValid());
         }),
         switchMap(response => {

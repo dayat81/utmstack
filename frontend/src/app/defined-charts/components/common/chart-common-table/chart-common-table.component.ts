@@ -63,8 +63,8 @@ export class ChartCommonTableComponent implements OnInit, OnDestroy {
         this.loadingOption = false;
         this.pageStart = 0;
         this.pageEnd = this.itemsPerPage;
-        this.responseRows = this.data.rows;
-        this.totalItems = this.data.rows.length;
+        this.responseRows = this.data && this.data.rows ? this.data.rows : [];
+        this.totalItems = this.data && this.data.rows ? this.data.rows.length : 0;
         this.loaded.emit();
       });
   }

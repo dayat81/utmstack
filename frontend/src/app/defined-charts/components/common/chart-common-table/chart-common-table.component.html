@@ -22,10 +22,10 @@
     </div>
     <div *ngIf="!loadingOption" class="table-responsive w-100 chart-fixed-height">
       <table class="table text-nowrap">
-        <thead *ngIf="data && data.columns.length>0">
+        <thead *ngIf="data && data.columns && data.columns.length>0">
         <tr>
           <th (sort)="onSort($event)"
-              *ngFor="let column of data.columns"
+              *ngFor="let column of (data.columns || [])"
               [sortable]="column"
               appColumnSortable class="font-weight-semibold text-uppercase cursor-pointer" scope="col">
             {{column}}
@@ -33,8 +33,8 @@
         </tr>
         </thead>
         <tbody *ngIf="data && data.rows && data.rows.length>0 && !loadingOption">
-        <tr *ngFor="let row of data.rows |slice:pageStart:pageEnd; let index = index">
-          <td (click)="rowEvent(row)" *ngFor="let td of row;let index=index"
+        <tr *ngFor="let row of (data.rows || []) |slice:pageStart:pageEnd; let index = index">
+          <td (click)="rowEvent(row)" *ngFor="let td of (row || []);let index=index"
               class="cursor-pointer'">
             <span *ngIf="td" [ngClass]="{'text-blue-800 cursor-pointer':index===0}">
               {{td}}
@@ -44,13 +44,13 @@
         </tbody>
         <tbody *ngIf="data && data.rows && data.rows.length===0 && !loadingOption">
         <tr>
-          <td [attr.colspan]="data.columns.length" style="padding-top: 75px !important;">
+          <td [attr.colspan]="data.columns && data.columns.length ? data.columns.length : 1" style="padding-top: 75px !important;">
             <app-no-data-found></app-no-data-found>
           </td>
         </tr>
         </tbody>
       </table>
-      <div *ngIf="data && data.columns.length>0" class="row justify-content-center mb-3">
+      <div *ngIf="data && data.columns && data.columns.length>0" class="row justify-content-center mb-3">
         <ngb-pagination
           (pageChange)="loadPage($event)"
           [(page)]="page"

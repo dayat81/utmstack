@@ -61,7 +61,12 @@ export class UtmCpReportsComponent implements OnInit {
     };
     this.complianceReports = [];
     this.cpReportsService.query(query).subscribe(response => {
-      this.complianceReports = response.body;
+      if (response.body && Array.isArray(response.body)) {
+        this.complianceReports = response.body;
+      } else {
+        console.warn('Compliance reports API returned invalid data structure:', response.body);
+        this.complianceReports = [];
+      }
       this.loadingTemplates = false;
     });
   }

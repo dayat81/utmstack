@@ -89,8 +89,8 @@ export class DashboardRenderComponent implements OnInit, OnDestroy, AfterViewIni
         this.utmRenderVisualization.query(request).subscribe(response => {
           this.layoutService.layout = [];
           this.timeEnable = [];
-          this.visualizationRender = response.body;
-          this.dashboard = this.visualizationRender.length > 0 ? this.visualizationRender[0].dashboard : null;
+          this.visualizationRender = response.body || [];
+          this.dashboard = this.visualizationRender && this.visualizationRender.length > 0 ? this.visualizationRender[0].dashboard : null;
           this.filters = this.dashboard.filters ? JSON.parse(this.dashboard.filters) : [];
           if (this.dashboard.refreshTime) {
             this.onRefreshTime(this.dashboard.refreshTime);

@@ -35,8 +35,8 @@
       <span class="svg-icon svg-icon-md svg-icon-white status-icon text-white"
             [inlineSVG]="resolveIcon('diskSpace')"></span>
       <span class="span-small-icon">
-        <i [ngClass]="health.components.diskSpace.status  === 'UP'?
-          'icon-circle2 text-success-800':'icon-circle2 text-danger-800'"></i>
+      <i [ngClass]="health?.components?.diskSpace?.status  === 'UP'?
+      'icon-circle2 text-success-800':'icon-circle2 text-danger-800'"></i>
       </span>
     </div>
     <ng-template #popDiskContent>
@@ -46,21 +46,21 @@
          <span class="svg-icon svg-icon-primary svg-icon-sm mr-1"
                inlineSVG="assets/icons/header/hardisk.svg"></span>
             <span>Disk usage ({{convertToGb(calcDiskUsed())
-            + ' used of ' + convertToGb(health.components.diskSpace.details.total)}})</span>
+            + ' used of ' + convertToGb(health?.components?.diskSpace?.details?.total || 0)}})</span>
           </div>
           <app-utm-progressbar [value]="calcPercentDiskSpace()"></app-utm-progressbar>
         </div>
       </div>
     </ng-template>
     <div [ngbTooltip]="'Application Database is '+
-          (health.components.db.status === 'UP' ? 'OK' : health.components.db.status) "
+    (health?.components?.db?.status === 'UP' ? 'OK' : health?.components?.db?.status || 'Unknown') "
          class="status-health ml-4"
          container="body">
       <span class="svg-icon svg-icon-md svg-icon-white status-icon text-white"
             [inlineSVG]="resolveIcon('db')"></span>
       <span class="span-small-icon">
-        <i [ngClass]="health.components.diskSpace.status  === 'UP'?
-          'icon-circle2 text-success-800':'icon-circle2 text-danger-800'"></i>
+      <i [ngClass]="health?.components?.db?.status  === 'UP'?
+      'icon-circle2 text-success-800':'icon-circle2 text-danger-800'"></i>
       </span>
     </div>
 
@@ -93,8 +93,8 @@
       <span [inlineSVG]="'/assets/icons/header/data-processing.svg'"
             class="svg-icon svg-icon-md svg-icon-white status-icon text-white"></span>
       <span class="span-small-icon">
-        <i class="icon-circle2" [ngClass]="logstashPipelines.general.status==='green'?'text-success-800':
-              (logstashPipelines.general.status==='red'?'text-danger-800':'text-warning-800')"></i>
+      <i class="icon-circle2" [ngClass]="logstashPipelines?.general?.status==='green'?'text-success-800':
+      (logstashPipelines?.general?.status==='red'?'text-danger-800':'text-warning-800')"></i>
       </span>
     </div>
     <ng-template #dataProcessor>

@@ -45,7 +45,7 @@ export class UtmDashboardGridComponent implements OnInit, OnChanges {
     return new Promise<number>(resolve => {
       let sum = 0;
       let prevY = -1;
-      let render: UtmDashboardVisualizationType[] = this.visualization.slice();
+      let render: UtmDashboardVisualizationType[] = this.visualization ? this.visualization.slice() : [];
       render = render.sort((a, b) => {
         const gridA: GridInfo = JSON.parse(a.gridInfo);
         const gridB: GridInfo = JSON.parse(b.gridInfo);

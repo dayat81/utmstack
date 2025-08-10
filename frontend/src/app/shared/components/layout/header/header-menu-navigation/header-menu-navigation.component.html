@@ -25,15 +25,15 @@
                aria-labelledby="{{i+ '-' + menu.id}}"
                id="{{i+'-'+menu.id + '-dropdown'}}"
                style="width: 235px;">
-            <div *ngIf="menu.actions" class="w-100">
+            <div *ngIf="menu.actions && menu.actions.length > 0" class="w-100">
               <a (click)="showDashboard(action);menuDropdown.close()"
-                 *ngFor="let action of menu.actions"
+                 *ngFor="let action of (menu.actions || [])"
                  class="dropdown-item text-capitalize">
                 {{action.name}}
               </a>
-              <div *ngIf="menu.childrens" class="dropdown-divider mt-1 mb-1"></div>
+              <div *ngIf="menu.childrens && menu.childrens.length > 0" class="dropdown-divider mt-1 mb-1"></div>
             </div>
-            <ng-container *ngFor="let submenu of menu.childrens">
+            <ng-container *ngFor="let submenu of (menu.childrens || [])">
               <a (click)="showDashboard(submenu);menuDropdown.close()"
                  *appHasAnyAuthority="submenu.authorities"
                  [hidden]="!submenu.menuActive"

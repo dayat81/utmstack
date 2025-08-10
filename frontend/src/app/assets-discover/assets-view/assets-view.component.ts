@@ -124,7 +124,12 @@ export class AssetsViewComponent implements OnInit, OnDestroy {
   getAssets() {
     this.utmNetScanService.query(this.requestParam).subscribe(response => {
       this.totalItems = Number(response.headers.get('X-Total-Count'));
-      this.assets = response.body;
+      if (response.body && Array.isArray(response.body)) {
+        this.assets = response.body;
+      } else {
+        console.warn('Assets API returned invalid data structure:', response.body);
+        this.assets = [];
+      }
       this.loading = false;
     });
   }

@@ -33,7 +33,12 @@ export class UtmCpStandardSelectComponent implements OnInit {
         'standardId.equals': this.standardId
       })
       .subscribe((response) => {
-        this.standards = response.body;
+        if (response.body && Array.isArray(response.body)) {
+          this.standards = response.body;
+        } else {
+          console.warn('Compliance standards API returned invalid data structure:', response.body);
+          this.standards = [];
+        }
       });
   }
 

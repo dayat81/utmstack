@@ -116,13 +116,23 @@ export class AssetGroupsComponent implements OnInit, OnDestroy {
     if (this.type === GroupTypeEnum.ASSET) {
       this.utmAssetGroupService.query(this.requestParam).subscribe(response => {
         this.totalItems = Number(response.headers.get('X-Total-Count'));
-        this.assetGroups = response.body;
+        if (response.body && Array.isArray(response.body)) {
+          this.assetGroups = response.body;
+        } else {
+          console.warn('Asset groups API returned invalid data structure:', response.body);
+          this.assetGroups = [];
+        }
         this.loading = false;
       });
     } else  {
       this.utmModuleCollectorService.queryGroups(this.requestParam).subscribe(response => {
         this.totalItems = Number(response.headers.get('X-Total-Count'));
-        this.assetGroups = response.body;
+        if (response.body && Array.isArray(response.body)) {
+          this.assetGroups = response.body;
+        } else {
+          console.warn('Collector groups API returned invalid data structure:', response.body);
+          this.assetGroups = [];
+        }
         this.loading = false;
       });
     }

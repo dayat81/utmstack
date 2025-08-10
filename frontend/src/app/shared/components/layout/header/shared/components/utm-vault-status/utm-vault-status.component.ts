@@ -113,11 +113,13 @@ export class UtmVaultStatusComponent implements OnInit, OnDestroy {
 
   resolveAppStatus(): boolean {
     let status = true;
-    this.healthData.forEach(value => {
-      if (value.status !== 'UP') {
-        status = false;
-      }
-    });
+    if (this.healthData && this.healthData.length > 0) {
+      this.healthData.forEach(value => {
+        if (value.status !== 'UP') {
+          status = false;
+        }
+      });
+    }
     return status;
   }
 
@@ -133,9 +135,11 @@ export class UtmVaultStatusComponent implements OnInit, OnDestroy {
   }
 
   getAppHealth() {
-    for (const key of Object.keys(this.health.components)) {
-      if (this.health.components[key].status !== 'UP') {
-        this.notify(this.health.components[key].status, key);
+    if (this.health && this.health.components) {
+      for (const key of Object.keys(this.health.components)) {
+        if (this.health.components[key].status !== 'UP') {
+          this.notify(this.health.components[key].status, key);
+        }
       }
     }
   }
@@ -173,7 +177,10 @@ export class UtmVaultStatusComponent implements OnInit, OnDestroy {
   }
 
   getElasticConnectionStatus(): 'UP' | 'DOWN' {
-    return this.health.components.elasticsearch.status;
+    if (this.health && this.health.components && this.health.components.elasticsearch) {
+      return this.health.components.elasticsearch.status;
+    }
+    return 'DOWN';
   }
 
   convertToGb(bytes: number): string {
@@ -188,11 +195,17 @@ export class UtmVaultStatusComponent implements OnInit, OnDestroy {
 
 
   calcPercentDiskSpace() {
-    const used = this.calcDiskUsed();
-    return used / this.health.components.diskSpace.details.total * 100;
+    if (this.health && this.health.components && this.health.components.diskSpace && this.health.components.diskSpace.details) {
+      const used = this.calcDiskUsed();
+      return used / this.health.components.diskSpace.details.total * 100;
+    }
+    return 0;
   }
 
   calcDiskUsed(): number {
-    return this.health.components.diskSpace.details.total - this.health.components.diskSpace.details.free;
+    if (this.health && this.health.components && this.health.components.diskSpace && this.health.components.diskSpace.details) {
+      return this.health.components.diskSpace.details.total - this.health.components.diskSpace.details.free;
+    }
+    return 0;
   }
 }

@@ -123,7 +123,12 @@ export class CollectorsViewComponent implements OnInit, OnDestroy {
         )
         .subscribe(response => {
           this.totalItems = Number(response.headers.get('X-Total-Count'));
-          this.collectors = response.body;
+          if (response.body && Array.isArray(response.body)) {
+            this.collectors = response.body;
+          } else {
+            console.warn('Collectors API returned invalid data structure:', response.body);
+            this.collectors = [];
+          }
         });
   }
 

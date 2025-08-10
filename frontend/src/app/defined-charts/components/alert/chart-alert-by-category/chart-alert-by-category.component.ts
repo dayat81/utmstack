@@ -58,7 +58,7 @@ export class ChartAlertByCategoryComponent implements OnInit, OnDestroy {
     this.overviewAlertDashboardService.getAlertByCategory(this.queryParams)
       .subscribe((category) => {
         this.loadingBarOption = false;
-        if (category.body.categories.length > 0) {
+        if (category.body && category.body.categories && category.body.categories.length > 0) {
           this.noData = false;
           this.buildCategoryChart(category.body);
         } else {
@@ -69,7 +69,7 @@ export class ChartAlertByCategoryComponent implements OnInit, OnDestroy {
   }
 
   buildCategoryChart(data: { categories: string[], series: number[] }) {
-    if (data.categories.length > 0) {
+    if (data && data.categories && data.categories.length > 0) {
       this.barOption = {
         color: UTM_COLOR_THEME,
         animation: true,

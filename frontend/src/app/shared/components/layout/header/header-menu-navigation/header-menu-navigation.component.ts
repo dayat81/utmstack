@@ -63,8 +63,20 @@ export class HeaderMenuNavigationComponent implements OnInit, OnDestroy {
 
   loadMenus() {
     this.menuService.getMenuStructure(true).subscribe(reponse => {
-      this.menus = reponse.body;
-      this.defaultStructureMenu = reponse.body;
+      // Handle case where API returns invalid data (mock or error response)
+      if (reponse.body && Array.isArray(reponse.body)) {
+        this.menus = reponse.body;
+        this.defaultStructureMenu = reponse.body;
+      } else {
+        console.warn('Menu API returned invalid data structure:', reponse.body);
+        // Set to empty array to prevent ngFor errors
+        this.menus = [];
+        this.defaultStructureMenu = [];
+      }
+    }, error => {
+      console.error('Failed to load menus:', error);
+      this.menus = [];
+      this.defaultStructureMenu = [];
     });
   }
 
@@ -95,11 +107,22 @@ export class HeaderMenuNavigationComponent implements OnInit, OnDestroy {
   }
 
   onSearchMenu($event: string, menu: Menu) {
+    if (!Array.isArray(this.menus) || this.menus.length === 0) {
+      return;
+    }
+    
     const indexOfMenu = this.menus.findIndex(value => value.id === menu.id);
+    if (indexOfMenu === -1) {
+      return;
+    }
+    
     if ($event || $event !== '') {
       this.searching = true;
-      menu.childrens = this.menus[indexOfMenu].childrens
-        .filter(value => value.name.toLowerCase().includes($event.toLowerCase()));
+      const menuChildren = this.menus[indexOfMenu].childrens;
+      if (Array.isArray(menuChildren)) {
+        menu.childrens = menuChildren
+          .filter(value => value.name.toLowerCase().includes($event.toLowerCase()));
+      }
     } else {
       this.searching = false;
       this.menus = this.defaultStructureMenu;
@@ -112,8 +135,8 @@ export class HeaderMenuNavigationComponent implements OnInit, OnDestroy {
   }
 
   isActiveChildren(childrens: Menu[], actions: Menu[], activeParent: number) {
-    actions = actions ? actions : [];
-    childrens = childrens ? childrens : [];
+    actions = Array.isArray(actions) ? actions : [];
+    childrens = Array.isArray(childrens) ? childrens : [];
     const isChild = childrens.findIndex(value => value.parentId === activeParent) > -1
       || actions.findIndex(value => value.parentId === activeParent) > -1;
     if (isChild) {

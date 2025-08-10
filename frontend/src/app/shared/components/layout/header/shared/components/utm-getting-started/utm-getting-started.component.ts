@@ -78,8 +78,13 @@ export class UtmGettingStartedComponent implements OnInit, OnDestroy {
 
   getSteps() {
     this.utmGettingStartedService.getSteps({page: 0, size: 15}).subscribe(response => {
-      this.steps = response.body.sort((a, b) => a.stepOrder - b.stepOrder).slice();
-      this.stepsPoint = response.body.sort((a, b) => a.stepOrder - b.stepOrder).map(value => value.completed);
+      if (response.body && Array.isArray(response.body)) {
+        this.steps = response.body.sort((a, b) => a.stepOrder - b.stepOrder).slice();
+        this.stepsPoint = response.body.sort((a, b) => a.stepOrder - b.stepOrder).map(value => value.completed);
+      } else {
+        this.steps = [];
+        this.stepsPoint = [];
+      }
     });
   }
 

@@ -76,7 +76,7 @@ export class ChartEventInTimeComponent implements OnInit, OnDestroy {
     this.overviewAlertDashboardService.getEventInTime(this.queryParams)
       .subscribe(event => {
         this.loadingPieOption = false;
-        if (event.body.categories.length > 0) {
+        if (event.body && event.body.categories && event.body.categories.length > 0) {
           this.noData = false;
           buildMultilineObject(event.body).then(option => {
             this.multilineOption = option;
