@@ -102,8 +102,8 @@ docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 |---------|---------------|---------|-------|
 | **PostgreSQL** | 🟢 Password | Configured | pos_user/pos_password |
 | **Elasticsearch** | 🔴 None | Open | No authentication configured |
-| **Frontend** | 🟡 Web Login | Partial | Requires backend API |
-| **Backend API** | 🟡 JWT | Partial | Limited endpoints |
+| **Frontend** | 🟢 Web Login | Ready | admin/admin configured |
+| **Backend API** | 🔴 Not Running | Offline | Java backend not started |
 | **Containers** | 🟢 Docker | Isolated | Standard container security |
 
 ### **Network Security**
@@ -128,9 +128,9 @@ docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 - **Privileges:** Full access to pos_db database
 
 ### **Application Users**
-- **Admin Account:** Not configured
-- **Default Users:** Requires application setup
-- **User Management:** Through backend API
+- **Admin Account:** admin / admin (configured for testing)
+- **Federation Client:** fsclient (system account)
+- **User Management:** Through backend API (when running)
 
 ---
 

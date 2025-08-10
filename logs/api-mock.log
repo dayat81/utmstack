@@ -16,3 +16,8 @@ GET /api/images/all
 POST /api/authenticate
 GET /api/tfa/verifyCode
 POST /api/authenticate
+GET /api/date-format
+GET /api/images/all
+POST /api/authenticate
+GET /api/tfa/verifyCode
+POST /api/authenticate
