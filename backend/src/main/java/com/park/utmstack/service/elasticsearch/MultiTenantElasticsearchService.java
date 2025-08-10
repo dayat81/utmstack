@@ -492,4 +492,60 @@ public class MultiTenantElasticsearchService {
             throw new OpenSearchException(ctx + ": " + e.getMessage(), e);
         }
     }
+
+    /**
+     * Create tenant index templates for all standard index types
+     */
+    public void createTenantIndexTemplates(UUID tenantId) throws OpenSearchException {
+        String tenantIdStr = tenantId.toString();
+        createTenantIndexTemplate(tenantIdStr, LOG_INDEX_PATTERN);
+        createTenantIndexTemplate(tenantIdStr, ALERT_INDEX_PATTERN);
+        createTenantIndexTemplate(tenantIdStr, METRIC_INDEX_PATTERN);
+        createTenantIndexTemplate(tenantIdStr, AUDIT_INDEX_PATTERN);
+        log.info("Created all index templates for tenant: {}", tenantId);
+    }
+
+    /**
+     * Create a specific tenant index
+     */
+    public void createTenantIndex(UUID tenantId, String indexType) throws OpenSearchException {
+        String tenantIdStr = tenantId.toString();
+        String indexName = getTenantIndexName(indexType, tenantIdStr);
+        createTenantIndex(indexName, indexType, tenantIdStr);
+        log.info("Created tenant index: tenant={}, type={}, index={}", tenantId, indexType, indexName);
+    }
+
+    /**
+     * Check if tenant index is healthy
+     */
+    public boolean isIndexHealthy(UUID tenantId) {
+        try {
+            String tenantIdStr = tenantId.toString();
+            List<IndicesRecord> indices = getTenantIndices(tenantIdStr);
+            
+            if (indices.isEmpty()) {
+                return false;
+            }
+            
+            // Check if at least one index is healthy (green or yellow status)
+            for (IndicesRecord index : indices) {
+                String health = index.health();
+                if ("green".equals(health) || "yellow".equals(health)) {
+                    return true;
+                }
+            }
+            
+            return false;
+        } catch (Exception e) {
+            log.error("Error checking index health for tenant: {}", tenantId, e);
+            return false;
+        }
+    }
+
+    /**
+     * Cleanup all tenant indices (for deprovisioning)
+     */
+    public void cleanupTenantIndices(UUID tenantId) throws OpenSearchException {
+        deleteTenantData(tenantId.toString());
+    }
 }
