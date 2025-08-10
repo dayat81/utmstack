@@ -7,3 +7,4 @@ postgresql:
   password: "pos_password"
   database: pos_db
 errorLevel: DEBUG
+port: 8081
