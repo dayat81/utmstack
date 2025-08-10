@@ -43,6 +43,64 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+// Mock TOTP verification endpoint
+app.get('/api/tfa/verifyCode', (req, res) => {
+    const code = req.query.code;
+    console.log(`GET /api/tfa/verifyCode?code=${code}`);
+    
+    // For testing: accept 123456 as valid, reject others
+    if (code === '123456') {
+        res.json({
+            id_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwiaWF0IjoxNTE2MjM5MDIyfQ.mock-jwt-token-for-testing',
+            authenticated: true
+        });
+    } else {
+        res.status(400).json({
+            error: 'Invalid verification code',
+            message: 'The verification code is invalid or has expired'
+        });
+    }
+});
+
+// Mock login endpoint
+app.post('/api/authenticate', (req, res) => {
+    const { username, password } = req.body;
+    console.log(`POST /api/authenticate - username: ${username}`);
+    
+    // For testing: require TOTP for admin user
+    if (username === 'admin' && password === 'admin') {
+        res.json({
+            authenticated: false,
+            requiresTwoFactor: true,
+            message: 'Two-factor authentication required'
+        });
+    } else {
+        res.status(401).json({
+            error: 'Authentication failed',
+            message: 'Invalid username or password'
+        });
+    }
+});
+
+// Mock user account endpoint
+app.get('/api/account', (req, res) => {
+    console.log('GET /api/account');
+    
+    // Return proper user account data with authorities
+    res.json({
+        activated: true,
+        authorities: ['ROLE_ADMIN', 'ROLE_USER'],
+        email: 'admin@localhost',
+        firstName: 'Admin',
+        lastName: 'User',
+        login: 'admin',
+        langKey: 'en',
+        imageUrl: null,
+        openvasUserID: 1,
+        openvasUserUUID: 'admin-uuid-123'
+    });
+});
+
 // Default handler for unknown routes
 app.use((req, res) => {
     console.log(`${req.method} ${req.path}`);
