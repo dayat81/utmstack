@@ -1,0 +1,470 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.version: 5.15
+[INFO] os.detected.version.major: 5
+[INFO] os.detected.version.minor: 15
+[INFO] os.detected.release: ubuntu
+[INFO] os.detected.release.version: 24.04
+[INFO] os.detected.release.like.ubuntu: true
+[INFO] os.detected.release.like.debian: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] 
+[INFO] ----------------------< com.atlasinside:utmstack >----------------------
+[INFO] Building UTMStack-API ${revision}
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:2.5.5:run (default-cli) > test-compile @ utmstack >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:copy-resources (default-resources) @ utmstack ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] Copying 99 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ utmstack ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] Copying 99 resources
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0:enforce (enforce-versions) @ utmstack ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0:enforce (enforce-dependencyConvergence) @ utmstack ---
+[INFO] 
+[INFO] --- protobuf-maven-plugin:0.6.1:compile (default) @ utmstack ---
+[INFO] Compiling 2 proto file(s) to /home/ptsec/utmstack/backend/src/main/java
+[INFO] 
+[INFO] --- protobuf-maven-plugin:0.6.1:compile-custom (default) @ utmstack ---
+[INFO] Compiling 2 proto file(s) to /home/ptsec/utmstack/backend/src/main/java
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.12.0:compile (default-compile) @ utmstack ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 852 source files with javac [debug target 11] to target/classes
+[INFO] Hibernate JPA 2 Static-Metamodel Generator 5.4.32.Final
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[4,41] package com.utmstack.opensearch_connector does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[5,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[19,13] cannot find symbol
+  symbol:   class OpenSearch
+  location: class com.park.utmstack.service.elasticsearch.OpensearchClientBuilder
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[40,12] cannot find symbol
+  symbol:   class OpenSearch
+  location: class com.park.utmstack.service.elasticsearch.OpensearchClientBuilder
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/MailService.java:[13,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/MailService.java:[230,53] cannot find symbol
+  symbol:   class ElasticCluster
+  location: class com.park.utmstack.service.MailService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/overview/OverviewService.java:[13,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/overview/OverviewService.java:[14,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/overview/OverviewService.java:[15,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[16,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[17,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[18,52] package com.utmstack.opensearch_connector.exceptions does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[19,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[20,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[194,13] cannot find symbol
+  symbol:   class IndexSort
+  location: class com.park.utmstack.service.elasticsearch.ElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[208,21] cannot find symbol
+  symbol:   class ElasticCluster
+  location: class com.park.utmstack.service.elasticsearch.ElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/log_analyzer/LogAnalyzerService.java:[11,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/log_analyzer/LogAnalyzerService.java:[12,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[3,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[5,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[6,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[7,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[8,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[9,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[10,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[11,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[12,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[13,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[14,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[15,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[16,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[37,36] package com.utmstack.grpc.connection does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[38,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[39,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[40,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[41,33] package com.utmstack.grpc.service does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[42,33] package com.utmstack.grpc.service does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[70,19] cannot find symbol
+  symbol:   class GrpcConnection
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[71,19] cannot find symbol
+  symbol:   class PanelCollectorService
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[72,19] cannot find symbol
+  symbol:   class CollectorService
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[3,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[90,32] cannot find symbol
+  symbol:   class GrpcConnection
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[90,422] cannot find symbol
+  symbol:   class GrpcConnectionException
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,50] cannot find symbol
+  symbol:   class CollectorConfig
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,12] cannot find symbol
+  symbol:   class ConfigKnowledge
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,81] cannot find symbol
+  symbol:   class CollectorConfigurationGrpcException
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[134,52] cannot find symbol
+  symbol:   class ListRequest
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[134,80] cannot find symbol
+  symbol:   class CollectorServiceGrpcException
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,54] cannot find symbol
+  symbol:   class ListRequest
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,12] cannot find symbol
+  symbol:   class CollectorHostnames
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,82] cannot find symbol
+  symbol:   class CollectorServiceGrpcException
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[181,71] cannot find symbol
+  symbol:   class FilterByHostAndModule
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[181,109] cannot find symbol
+  symbol:   class CollectorServiceGrpcException
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,47] cannot find symbol
+  symbol:   class ConfigRequest
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,70] cannot find symbol
+  symbol:   class AuthResponse
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,12] cannot find symbol
+  symbol:   class CollectorConfig
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,96] cannot find symbol
+  symbol:   class CollectorServiceGrpcException
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[220,70] cannot find symbol
+  symbol:   class ListCollectorResponse
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/dto/collectors/dto/CollectorDTO.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[244,12] cannot find symbol
+  symbol:   class CollectorConfig
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[279,46] cannot find symbol
+  symbol:   class Collector
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[286,13] cannot find symbol
+  symbol:   class CollectorGroupConfigurations
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[34,58] package CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[3,36] package com.utmstack.grpc.connection does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[4,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[5,58] package com.utmstack.grpc.jclient.config.interceptors.impl does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[12,13] cannot find symbol
+  symbol:   class GrpcConnection
+  location: class com.park.utmstack.config.CollectorConfiguration
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[21,12] cannot find symbol
+  symbol:   class GrpcConnection
+  location: class com.park.utmstack.config.CollectorConfiguration
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[21,56] cannot find symbol
+  symbol:   class GrpcConnectionException
+  location: class com.park.utmstack.config.CollectorConfiguration
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[5,41] package com.utmstack.opensearch_connector does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[6,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[7,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[8,52] package com.utmstack.opensearch_connector.exceptions does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[9,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[95,87] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[102,105] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[127,101] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[158,44] cannot find symbol
+  symbol:   class TermOrder
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[158,89] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[184,73] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[207,85] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[255,102] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[272,96] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[469,58] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[499,66] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[511,75] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[548,60] cannot find symbol
+  symbol:   class OpenSearchException
+  location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/coordinate_map/ResponseParserForCoordinateMapChart.java:[12,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/coordinate_map/ResponseParserForCoordinateMapChart.java:[13,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/elasticsearch/ElasticsearchResource.java:[16,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/elasticsearch/ElasticsearchResource.java:[219,27] cannot find symbol
+  symbol:   class ElasticCluster
+  location: class com.park.utmstack.web.rest.elasticsearch.ElasticsearchResource
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[257,74] cannot find symbol
+  symbol:   class TenantProvisionedEvent
+  location: class com.park.utmstack.service.TenantProvisioningService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[272,74] cannot find symbol
+  symbol:   class TenantProvisioningFailedEvent
+  location: class com.park.utmstack.service.TenantProvisioningService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[287,64] cannot find symbol
+  symbol:   class QuotaViolationEvent
+  location: class com.park.utmstack.service.TenantResourceQuotaService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[307,75] cannot find symbol
+  symbol:   class TenantHealthEvent
+  location: class com.park.utmstack.service.monitoring.MultiTenantMonitoringService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/compliance/ComplianceFrameworkService.java:[622,62] cannot find symbol
+  symbol:   class SecurityAuditEvent
+  location: class com.park.utmstack.security.audit.SecurityAuditService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/compliance/ComplianceFrameworkService.java:[630,69] cannot find symbol
+  symbol:   class SecurityAuditEvent
+  location: class com.park.utmstack.security.audit.SecurityAuditService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/table_chart/ResponseParserForTableChart.java:[9,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/table_chart/ResponseParserForTableChart.java:[10,49] package com.utmstack.opensearch_connector.parsers does not exist
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.912 s
+[INFO] Finished at: 2025-08-10T13:57:40+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.12.0:compile (default-compile) on project utmstack: Compilation failure: Compilation failure: 
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[4,41] package com.utmstack.opensearch_connector does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[5,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[19,13] cannot find symbol
+[ERROR]   symbol:   class OpenSearch
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.OpensearchClientBuilder
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/OpensearchClientBuilder.java:[40,12] cannot find symbol
+[ERROR]   symbol:   class OpenSearch
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.OpensearchClientBuilder
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/MailService.java:[13,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/MailService.java:[230,53] cannot find symbol
+[ERROR]   symbol:   class ElasticCluster
+[ERROR]   location: class com.park.utmstack.service.MailService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/overview/OverviewService.java:[13,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/overview/OverviewService.java:[14,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/overview/OverviewService.java:[15,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[16,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[17,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[18,52] package com.utmstack.opensearch_connector.exceptions does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[19,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[20,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[194,13] cannot find symbol
+[ERROR]   symbol:   class IndexSort
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.ElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/ElasticsearchService.java:[208,21] cannot find symbol
+[ERROR]   symbol:   class ElasticCluster
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.ElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/log_analyzer/LogAnalyzerService.java:[11,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/log_analyzer/LogAnalyzerService.java:[12,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[3,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[5,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[6,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[7,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[8,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[9,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[10,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[11,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[12,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[13,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[14,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[15,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[16,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[37,36] package com.utmstack.grpc.connection does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[38,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[39,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[40,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[41,33] package com.utmstack.grpc.service does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[42,33] package com.utmstack.grpc.service does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[70,19] cannot find symbol
+[ERROR]   symbol:   class GrpcConnection
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[71,19] cannot find symbol
+[ERROR]   symbol:   class PanelCollectorService
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[72,19] cannot find symbol
+[ERROR]   symbol:   class CollectorService
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[3,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[90,32] cannot find symbol
+[ERROR]   symbol:   class GrpcConnection
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[90,422] cannot find symbol
+[ERROR]   symbol:   class GrpcConnectionException
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,50] cannot find symbol
+[ERROR]   symbol:   class CollectorConfig
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,12] cannot find symbol
+[ERROR]   symbol:   class ConfigKnowledge
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,81] cannot find symbol
+[ERROR]   symbol:   class CollectorConfigurationGrpcException
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[134,52] cannot find symbol
+[ERROR]   symbol:   class ListRequest
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[134,80] cannot find symbol
+[ERROR]   symbol:   class CollectorServiceGrpcException
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,54] cannot find symbol
+[ERROR]   symbol:   class ListRequest
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,12] cannot find symbol
+[ERROR]   symbol:   class CollectorHostnames
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,82] cannot find symbol
+[ERROR]   symbol:   class CollectorServiceGrpcException
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[181,71] cannot find symbol
+[ERROR]   symbol:   class FilterByHostAndModule
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[181,109] cannot find symbol
+[ERROR]   symbol:   class CollectorServiceGrpcException
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,47] cannot find symbol
+[ERROR]   symbol:   class ConfigRequest
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,70] cannot find symbol
+[ERROR]   symbol:   class AuthResponse
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,12] cannot find symbol
+[ERROR]   symbol:   class CollectorConfig
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,96] cannot find symbol
+[ERROR]   symbol:   class CollectorServiceGrpcException
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[220,70] cannot find symbol
+[ERROR]   symbol:   class ListCollectorResponse
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/dto/collectors/dto/CollectorDTO.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[244,12] cannot find symbol
+[ERROR]   symbol:   class CollectorConfig
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[279,46] cannot find symbol
+[ERROR]   symbol:   class Collector
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[286,13] cannot find symbol
+[ERROR]   symbol:   class CollectorGroupConfigurations
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[34,58] package CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[3,36] package com.utmstack.grpc.connection does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[4,35] package com.utmstack.grpc.exception does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[5,58] package com.utmstack.grpc.jclient.config.interceptors.impl does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[12,13] cannot find symbol
+[ERROR]   symbol:   class GrpcConnection
+[ERROR]   location: class com.park.utmstack.config.CollectorConfiguration
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[21,12] cannot find symbol
+[ERROR]   symbol:   class GrpcConnection
+[ERROR]   location: class com.park.utmstack.config.CollectorConfiguration
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/config/CollectorConfiguration.java:[21,56] cannot find symbol
+[ERROR]   symbol:   class GrpcConnectionException
+[ERROR]   location: class com.park.utmstack.config.CollectorConfiguration
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[5,41] package com.utmstack.opensearch_connector does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[6,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[7,47] package com.utmstack.opensearch_connector.enums does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[8,52] package com.utmstack.opensearch_connector.exceptions does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[9,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[95,87] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[102,105] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[127,101] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[158,44] cannot find symbol
+[ERROR]   symbol:   class TermOrder
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[158,89] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[184,73] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[207,85] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[255,102] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[272,96] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[469,58] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[499,66] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[511,75] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/MultiTenantElasticsearchService.java:[548,60] cannot find symbol
+[ERROR]   symbol:   class OpenSearchException
+[ERROR]   location: class com.park.utmstack.service.elasticsearch.MultiTenantElasticsearchService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/coordinate_map/ResponseParserForCoordinateMapChart.java:[12,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/coordinate_map/ResponseParserForCoordinateMapChart.java:[13,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/elasticsearch/ElasticsearchResource.java:[16,47] package com.utmstack.opensearch_connector.types does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/elasticsearch/ElasticsearchResource.java:[219,27] cannot find symbol
+[ERROR]   symbol:   class ElasticCluster
+[ERROR]   location: class com.park.utmstack.web.rest.elasticsearch.ElasticsearchResource
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[257,74] cannot find symbol
+[ERROR]   symbol:   class TenantProvisionedEvent
+[ERROR]   location: class com.park.utmstack.service.TenantProvisioningService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[272,74] cannot find symbol
+[ERROR]   symbol:   class TenantProvisioningFailedEvent
+[ERROR]   location: class com.park.utmstack.service.TenantProvisioningService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[287,64] cannot find symbol
+[ERROR]   symbol:   class QuotaViolationEvent
+[ERROR]   location: class com.park.utmstack.service.TenantResourceQuotaService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/alerting/MultiTenantAlertingService.java:[307,75] cannot find symbol
+[ERROR]   symbol:   class TenantHealthEvent
+[ERROR]   location: class com.park.utmstack.service.monitoring.MultiTenantMonitoringService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/compliance/ComplianceFrameworkService.java:[622,62] cannot find symbol
+[ERROR]   symbol:   class SecurityAuditEvent
+[ERROR]   location: class com.park.utmstack.security.audit.SecurityAuditService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/compliance/ComplianceFrameworkService.java:[630,69] cannot find symbol
+[ERROR]   symbol:   class SecurityAuditEvent
+[ERROR]   location: class com.park.utmstack.security.audit.SecurityAuditService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/table_chart/ResponseParserForTableChart.java:[9,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/util/chart_builder/elasticsearch_dsl/responses/impl/table_chart/ResponseParserForTableChart.java:[10,49] package com.utmstack.opensearch_connector.parsers does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

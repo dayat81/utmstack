@@ -311,7 +311,7 @@ backup:
   
 # Feature flags
 features:
-  multi_tenant: false
+  multi_tenant: true
   advanced_analytics: true
   threat_intelligence: true
   compliance_reporting: true

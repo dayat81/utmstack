@@ -410,4 +410,43 @@ public class TenantProvisioningService {
         public boolean isOverallReady() { return overallReady; }
         public void setOverallReady(boolean overallReady) { this.overallReady = overallReady; }
     }
+
+    // Event classes for tenant provisioning
+    public static class TenantProvisionedEvent {
+        private final UUID tenantId;
+        private final long provisioningTimeMs;
+        private final String tier;
+        private final String subdomain;
+
+        public TenantProvisionedEvent(UUID tenantId, long provisioningTimeMs, String tier, String subdomain) {
+            this.tenantId = tenantId;
+            this.provisioningTimeMs = provisioningTimeMs;
+            this.tier = tier;
+            this.subdomain = subdomain;
+        }
+
+        public UUID getTenantId() { return tenantId; }
+        public long getProvisioningTimeMs() { return provisioningTimeMs; }
+        public String getTier() { return tier; }
+        public String getSubdomain() { return subdomain; }
+    }
+
+    public static class TenantProvisioningFailedEvent {
+        private final String requestId;
+        private final String reason;
+        private final String subdomain;
+        private final long failureTimeMs;
+
+        public TenantProvisioningFailedEvent(String requestId, String reason, String subdomain, long failureTimeMs) {
+            this.requestId = requestId;
+            this.reason = reason;
+            this.subdomain = subdomain;
+            this.failureTimeMs = failureTimeMs;
+        }
+
+        public String getRequestId() { return requestId; }
+        public String getReason() { return reason; }
+        public String getSubdomain() { return subdomain; }
+        public long getFailureTimeMs() { return failureTimeMs; }
+    }
 }

@@ -440,4 +440,27 @@ public class TenantResourceQuotaService {
         public double getDailyAlertUsage() { return dailyAlertUsage; }
         public void setDailyAlertUsage(double dailyAlertUsage) { this.dailyAlertUsage = dailyAlertUsage; }
     }
+
+    // Event class for quota violations
+    public static class QuotaViolationEvent {
+        private final UUID tenantId;
+        private final String resourceType;
+        private final long currentUsage;
+        private final long quotaLimit;
+        private final double usagePercentage;
+
+        public QuotaViolationEvent(UUID tenantId, String resourceType, long currentUsage, long quotaLimit, double usagePercentage) {
+            this.tenantId = tenantId;
+            this.resourceType = resourceType;
+            this.currentUsage = currentUsage;
+            this.quotaLimit = quotaLimit;
+            this.usagePercentage = usagePercentage;
+        }
+
+        public UUID getTenantId() { return tenantId; }
+        public String getResourceType() { return resourceType; }
+        public long getCurrentUsage() { return currentUsage; }
+        public long getQuotaLimit() { return quotaLimit; }
+        public double getUsagePercentage() { return usagePercentage; }
+    }
 }

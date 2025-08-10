@@ -19,6 +19,9 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Service for handling security audit events in multi-tenant environment.
@@ -239,6 +242,15 @@ public class SecurityAuditService {
         // TODO: Extract from Spring Security context
         // This is a placeholder implementation
         return "current-user-id";
+    }
+
+    /**
+     * Get audit events for a tenant within a time range
+     */
+    public List<SecurityAuditEvent> getAuditEvents(UUID tenantId, Instant since) {
+        // TODO: Implement audit event retrieval from storage
+        // For now, return empty list as placeholder
+        return new ArrayList<>();
     }
 
     /**

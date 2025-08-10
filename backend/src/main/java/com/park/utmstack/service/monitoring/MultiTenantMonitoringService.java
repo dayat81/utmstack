@@ -1074,4 +1074,27 @@ public class MultiTenantMonitoringService {
         public int getInfoAlerts() { return infoAlerts; }
         public void setInfoAlerts(int infoAlerts) { this.infoAlerts = infoAlerts; }
     }
+
+    // Event class for tenant health events
+    public static class TenantHealthEvent {
+        private final UUID tenantId;
+        private final String healthStatus;
+        private final double healthScore;
+        private final String alertLevel;
+        private final Map<String, Object> metrics;
+
+        public TenantHealthEvent(UUID tenantId, String healthStatus, double healthScore, String alertLevel, Map<String, Object> metrics) {
+            this.tenantId = tenantId;
+            this.healthStatus = healthStatus;
+            this.healthScore = healthScore;
+            this.alertLevel = alertLevel;
+            this.metrics = metrics != null ? new HashMap<>(metrics) : new HashMap<>();
+        }
+
+        public UUID getTenantId() { return tenantId; }
+        public String getHealthStatus() { return healthStatus; }
+        public double getHealthScore() { return healthScore; }
+        public String getAlertLevel() { return alertLevel; }
+        public Map<String, Object> getMetrics() { return metrics; }
+    }
 }

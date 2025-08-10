@@ -1,0 +1,228 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.version: 5.15
+[INFO] os.detected.version.major: 5
+[INFO] os.detected.version.minor: 15
+[INFO] os.detected.release: ubuntu
+[INFO] os.detected.release.version: 24.04
+[INFO] os.detected.release.like.ubuntu: true
+[INFO] os.detected.release.like.debian: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] 
+[INFO] ----------------------< com.atlasinside:utmstack >----------------------
+[INFO] Building UTMStack-API ${revision}
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:copy-resources (default-resources) @ utmstack ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] Copying 99 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ utmstack ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] Copying 99 resources
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0:enforce (enforce-versions) @ utmstack ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0:enforce (enforce-dependencyConvergence) @ utmstack ---
+[INFO] 
+[INFO] --- protobuf-maven-plugin:0.6.1:compile (default) @ utmstack ---
+[INFO] Compiling 2 proto file(s) to /home/ptsec/utmstack/backend/src/main/java
+[INFO] 
+[INFO] --- protobuf-maven-plugin:0.6.1:compile-custom (default) @ utmstack ---
+[INFO] Compiling 2 proto file(s) to /home/ptsec/utmstack/backend/src/main/java
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.12.0:compile (default-compile) @ utmstack ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 870 source files with javac [debug target 11] to target/classes
+[INFO] Hibernate JPA 2 Static-Metamodel Generator 5.4.32.Final
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[3,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[5,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[6,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[7,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[8,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[9,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[10,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[11,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[12,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[13,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[14,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[15,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[16,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[3,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,50] cannot find symbol
+  symbol:   class CollectorConfig
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,12] cannot find symbol
+  symbol:   class ConfigKnowledge
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[134,52] cannot find symbol
+  symbol:   class ListRequest
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,54] cannot find symbol
+  symbol:   class ListRequest
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,12] cannot find symbol
+  symbol:   class CollectorHostnames
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[181,71] cannot find symbol
+  symbol:   class FilterByHostAndModule
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,47] cannot find symbol
+  symbol:   class ConfigRequest
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,70] cannot find symbol
+  symbol:   class AuthResponse
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,12] cannot find symbol
+  symbol:   class CollectorConfig
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[220,70] cannot find symbol
+  symbol:   class ListCollectorResponse
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/dto/collectors/dto/CollectorDTO.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[244,12] cannot find symbol
+  symbol:   class CollectorConfig
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[279,46] cannot find symbol
+  symbol:   class Collector
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[286,13] cannot find symbol
+  symbol:   class CollectorGroupConfigurations
+  location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[34,58] package CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[10,36] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[9,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[14,45] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[13,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[18,68] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[17,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[22,58] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[22,88] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[21,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[25,58] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[25,90] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/PanelCollectorService.java:[9,57] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/PanelCollectorService.java:[8,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[4,1] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/PanelCollectorService.java:[4,1] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/TenantIndexLifecycleService.java:[6,44] package org.opensearch.client.opensearch.ilm does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[3,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[5,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[6,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[7,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[8,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[9,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[200,27] cannot find symbol
+  symbol:   class CollectorHostnames
+  location: class com.park.utmstack.web.rest.collectors.UtmCollectorResource
+[INFO] 54 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.026 s
+[INFO] Finished at: 2025-08-10T14:13:10+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.12.0:compile (default-compile) on project utmstack: Compilation failure: Compilation failure: 
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[3,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[5,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[6,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[7,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[8,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[9,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[10,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[11,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[12,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[13,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[14,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[15,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[16,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[3,13] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,50] cannot find symbol
+[ERROR]   symbol:   class CollectorConfig
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[110,12] cannot find symbol
+[ERROR]   symbol:   class ConfigKnowledge
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[134,52] cannot find symbol
+[ERROR]   symbol:   class ListRequest
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,54] cannot find symbol
+[ERROR]   symbol:   class ListRequest
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[158,12] cannot find symbol
+[ERROR]   symbol:   class CollectorHostnames
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[181,71] cannot find symbol
+[ERROR]   symbol:   class FilterByHostAndModule
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,47] cannot find symbol
+[ERROR]   symbol:   class ConfigRequest
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,70] cannot find symbol
+[ERROR]   symbol:   class AuthResponse
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[205,12] cannot find symbol
+[ERROR]   symbol:   class CollectorConfig
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[220,70] cannot find symbol
+[ERROR]   symbol:   class ListCollectorResponse
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/dto/collectors/dto/CollectorDTO.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[244,12] cannot find symbol
+[ERROR]   symbol:   class CollectorConfig
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[279,46] cannot find symbol
+[ERROR]   symbol:   class Collector
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/CollectorOpsService.java:[286,13] cannot find symbol
+[ERROR]   symbol:   class CollectorGroupConfigurations
+[ERROR]   location: class com.park.utmstack.service.collectors.CollectorOpsService
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/collectors/UtmCollectorService.java:[34,58] package CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[10,36] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[9,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[14,45] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[13,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[18,68] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[17,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[22,58] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[22,88] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[21,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[25,58] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[25,90] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/PanelCollectorService.java:[9,57] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/PanelCollectorService.java:[8,37] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/CollectorService.java:[4,1] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/utmstack/grpc/service/PanelCollectorService.java:[4,1] package agent does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/service/elasticsearch/TenantIndexLifecycleService.java:[6,44] package org.opensearch.client.opensearch.ilm does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[3,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[4,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[5,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[6,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[7,33] package agent.CollectorOuterClass does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[8,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[9,20] package agent.Common does not exist
+[ERROR] /home/ptsec/utmstack/backend/src/main/java/com/park/utmstack/web/rest/collectors/UtmCollectorResource.java:[200,27] cannot find symbol
+[ERROR]   symbol:   class CollectorHostnames
+[ERROR]   location: class com.park.utmstack.web.rest.collectors.UtmCollectorResource
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -13,7 +13,7 @@ import com.park.utmstack.util.chart_builder.IndexType;
 import com.park.utmstack.util.exceptions.OpenSearchIndexNotFoundException;
 import com.park.utmstack.web.rest.util.HeaderUtil;
 import com.park.utmstack.web.rest.util.PaginationUtil;
-import com.utmstack.opensearch_connector.types.ElasticCluster;
+import com.park.utmstack.domain.health_check.elasticsearch.ElasticCluster;
 import org.opensearch.client.opensearch.cat.indices.IndicesRecord;
 import org.opensearch.client.opensearch.core.SearchResponse;
 import org.opensearch.client.opensearch.core.search.Hit;

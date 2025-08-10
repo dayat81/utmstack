@@ -2,7 +2,7 @@ package com.park.utmstack.service.governance;
 
 import com.park.utmstack.domain.UtmTenant;
 import com.park.utmstack.service.TenantService;
-import com.park.utmstack.service.SecurityAuditService;
+import com.park.utmstack.security.audit.SecurityAuditService;
 import com.park.utmstack.service.compliance.ComplianceFrameworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

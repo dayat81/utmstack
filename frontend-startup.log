@@ -1,0 +1,14 @@
+
+> utm-stack@7.1.0 start
+> ng serve --host 0.0.0.0
+
+(node:1097954) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:1097954) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
+Port 4200 is already in use. Use '--port' to specify a different port.
+Error: Port 4200 is already in use. Use '--port' to specify a different port.
+    at Server.<anonymous> (/home/ptsec/utmstack/frontend/node_modules/@angular-devkit/build-angular/src/angular-cli-files/utilities/check-port.js:27:28)
+    at Object.onceWrapper (node:events:639:26)
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)

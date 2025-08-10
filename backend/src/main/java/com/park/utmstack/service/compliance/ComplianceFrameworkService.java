@@ -2,7 +2,8 @@ package com.park.utmstack.service.compliance;
 
 import com.park.utmstack.domain.UtmTenant;
 import com.park.utmstack.service.TenantService;
-import com.park.utmstack.service.SecurityAuditService;
+import com.park.utmstack.security.audit.SecurityAuditService;
+import com.park.utmstack.security.audit.SecurityAuditEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -286,11 +287,11 @@ public class ComplianceFrameworkService {
             Instant cutoff = Instant.now().minus(days, ChronoUnit.DAYS);
             
             // Get security audit events related to compliance
-            List<SecurityAuditService.SecurityAuditEvent> securityEvents = 
+            List<SecurityAuditEvent> securityEvents = 
                 securityAuditService.getAuditEvents(tenantId, cutoff);
             
             // Convert to compliance audit events
-            for (SecurityAuditService.SecurityAuditEvent event : securityEvents) {
+            for (SecurityAuditEvent event : securityEvents) {
                 if (isComplianceRelevant(event)) {
                     ComplianceAuditEvent complianceEvent = new ComplianceAuditEvent();
                     complianceEvent.setEventId(event.getEventId());
@@ -619,7 +620,7 @@ public class ComplianceFrameworkService {
         return status;
     }
 
-    private boolean isComplianceRelevant(SecurityAuditService.SecurityAuditEvent event) {
+    private boolean isComplianceRelevant(SecurityAuditEvent event) {
         // Determine if a security audit event is relevant for compliance
         return event.getEventType().contains("ACCESS") ||
                event.getEventType().contains("AUTHENTICATION") ||
@@ -627,7 +628,7 @@ public class ComplianceFrameworkService {
                event.getEventType().contains("DATA");
     }
 
-    private String determineComplianceRelevance(SecurityAuditService.SecurityAuditEvent event) {
+    private String determineComplianceRelevance(SecurityAuditEvent event) {
         if (event.getEventType().contains("ACCESS")) return "Access Control";
         if (event.getEventType().contains("AUTHENTICATION")) return "Authentication";
         if (event.getEventType().contains("DATA")) return "Data Protection";
