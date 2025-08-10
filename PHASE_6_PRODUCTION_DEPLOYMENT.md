@@ -1,5 +1,5 @@
 # Phase 6: Production Deployment Implementation Plan
-
+sudo password is admin
 **Project:** UTMStack Multi-Tenant Production Deployment  
 **Phase:** 6 of 6 - Production Deployment  
 **Start Date:** August 10, 2025  

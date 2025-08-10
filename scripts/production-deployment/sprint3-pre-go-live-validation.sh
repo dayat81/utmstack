@@ -7,7 +7,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LOG_FILE="/var/log/utmstack/sprint3-validation-$(date +%Y%m%d-%H%M%S).log"
+LOG_FILE="/tmp/utmstack-logs/sprint3-validation-$(date +%Y%m%d-%H%M%S).log"
 VALIDATION_RESULTS_DIR="/tmp/utmstack-validation-results"
 
 # Colors for output

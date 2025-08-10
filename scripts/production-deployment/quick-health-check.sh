@@ -59,7 +59,17 @@ check_service "Agent Manager" "ss -tlnp | grep -q :8080" "success"
 check_service "Logstash" "docker ps | grep -q utmstack-logstash" "success"
 
 # Redis
-check_service "Redis" "docker ps | grep -q redis" "success"
+check_service "Redis Cache" "docker exec utmstack-redis redis-cli -a utmstack_redis_pass ping | grep -q PONG" "success"
+
+# Prometheus
+check_service "Prometheus" "curl -s http://localhost:9090/-/healthy" "success"
+
+# Grafana  
+check_service "Grafana" "curl -s http://localhost:3001/api/health" "success"
+
+# Load Balancer
+check_service "Load Balancer (HTTP)" "curl -s -o /dev/null -w '%{http_code}' http://localhost/ | grep -q 301" "success"
+check_service "Load Balancer (HTTPS)" "curl -s -k https://localhost/health | grep -q healthy" "success"
 
 echo ""
 echo "🐳 Container Status"
@@ -83,7 +93,7 @@ echo ""
 echo "🎯 Quick Status Summary"
 echo "----------------------"
 
-TOTAL_SERVICES=7
+TOTAL_SERVICES=10
 UP_SERVICES=0
 
 # Count UP services  
@@ -92,6 +102,10 @@ if curl -s http://localhost:9200/_cluster/health | grep -q green 2>/dev/null; th
 if curl -s http://localhost:4200 | grep -q html 2>/dev/null; then ((UP_SERVICES++)); fi
 if ss -tlnp | grep -q :8080 2>/dev/null; then ((UP_SERVICES++)); fi
 if docker ps | grep -q utmstack-logstash 2>/dev/null; then ((UP_SERVICES++)); fi
+if docker exec utmstack-redis redis-cli -a utmstack_redis_pass ping 2>/dev/null | grep -q PONG; then ((UP_SERVICES++)); fi
+if curl -s http://localhost:9090/-/healthy 2>/dev/null >/dev/null; then ((UP_SERVICES++)); fi
+if curl -s http://localhost:3001/api/health 2>/dev/null >/dev/null; then ((UP_SERVICES++)); fi
+if curl -s -k https://localhost/health 2>/dev/null | grep -q healthy; then ((UP_SERVICES++)); fi
 
 PERCENTAGE=$((UP_SERVICES * 100 / TOTAL_SERVICES))
 
@@ -106,10 +120,31 @@ fi
 echo ""
 echo "🔗 Access URLs"
 echo "-------------"
+echo "Frontend:      https://localhost/ (via load balancer)"
+echo "Backend API:   https://localhost/api/ (via load balancer)"
+echo "Elasticsearch: https://localhost/elasticsearch/ (via load balancer)"
+echo "Prometheus:    https://localhost/prometheus/ (auth: monitor/monitor)"
+echo "Grafana:       https://localhost/grafana/"
+echo "Health Check:  https://localhost/health"
+echo ""
+echo "Direct Access (development):"
 echo "Frontend:      http://localhost:4200"
 echo "Elasticsearch: http://localhost:9200"
 echo "Backend API:   http://localhost:8080"
 echo "Logstash:      http://localhost:9600"
+echo "Prometheus:    http://localhost:9090"
+echo "Grafana:       http://localhost:3001"
+echo "Redis:         localhost:6379"
 
 echo ""
 echo "For detailed status: cat PRODUCTION_STATUS.md"
+
+# Prometheus
+check_service "Prometheus" "curl -s http://localhost:9090/-/healthy" "success"
+
+# Grafana  
+check_service "Grafana" "curl -s http://localhost:3001/api/health" "success"
+
+# Load Balancer
+check_service "Load Balancer (HTTP)" "curl -s -o /dev/null -w '%{http_code}' http://localhost/ | grep -q 301" "success"
+check_service "Load Balancer (HTTPS)" "curl -s -k https://localhost/health | grep -q healthy" "success"
