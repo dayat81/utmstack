@@ -10,6 +10,10 @@
         <div class="d-flex justify-content-center align-items-center w-100 h-100 pt-4">
           <div class="login-container">
             <app-countdown (intervalEnd)="navigateToLogin()"></app-countdown>
+            <div *ngIf="isLoggedIn" class="text-center">
+              <p class="text-success">✓ Authentication successful!</p>
+              <p class="text-muted">Redirecting to dashboard...</p>
+            </div>
             <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" *ngIf="!isLoggedIn" class="mt-2" name="form"
                   novalidate>
               <div class="form-group">

@@ -34,9 +34,12 @@ export class TotpComponent implements OnInit {
       .verifyCode(this.form.code).subscribe((auth) => {
       if (auth) {
         this.verifying = false;
+        this.isLoggedIn = true;
         this.spinner.show();
-        this.router.navigate(['/dashboard/overview'])
-          .then(() => this.spinner.hide());
+        // Force page reload to ensure proper authentication state
+        setTimeout(() => {
+          window.location.href = '/dashboard/overview';
+        }, 500);
       }
     }, error => {
       this.utmToast.showError('Code validation', 'Verification code is invalid or has expired');
