@@ -1,0 +1,148 @@
+# UTMStack Multi-Tenant Docker Compose Configuration
+# Simplified for immediate deployment
+
+version: '3.8'
+
+networks:
+  utmstack-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  elasticsearch_data:
+
+services:
+  # PostgreSQL Database with Multi-Tenant Support
+  postgres:
+    image: postgres:15-alpine
+    container_name: utmstack-postgres-mt
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-utmstack_production}
+      POSTGRES_USER: ${POSTGRES_USER:-utmstack_prod}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_INITDB_ARGS: "--auth-local=trust --auth-host=md5"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - utmstack-network
+    command: >
+      postgres
+      -c shared_preload_libraries=pg_stat_statements
+      -c max_connections=200
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-utmstack_prod} -d ${POSTGRES_DB:-utmstack_production}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Elasticsearch for Multi-Tenant Logs
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: utmstack-elasticsearch-mt
+    restart: unless-stopped
+    environment:
+      - node.name=es-node-1
+      - cluster.name=utmstack-production
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - utmstack-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for Caching and Sessions
+  redis:
+    image: redis:7.2-alpine
+    container_name: utmstack-redis-mt
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD} --maxmemory 256mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    networks:
+      - utmstack-network
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --raw incr ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # UTMStack Backend (using existing source)
+  utmstack-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: utmstack-backend-mt
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=production,multi-tenant
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/${POSTGRES_DB:-utmstack_production}
+      - DATABASE_USERNAME=${POSTGRES_USER:-utmstack_prod}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - ELASTICSEARCH_HOSTS=elasticsearch:9200
+      - JWT_SECRET=${JWT_SECRET}
+      - MULTI_TENANT_ENABLED=true
+      - DATABASE_RLS_ENABLED=true
+      - TENANT_CONTEXT_MANDATORY=true
+      - AUDIT_LOGGING=comprehensive
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    ports:
+      - "8080:8080"
+    networks:
+      - utmstack-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/management/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  # UTMStack Frontend (using existing source)
+  utmstack-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: utmstack-frontend-mt
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - BACKEND_URL=http://utmstack-backend:8080
+      - TENANT_MODE=subdomain
+    ports:
+      - "4200:80"
+    networks:
+      - utmstack-network
+    depends_on:
+      - utmstack-backend
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
