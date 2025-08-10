@@ -86,7 +86,7 @@ app.post('/api/authenticate', (req, res) => {
 app.get('/api/account', (req, res) => {
     console.log('GET /api/account');
     
-    // Return proper user account data with authorities
+    // Return proper user account data with authorities and tenant info
     res.json({
         activated: true,
         authorities: ['ROLE_ADMIN', 'ROLE_USER'],
@@ -97,7 +97,88 @@ app.get('/api/account', (req, res) => {
         langKey: 'en',
         imageUrl: null,
         openvasUserID: 1,
-        openvasUserUUID: 'admin-uuid-123'
+        openvasUserUUID: 'admin-uuid-123',
+        tenantId: 'b621d671-dd5a-4870-ba84-299e741e4a2e',
+        tenantSubdomain: 'default'
+    });
+});
+
+// Mock tenant endpoints
+app.get('/api/tenants', (req, res) => {
+    console.log('GET /api/tenants');
+    res.json([
+        {
+            id: 'b621d671-dd5a-4870-ba84-299e741e4a2e',
+            name: 'Default Organization',
+            subdomain: 'default',
+            status: 'active',
+            tier: 'standard',
+            createdAt: '2025-08-10T05:46:11.886Z',
+            settings: {
+                timezone: 'UTC',
+                dateFormat: 'yyyy-MM-dd',
+                theme: 'light'
+            },
+            resourceLimits: {
+                maxUsers: 100,
+                maxStorage: '10GB',
+                maxElasticsearchIndices: 50
+            }
+        }
+    ]);
+});
+
+app.get('/api/tenants/:id', (req, res) => {
+    const tenantId = req.params.id;
+    console.log(`GET /api/tenants/${tenantId}`);
+    
+    if (tenantId === 'b621d671-dd5a-4870-ba84-299e741e4a2e' || tenantId === 'default') {
+        res.json({
+            id: 'b621d671-dd5a-4870-ba84-299e741e4a2e',
+            name: 'Default Organization',
+            subdomain: 'default',
+            status: 'active',
+            tier: 'standard',
+            createdAt: '2025-08-10T05:46:11.886Z',
+            updatedAt: '2025-08-10T05:46:11.886Z',
+            settings: {
+                timezone: 'UTC',
+                dateFormat: 'yyyy-MM-dd',
+                theme: 'light'
+            },
+            resourceLimits: {
+                maxUsers: 100,
+                maxStorage: '10GB',
+                maxElasticsearchIndices: 50
+            },
+            configurations: [
+                { configKey: 'max_users', configValue: '100', configType: 'INTEGER' },
+                { configKey: 'max_storage_gb', configValue: '10', configType: 'INTEGER' },
+                { configKey: 'elasticsearch_retention_days', configValue: '30', configType: 'INTEGER' },
+                { configKey: 'log_level', configValue: 'INFO', configType: 'STRING' },
+                { configKey: 'enable_monitoring', configValue: 'true', configType: 'BOOLEAN' },
+                { configKey: 'enable_alerting', configValue: 'true', configType: 'BOOLEAN' }
+            ],
+            roles: [
+                { roleName: 'TENANT_ADMIN', permissions: ['READ', 'WRITE', 'DELETE', 'ADMIN', 'USER_MANAGEMENT', 'SYSTEM_CONFIG'] },
+                { roleName: 'TENANT_USER', permissions: ['READ', 'WRITE'] },
+                { roleName: 'TENANT_VIEWER', permissions: ['READ'] }
+            ]
+        });
+    } else {
+        res.status(404).json({ error: 'Tenant not found' });
+    }
+});
+
+// Current tenant context endpoint
+app.get('/api/tenant/current', (req, res) => {
+    console.log('GET /api/tenant/current');
+    res.json({
+        id: 'b621d671-dd5a-4870-ba84-299e741e4a2e',
+        name: 'Default Organization',
+        subdomain: 'default',
+        status: 'active',
+        tier: 'standard'
     });
 });
 

@@ -63,6 +63,63 @@ This implementation plan transforms UTMStack from a single-tenant SIEM platform 
 
 ## 2. Database Architecture
 
+### Multi-Tenant Database Structure Overview
+
+UTMStack implements a comprehensive multi-tenant database architecture using PostgreSQL Row-Level Security (RLS) for complete data isolation between tenants. The structure centers around the `utm_tenant` table with cascading tenant isolation across all application tables.
+
+#### Core Entity Relationship Diagram
+
+```
+utm_tenant (Main tenant entity)
+├── utm_tenant_config (Tenant-specific configurations)
+├── utm_tenant_role (Hierarchical role management)
+├── jhi_user (Tenant-scoped users)
+├── utm_alert_log (Security alerts per tenant)
+├── utm_dashboard (Custom dashboards)
+├── utm_menu (Tenant-specific navigation)
+└── utm_index_pattern (Elasticsearch index patterns)
+```
+
+#### Primary Tenant Entity Structure
+
+**utm_tenant Table:**
+- `id` (UUID, Primary Key) - Unique tenant identifier
+- `name` (VARCHAR 255) - Human-readable tenant name
+- `subdomain` (VARCHAR 100, Unique) - Tenant subdomain for routing
+- `status` (VARCHAR 50) - Tenant status (active, suspended, inactive)
+- `tier` (VARCHAR 50) - Service tier (standard, premium, enterprise)
+- `created_at/updated_at` (Timestamp) - Audit timestamps
+- `settings` (JSONB) - Flexible tenant-specific settings
+- `resource_limits` (JSONB) - Resource quotas and limits
+- `cpu_threshold` (Decimal) - CPU usage alert threshold
+- `memory_threshold` (Decimal) - Memory usage alert threshold  
+- `error_rate_threshold` (Decimal) - Error rate alert threshold
+
+#### Tenant Isolation Strategy
+
+**Row-Level Security Implementation:**
+1. **tenant_id Column**: Every table includes `tenant_id UUID REFERENCES utm_tenant(id)`
+2. **RLS Policies**: Automatic filtering using `current_setting('app.current_tenant_id')`
+3. **Connection Context**: Each database connection sets tenant context on initialization
+4. **Index Optimization**: Optimized indexes on `(tenant_id, primary_key)` for performance
+
+**Key Tables with Tenant Isolation:**
+- `jhi_user` - User management with tenant scoping
+- `utm_alert_log` - Security alerts isolated per tenant
+- `utm_dashboard` - Custom dashboards per tenant
+- `utm_menu` - Tenant-specific navigation configuration
+- `utm_index_pattern` - Elasticsearch index patterns per tenant
+- `utm_tenant_config` - Key-value configuration storage
+- `utm_tenant_role` - Hierarchical role and permission management
+
+#### Elasticsearch Integration
+
+**Index Strategy:**
+- Pattern: `utmstack-{tenant_id}-logs-{date}`
+- Automatic tenant filtering in all queries
+- Lifecycle management per tenant
+- Index template enforcement for data structure consistency
+
 ### PostgreSQL Multi-Tenant Schema Design
 
 ```sql

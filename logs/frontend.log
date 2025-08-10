@@ -3873,3 +3873,18 @@ chunk {threatwind-threatwind-module} threatwind-threatwind-module.js, threatwind
 chunk {vendor} vendor.js, vendor.js.map (vendor) 16.9 MB [initial] [rendered]
 chunk {visualization-visualization-module} visualization-visualization-module.js, visualization-visualization-module.js.map (visualization-visualization-module) 7.65 kB  [rendered]
 [34mℹ[39m [90m｢wdm｣[39m: Compiled successfully.
+[34mℹ[39m [90m｢wdm｣[39m: Compiling...
+
+Date: 2025-08-10T04:51:33.793Z - Hash: 9546702352330c442d86 - Time: 13069ms
+34 unchanged chunks
+chunk {main} main.js, main.js.map (main) 3.36 MB [initial] [rendered]
+[34mℹ[39m [90m｢wdm｣[39m: Compiled successfully.
+[34mℹ[39m [90m｢wdm｣[39m: Compiling...
+[34mℹ[39m [90m｢wdm｣[39m: wait until bundle finished: /totp
+[34mℹ[39m [90m｢wdm｣[39m: wait until bundle finished: /
+
+Date: 2025-08-10T04:51:36.283Z - Hash: 919ef80e5d30ccd61e59 - Time: 2106ms
+34 unchanged chunks
+chunk {main} main.js, main.js.map (main) 3.36 MB [initial] [rendered]
+[34mℹ[39m [90m｢wdm｣[39m: Compiled successfully.
+Killed
