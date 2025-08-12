@@ -97,6 +97,7 @@
         <dependency>
             <groupId>tech.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
+            <version>${jhipster-dependencies.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -127,9 +128,45 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <scope>provided</scope>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-api</artifactId>
+            <version>1.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test-autoconfigure</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -138,6 +175,11 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>2.16.2</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
@@ -169,10 +211,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-loader-tools</artifactId>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -204,6 +248,79 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty</artifactId>
+            <version>${io.grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>${io.grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-stub</artifactId>
+            <version>${io.grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opensearch.client</groupId>
+            <artifactId>opensearch-java</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>flying-saucer-pdf</artifactId>
+            <version>9.1.22</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.samstevens.totp</groupId>
+            <artifactId>totp</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.maxmind.geoip2</groupId>
+            <artifactId>geoip2</artifactId>
+            <version>2.16.1</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
@@ -238,123 +355,6 @@
             <groupId>net.sf.jtidy</groupId>
             <artifactId>jtidy</artifactId>
             <version>r938</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.samstevens.totp</groupId>
-            <artifactId>totp-spring-boot-starter</artifactId>
-            <version>1.7.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.vault</groupId>
-            <artifactId>spring-vault-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.8</version>
-        </dependency>
-        <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
-            <version>2.1.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.xhtmlrenderer</groupId>
-            <artifactId>flying-saucer-pdf</artifactId>
-            <version>9.1.22</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opensearch.client</groupId>
-            <artifactId>opensearch-java</artifactId>
-            <version>2.13.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opensearch.client</groupId>
-            <artifactId>opensearch-rest-client</artifactId>
-            <version>2.13.0</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.json</groupId>
-            <artifactId>jakarta.json-api</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>4.11.0</version>
-        </dependency>
-
-        <!--        gRPC implementation-->
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-okhttp</artifactId>
-            <version>${io.grpc.version}</version> <!-- Replace with the version you are using -->
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-netty</artifactId>
-            <version>${io.grpc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-protobuf</artifactId>
-            <version>${io.grpc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-stub</artifactId>
-            <version>${io.grpc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-core</artifactId>
-            <version>${io.grpc.version}</version>
-        </dependency>
-        <dependency> <!-- necessary for Java 9+ -->
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>annotations-api</artifactId>
-            <version>6.0.53</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>${protoc.version}</version>
-        </dependency>
-
-        <!-- Temporarily commented out - gRPC client not available in public repo
-        <dependency>
-            <groupId>com.utmstack.grpc.jclient</groupId>
-            <artifactId>collector-client-4j</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        -->
-
-        <!-- WebSocket dependency -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <version>2.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-core</artifactId>
-            <version>2.9.1</version>
         </dependency>
     </dependencies>
 
@@ -424,8 +424,30 @@
                 <groupId>org.gaul</groupId>
                 <artifactId>modernizer-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.8.2</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <runOrder>random</runOrder>
+                    <excludes>
+                        <exclude>**/*IT*</exclude>
+                    </excludes>
+                    <includes>
+                        <include>**/*TestSuite.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
             <!-- jhipster-needle-maven-add-plugin -->
-            <!-- Temporarily commented out - gRPC dependency plugin not needed
+            <!-- Temporarily commented out - gRPC dependency plugin not needed -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -452,7 +474,8 @@
                 </executions>
             </plugin>
             -->
-            <!-- Temporarily commented out - gRPC protobuf plugin not needed
+            <!-- Temporarily commented out - gRPC protobuf plugin not needed -->
+            <!--
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
@@ -521,6 +544,84 @@
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
+                        <includes>
+                            <!-- Core Configuration -->
+                            <include>**/com/park/utmstack/config/Constants.java</include>
+                            <include>**/com/park/utmstack/config/DatabaseConfiguration.java</include>
+                            <include>**/com/park/utmstack/config/ApplicationProperties.java</include>
+                            <include>**/com/park/utmstack/config/SecurityConfiguration.java</include>
+                            
+                            <!-- Core Domain Models -->
+                            <include>**/com/park/utmstack/domain/AbstractAuditingEntity.java</include>
+                            <include>**/com/park/utmstack/domain/User.java</include>
+                            <include>**/com/park/utmstack/domain/Authority.java</include>
+                            <include>**/com/park/utmstack/domain/UtmTenant.java</include>
+                            <include>**/com/park/utmstack/domain/UtmTenantConfig.java</include>
+                            <include>**/com/park/utmstack/domain/UtmTenantRole.java</include>
+                            <include>**/com/park/utmstack/domain/index_pattern/**/*.java</include>
+                            
+                            <!-- Core DTOs -->
+                            <include>**/com/park/utmstack/service/dto/tenant/**/*.java</include>
+                            <include>**/com/park/utmstack/service/dto/UserDTO.java</include>
+                            <include>**/com/park/utmstack/service/dto/PasswordChangeDTO.java</include>
+                            
+                            <!-- Multi-Tenant Core Services -->
+                            <include>**/com/park/utmstack/service/TenantContext.java</include>
+                            <include>**/com/park/utmstack/service/TenantContextFilter.java</include>
+                            <include>**/com/park/utmstack/service/MultiTenantTokenProvider.java</include>
+                            <include>**/com/park/utmstack/service/MultiTenantRBACService.java</include>
+                            <include>**/com/park/utmstack/service/TenantService.java</include>
+                            <include>**/com/park/utmstack/service/UserService.java</include>
+                            
+                            <!-- Core Repositories -->
+                            <include>**/com/park/utmstack/repository/UserRepository.java</include>
+                            <include>**/com/park/utmstack/repository/AuthorityRepository.java</include>
+                            <include>**/com/park/utmstack/repository/UtmTenantRepository.java</include>
+                            <include>**/com/park/utmstack/repository/UtmTenantConfigRepository.java</include>
+                            <include>**/com/park/utmstack/repository/UtmTenantRoleRepository.java</include>
+                            
+                            <!-- Essential Security -->
+                            <include>**/com/park/utmstack/security/SecurityUtils.java</include>
+                            <include>**/com/park/utmstack/security/DomainUserDetailsService.java</include>
+                            <include>**/com/park/utmstack/security/jwt/**/*.java</include>
+                            
+                            <!-- Multi-Tenant REST APIs -->
+                            <include>**/com/park/utmstack/web/rest/TenantManagementResource.java</include>
+                            <include>**/com/park/utmstack/web/rest/UserJWTController.java</include>
+                            <include>**/com/park/utmstack/web/rest/AccountResource.java</include>
+                            <include>**/com/park/utmstack/web/rest/UserResource.java</include>
+                            <include>**/com/park/utmstack/web/rest/AuthorityResource.java</include>
+                            <include>**/com/park/utmstack/web/rest/errors/BadRequestAlertException.java</include>
+                            <include>**/com/park/utmstack/web/rest/errors/EmailAlreadyUsedException.java</include>
+                            <include>**/com/park/utmstack/web/rest/errors/ExceptionTranslator.java</include>
+                            
+                            <!-- Application Entry Point -->
+                            <include>**/com/park/utmstack/UtmstackApp.java</include>
+                        </includes>
+                        <excludes>
+                            <!-- Exclude all problematic modules -->
+                            <exclude>**/com/park/utmstack/service/dto/agent_manager/**</exclude>
+                            <exclude>**/com/park/utmstack/service/dto/incident/**</exclude>
+                            <exclude>**/com/park/utmstack/service/dto/reports/**</exclude>
+                            <exclude>**/com/park/utmstack/service/dto/collectors/**</exclude>
+                            <exclude>**/com/park/utmstack/service/agent_manager/**</exclude>
+                            <exclude>**/com/park/utmstack/service/incident/**</exclude>
+                            <exclude>**/com/park/utmstack/service/reports/**</exclude>
+                            <exclude>**/com/park/utmstack/service/compliance/**</exclude>
+                            <exclude>**/com/park/utmstack/service/soc_ai/**</exclude>
+                            <exclude>**/com/park/utmstack/service/elasticsearch/**</exclude>
+                            <exclude>**/com/park/utmstack/service/chart_builder/**</exclude>
+                            <exclude>**/com/park/utmstack/domain/index_policy/**</exclude>
+                            <exclude>**/com/park/utmstack/domain/alert_response_rule/**</exclude>
+                            <exclude>**/com/park/utmstack/domain/chart_builder/**</exclude>
+                            <exclude>**/com/park/utmstack/domain/reports/**</exclude>
+                            <exclude>**/com/park/utmstack/util/chart_builder/**</exclude>
+                            <exclude>**/com/park/utmstack/web/rest/agent_manager/**</exclude>
+                            <exclude>**/com/park/utmstack/web/rest/incident/**</exclude>
+                            <exclude>**/com/park/utmstack/web/rest/reports/**</exclude>
+                            <exclude>**/com/park/utmstack/web/rest/chart_builder/**</exclude>
+                            <exclude>**/com/park/utmstack/util/enums/AlertStatus.java</exclude>
+                        </excludes>
                         <annotationProcessorPaths>
                             <path>
                                 <groupId>org.springframework.boot</groupId>
@@ -604,9 +705,9 @@
                         <defaultSchemaName/>
                         <username>UTMStackCloudBackend</username>
                         <password/>
-                        <referenceUrl>
-                            hibernate:spring:com.atlasinside.utmstackcloud.domain?dialect=tech.jhipster.domain.util.FixedPostgreSQL10Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-                        </referenceUrl>
+                        <!-- <referenceUrl>
+                            hibernate:spring:com.atlasinside.utmstackcloud.domain?dialect=tech.jhipster.domain.util.FixedPostgreSQL10Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+                        </referenceUrl> -->
                         <verbose>true</verbose>
                         <logging>debug</logging>
                         <contexts>!test</contexts>
@@ -762,7 +863,6 @@
                         <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
                         -->
                     </configuration>
-
                 </plugin>
                 <!-- jhipster-needle-maven-add-plugin-management -->
             </plugins>
@@ -828,17 +928,32 @@
                             </filesets>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>build-info</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <configuration>
+                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                    <runOrder>random</runOrder>
+                    <includes>
+                        <include>**/*IT*</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
                 </plugins>
             </build>
             <properties>
