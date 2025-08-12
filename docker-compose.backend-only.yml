@@ -1,0 +1,283 @@
+# UTMStack Multi-Tenant Backend-Only Production Docker Compose Configuration
+# Excludes frontend for backend-only deployment
+# Version: 1.0.0
+
+version: '3.8'
+
+networks:
+  utmstack-production:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+  utmstack-monitoring:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+
+volumes:
+  postgres_data:
+    driver: local
+  elasticsearch_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  nginx_logs:
+    driver: local
+
+services:
+  # PostgreSQL Database with Multi-Tenant Support
+  postgres:
+    image: postgres:15-alpine
+    container_name: utmstack-postgres-prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: utmstack_production
+      POSTGRES_USER: utmstack_prod
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-UTMStack2025!Secure}
+      POSTGRES_INITDB_ARGS: "--auth-local=trust --auth-host=md5"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-multi-tenant-db.sql:/docker-entrypoint-initdb.d/01-init-schema.sql
+      - ./fix-policies.sql:/docker-entrypoint-initdb.d/02-fix-policies.sql
+    ports:
+      - "5433:5432"
+    networks:
+      - utmstack-production
+    command: >
+      postgres
+      -c shared_preload_libraries=pg_stat_statements
+      -c max_connections=500
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=4MB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U utmstack_prod -d utmstack_production"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Elasticsearch Single Node (for backend-only deployment)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: utmstack-elasticsearch-prod
+    restart: unless-stopped
+    environment:
+      - node.name=es-node-1
+      - cluster.name=utmstack-production
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+      - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD:-elastic123}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9201:9200"
+      - "9301:9300"
+    networks:
+      - utmstack-production
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # UTMStack Backend (Multi-Tenant)
+  utmstack-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    image: utmstack/backend:multi-tenant-dev
+    container_name: utmstack-backend-prod
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev,multi-tenant
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/utmstack_production
+      - DATABASE_USERNAME=utmstack_prod
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD:-UTMStack2025!Secure}
+      - ELASTICSEARCH_HOSTS=elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD:-elastic123}
+      - JWT_SECRET=${JWT_SECRET:-UTMStackJWTSecret2025MultiTenant}
+      - MULTI_TENANT_ENABLED=true
+      - DATABASE_RLS_ENABLED=true
+      - TENANT_CONTEXT_MANDATORY=true
+      - AUDIT_LOGGING=comprehensive
+      - JVM_OPTS=-Xms1g -Xmx2g -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+    volumes:
+      - ./backend:/app
+      - ./logs:/var/log/utmstack
+    ports:
+      - "8080:8080"
+    networks:
+      - utmstack-production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/management/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  # Correlation Engine (Multi-Tenant)
+  correlation:
+    build:
+      context: ./correlation
+      dockerfile: Dockerfile
+    image: utmstack/correlation:multi-tenant-dev
+    container_name: utmstack-correlation-prod
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=info
+      - ELASTICSEARCH_HOSTS=elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD:-elastic123}
+      - DATABASE_URL=postgres://utmstack_prod:${DATABASE_PASSWORD:-UTMStack2025!Secure}@postgres:5432/utmstack_production?sslmode=disable
+      - MULTI_TENANT_ENABLED=true
+      - TENANT_CONTEXT_HEADER=X-Tenant-ID
+    volumes:
+      - ./logs:/var/log/utmstack
+    networks:
+      - utmstack-production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+
+  # Agent Manager (Multi-Tenant)
+  agent-manager:
+    build:
+      context: ./agent-manager
+      dockerfile: Dockerfile
+    image: utmstack/agent-manager:multi-tenant-dev
+    container_name: utmstack-agent-manager-prod
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=info
+      - GRPC_PORT=9090
+      - DATABASE_URL=postgres://utmstack_prod:${DATABASE_PASSWORD:-UTMStack2025!Secure}@postgres:5432/utmstack_production?sslmode=disable
+      - ELASTICSEARCH_HOSTS=elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD:-elastic123}
+      - MULTI_TENANT_ENABLED=true
+      - JWT_SECRET=${JWT_SECRET:-UTMStackJWTSecret2025MultiTenant}
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./logs:/var/log/utmstack
+    networks:
+      - utmstack-production
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # Redis (Caching and Session Storage)
+  redis:
+    image: redis:7.2-alpine
+    container_name: utmstack-redis-prod
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD:-RedisUTM2025!Cache} --maxmemory 512mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6380:6379"
+    volumes:
+      - /var/lib/redis:/data
+    networks:
+      - utmstack-production
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --raw incr ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus (Monitoring)
+  prometheus:
+    image: prom/prometheus:v2.47.0
+    container_name: utmstack-prometheus-prod
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=15d'
+      - '--web.enable-lifecycle'
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - utmstack-monitoring
+      - utmstack-production
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --spider http://localhost:9090/-/healthy || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Grafana (Dashboards)
+  grafana:
+    image: grafana/grafana:10.1.0
+    container_name: utmstack-grafana-prod
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-grafana123}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+      - GF_SECURITY_DISABLE_GRAVATAR=true
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - utmstack-monitoring
+      - utmstack-production
+    depends_on:
+      - prometheus
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL Exporter (Database Metrics)
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.13.2
+    container_name: utmstack-postgres-exporter-prod
+    restart: unless-stopped
+    environment:
+      - DATA_SOURCE_NAME=postgresql://utmstack_prod:${DATABASE_PASSWORD:-UTMStack2025!Secure}@postgres:5432/utmstack_production?sslmode=disable
+    ports:
+      - "9187:9187"
+    networks:
+      - utmstack-production
+      - utmstack-monitoring
+    depends_on:
+      postgres:
+        condition: service_healthy

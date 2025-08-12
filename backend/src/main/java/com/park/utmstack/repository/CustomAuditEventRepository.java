@@ -1,6 +1,6 @@
 package com.park.utmstack.repository;
 
-import com.park.utmstack.config.Constants;
+// import com.park.utmstack.config.Constants;
 import com.park.utmstack.config.audit.AuditEventConverter;
 import com.park.utmstack.domain.PersistentAuditEvent;
 import org.slf4j.Logger;
@@ -53,7 +53,7 @@ public class CustomAuditEventRepository implements AuditEventRepository {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void add(AuditEvent event) {
         if (!AUTHORIZATION_FAILURE.equals(event.getType()) &&
-            !Constants.ANONYMOUS_USER.equals(event.getPrincipal())) {
+            !"anonymousUser".equals(event.getPrincipal())) {
 
             PersistentAuditEvent persistentAuditEvent = new PersistentAuditEvent();
             persistentAuditEvent.setPrincipal(event.getPrincipal());

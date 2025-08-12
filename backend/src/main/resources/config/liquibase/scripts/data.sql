@@ -17239,7 +17239,7 @@ $$
 
         SET session_replication_role = 'origin';
 
-        perform setval('public.jhi_user_id_seq', (SELECT max(id) FROM jhi_user));
+        -- Removed jhi_user_id_seq as user ID is now UUID
         perform setval('public.utm_alert_tag_id_seq', (SELECT max(id) FROM utm_alert_tag));
         perform setval('public.utm_asset_types_id_seq', (SELECT max(id) FROM utm_asset_types));
         perform setval('public.utm_compliance_report_config_id_seq', (SELECT max(id) FROM utm_compliance_report_config));

@@ -2,16 +2,9 @@ package com.park.utmstack.service.dto.tenant;
 
 public class QuotaCheckResult {
     private boolean allowed;
-    private String reason;
-    private String resourceType;
-
-    public QuotaCheckResult() {}
-
-    public QuotaCheckResult(boolean allowed, String reason, String resourceType) {
-        this.allowed = allowed;
-        this.reason = reason;
-        this.resourceType = resourceType;
-    }
+    private int currentUsage;
+    private int limit;
+    private int requestedAmount;
 
     public boolean isAllowed() {
         return allowed;
@@ -21,19 +14,27 @@ public class QuotaCheckResult {
         this.allowed = allowed;
     }
 
-    public String getReason() {
-        return reason;
+    public int getCurrentUsage() {
+        return currentUsage;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setCurrentUsage(int currentUsage) {
+        this.currentUsage = currentUsage;
     }
 
-    public String getResourceType() {
-        return resourceType;
+    public int getLimit() {
+        return limit;
     }
 
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public int getRequestedAmount() {
+        return requestedAmount;
+    }
+
+    public void setRequestedAmount(int requestedAmount) {
+        this.requestedAmount = requestedAmount;
     }
 }

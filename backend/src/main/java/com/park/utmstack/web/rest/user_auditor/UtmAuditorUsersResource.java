@@ -1,6 +1,6 @@
 package com.park.utmstack.web.rest.user_auditor;
 
-import com.park.utmstack.config.Constants;
+// import com.park.utmstack.config.Constants;
 import com.park.utmstack.service.dto.user_auditor.UtmAuditorUsersDTO;
 import com.park.utmstack.util.UtilResponse;
 import com.park.utmstack.web.rest.user_auditor.dto.MicroserviceRequest;
@@ -35,11 +35,11 @@ public class UtmAuditorUsersResource {
 
     public UtmAuditorUsersResource() {
 
-        if (!StringUtils.hasText(System.getenv(Constants.ENV_AD_AUDIT_SERVICE))) {
-            this.microServiceUrl = "http://user-auditor:8080/api";
-        } else{
-            this.microServiceUrl = System.getenv(Constants.ENV_AD_AUDIT_SERVICE);
-        }
+        // if (!StringUtils.hasText(System.getenv(Constants.ENV_AD_AUDIT_SERVICE))) {
+        //     this.microServiceUrl = "http://user-auditor:8080/api";
+        // } else{
+        //     this.microServiceUrl = System.getenv(Constants.ENV_AD_AUDIT_SERVICE);
+        // }
     }
 
 

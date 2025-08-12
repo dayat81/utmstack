@@ -42,35 +42,31 @@ CREATE INDEX IF NOT EXISTS idx_persistent_audit_evt_data ON public.jhi_persisten
 
 CREATE TABLE IF NOT EXISTS public.jhi_user
 (
-    id                 bigint DEFAULT nextval('public.jhi_user_id_seq'::regclass) NOT NULL,
+    id                 uuid DEFAULT gen_random_uuid()                            NOT NULL,
+    tenant_id          uuid,
     login              character varying(50)                                      NOT NULL,
     password_hash      character varying(60)                                      NOT NULL,
     first_name         character varying(50),
     last_name          character varying(50),
-    email              character varying(191),
+    email              character varying(254),
     image_url          character varying(256),
-    activated          boolean                                                    NOT NULL,
-    lang_key           character varying(6),
+    activated          boolean DEFAULT false,
+    lang_key           character varying(10),
     activation_key     character varying(20),
     reset_key          character varying(20),
-    created_by         character varying(50)                                      NOT NULL,
-    created_date       timestamp without time zone,
+    created_by         character varying(50) DEFAULT 'system',
+    created_date       timestamp without time zone DEFAULT now(),
     reset_date         timestamp without time zone,
     last_modified_by   character varying(50),
-    last_modified_date timestamp without time zone,
-    openvas_user_uuid  character varying(50),
-    openvas_user_id    bigint,
-    tfa_secret         character varying(100),
-    fs_manager         boolean,
-    default_password   boolean,
+    last_modified_date timestamp without time zone DEFAULT now(),
     CONSTRAINT pk_jhi_user PRIMARY KEY (id),
-    CONSTRAINT ux_user_email UNIQUE (email),
-    CONSTRAINT ux_user_login UNIQUE (login)
+    CONSTRAINT ux_user_email_tenant UNIQUE (email, tenant_id),
+    CONSTRAINT ux_user_login_tenant UNIQUE (login, tenant_id)
 );
 
 CREATE TABLE IF NOT EXISTS public.jhi_user_authority
 (
-    user_id        bigint                NOT NULL,
+    user_id        uuid                  NOT NULL,
     authority_name character varying(50) NOT NULL,
     CONSTRAINT jhi_user_authority_pkey PRIMARY KEY (user_id, authority_name),
     CONSTRAINT fk_authority_name FOREIGN KEY (authority_name) REFERENCES public.jhi_authority ("name") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -144,7 +140,7 @@ CREATE TABLE IF NOT EXISTS public.utm_visualization
     chart_config  text,
     chart_type    character varying(50),
     filters       text,
-    id_pattern    bigint,
+    id_pattern    uuid,
     aggregation   text,
     event_type    character varying(50),
     chart_action  text,
@@ -321,7 +317,7 @@ CREATE TABLE IF NOT EXISTS public.utm_compliance_report_config
     config_report_export_csv_url character varying(512),
     standard_section_id          bigint,
     config_report_editable       boolean,
-    dashboard_id                 bigint,
+    dashboard_id                 uuid,
     config_type                  character varying(50),
     config_url                   character varying(255),
     CONSTRAINT pk_utm_compliance_report_config PRIMARY KEY (id),
@@ -361,7 +357,7 @@ CREATE TABLE IF NOT EXISTS public.utm_configuration_parameter
 CREATE TABLE IF NOT EXISTS public.utm_dashboard_authority
 (
     id             bigint DEFAULT nextval('public.utm_dashboard_authority_id_seq'::regclass) NOT NULL,
-    id_dashboard   bigint                                                                    NOT NULL,
+    id_dashboard   uuid                                                                      NOT NULL,
     authority_name character varying(50)                                                     NOT NULL,
     CONSTRAINT pk_utm_dashboard_authority PRIMARY KEY (id),
     CONSTRAINT fk_dashboard_id FOREIGN KEY (id_dashboard) REFERENCES public.utm_dashboard (id) ON DELETE CASCADE
@@ -371,7 +367,7 @@ CREATE TABLE IF NOT EXISTS public.utm_dashboard_visualization
 (
     id                    bigint DEFAULT nextval('public.utm_dashboard_visualization_id_seq'::regclass) NOT NULL,
     id_visualization      bigint                                                                        NOT NULL,
-    id_dashboard          bigint                                                                        NOT NULL,
+    id_dashboard          uuid                                                                          NOT NULL,
     dv_order              smallint,
     dv_width              double precision,
     dv_height             double precision,
@@ -665,7 +661,7 @@ CREATE TABLE IF NOT EXISTS public.utm_menu
     url               text,
     parent_id         bigint,
     type              smallint,
-    dashboard_id      bigint,
+    dashboard_id      uuid,
     "position"        smallint,
     menu_active       boolean DEFAULT true                                        NOT NULL,
     menu_action       boolean DEFAULT false,
@@ -797,7 +793,7 @@ CREATE TABLE IF NOT EXISTS public.utm_report
     rep_name          character varying(255),
     rep_description   character varying(1000),
     report_section_id bigint,
-    dashboard_id      bigint,
+    dashboard_id      uuid,
     creation_user     character varying(255),
     creation_date     timestamp without time zone,
     modification_user character varying(255),

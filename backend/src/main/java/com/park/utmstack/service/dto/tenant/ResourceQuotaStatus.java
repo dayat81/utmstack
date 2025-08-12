@@ -1,41 +1,33 @@
 package com.park.utmstack.service.dto.tenant;
 
-import java.util.UUID;
+import java.util.Map;
 
 public class ResourceQuotaStatus {
-    private UUID tenantId;
-    private boolean withinLimits;
-    private String message;
+    private String overallStatus;
+    private Map<String, Integer> usage;
+    private Map<String, Integer> limits;
 
-    public ResourceQuotaStatus() {}
-
-    public ResourceQuotaStatus(UUID tenantId, boolean withinLimits, String message) {
-        this.tenantId = tenantId;
-        this.withinLimits = withinLimits;
-        this.message = message;
+    public String getOverallStatus() {
+        return overallStatus;
     }
 
-    public UUID getTenantId() {
-        return tenantId;
+    public void setOverallStatus(String overallStatus) {
+        this.overallStatus = overallStatus;
     }
 
-    public void setTenantId(UUID tenantId) {
-        this.tenantId = tenantId;
+    public Map<String, Integer> getUsage() {
+        return usage;
     }
 
-    public boolean isWithinLimits() {
-        return withinLimits;
+    public void setUsage(Map<String, Integer> usage) {
+        this.usage = usage;
     }
 
-    public void setWithinLimits(boolean withinLimits) {
-        this.withinLimits = withinLimits;
+    public Map<String, Integer> getLimits() {
+        return limits;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setLimits(Map<String, Integer> limits) {
+        this.limits = limits;
     }
 }

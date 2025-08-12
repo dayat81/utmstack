@@ -12,9 +12,9 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
-        username: ${DB_USER}
-        password: ${DB_PASS}
+        url: ${DATABASE_URL:jdbc:postgresql://postgres:5432/utmstack_production}
+        username: ${DATABASE_USERNAME:utmstack_prod}
+        password: ${DATABASE_PASSWORD:UTMStack2025!Secure}
         hikari:
             poolName: Hikari
             auto-commit: false
@@ -22,9 +22,10 @@ spring:
         database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
     elasticsearch: # This configuration is for the elasticsearch health indicator, please do not remove
         rest:
-            uris: http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}
+            uris: ${ELASTICSEARCH_HOSTS:http://elasticsearch:9200}
     liquibase:
         contexts: prod
+        change-log: classpath:config/liquibase/master.xml
     mail:
         host: localhost
         port: 25
@@ -69,8 +70,8 @@ application:
 
 grpc:
     server:
-        address: ${GRPC_AGENT_MANAGER_HOST}
-        port: ${GRPC_AGENT_MANAGER_PORT}
+        address: ${GRPC_AGENT_MANAGER_HOST:agent-manager}
+        port: ${GRPC_AGENT_MANAGER_PORT:9090}
 
 management:
     info:

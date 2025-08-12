@@ -1,466 +1,237 @@
 package com.park.utmstack.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.park.utmstack.domain.UtmTenant;
+import com.park.utmstack.domain.UtmTenantConfig;
 import com.park.utmstack.repository.UtmTenantRepository;
+import com.park.utmstack.repository.UtmTenantConfigRepository;
+import com.park.utmstack.service.dto.tenant.QuotaCheckResult;
+import com.park.utmstack.service.dto.tenant.ResourceQuotaStatus;
+import com.park.utmstack.service.dto.tenant.TenantResourceUsage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Service for managing tenant resource quotas and monitoring usage.
- * Enforces limits based on tier and tracks resource consumption.
- */
 @Service
 @Transactional
 public class TenantResourceQuotaService {
 
     private static final Logger log = LoggerFactory.getLogger(TenantResourceQuotaService.class);
 
-    private final UtmTenantRepository tenantRepository;
-    private final ObjectMapper objectMapper;
-    
-    // In-memory cache for quota enforcement (would be Redis in production)
-    private final Map<UUID, TenantResourceUsage> usageCache = new ConcurrentHashMap<>();
+    @Autowired
+    private UtmTenantRepository tenantRepository;
 
-    public TenantResourceQuotaService(UtmTenantRepository tenantRepository) {
-        this.tenantRepository = tenantRepository;
-        this.objectMapper = new ObjectMapper();
-    }
+    @Autowired
+    private UtmTenantConfigRepository tenantConfigRepository;
 
-    /**
-     * Initialize quotas for a new tenant based on tier
-     */
-    public void initializeTenantQuotas(UUID tenantId, String tier) {
-        log.info("Initializing resource quotas for tenant: {}, tier: {}", tenantId, tier);
+    // In-memory cache for resource usage tracking
+    private final Map<UUID, Map<String, Integer>> resourceUsageCache = new ConcurrentHashMap<>();
 
-        UtmTenant tenant = tenantRepository.findById(tenantId)
-            .orElseThrow(() -> new IllegalArgumentException("Tenant not found: " + tenantId));
+    private static final Map<String, Integer> DEFAULT_QUOTAS = Map.of(
+        "max_users", 100,
+        "max_dashboards", 50,
+        "max_alerts", 1000,
+        "max_storage_gb", 10
+    );
 
-        // Set resource limits based on tier
-        String resourceLimits = generateResourceLimitsForTier(tier);
-        tenant.setResourceLimits(resourceLimits);
-        tenant.setUpdatedAt(Instant.now());
-        tenantRepository.save(tenant);
-
-        // Initialize usage tracking
-        TenantResourceUsage usage = new TenantResourceUsage();
-        usage.setTenantId(tenantId);
-        usage.setLastUpdated(LocalDateTime.now());
-        usageCache.put(tenantId, usage);
-
-        log.info("Resource quotas initialized for tenant: {}", tenantId);
-    }
-
-    /**
-     * Check if resource usage is within limits
-     */
-    public QuotaCheckResult checkResourceQuota(UUID tenantId, String resourceType, int requestedAmount) {
-        try {
-            UtmTenant tenant = tenantRepository.findById(tenantId)
-                .orElseThrow(() -> new IllegalArgumentException("Tenant not found: " + tenantId));
-
-            JsonNode limits = objectMapper.readTree(tenant.getResourceLimits());
-            TenantResourceUsage usage = getOrCreateUsage(tenantId);
-
-            return performQuotaCheck(limits, usage, resourceType, requestedAmount);
-
-        } catch (Exception e) {
-            log.error("Error checking resource quota for tenant: {}", tenantId, e);
-            return QuotaCheckResult.error("Error checking quota: " + e.getMessage());
+    public static class QuotaExceededException extends RuntimeException {
+        public QuotaExceededException(String message) {
+            super(message);
         }
     }
 
-    /**
-     * Record resource usage
-     */
-    public void recordResourceUsage(UUID tenantId, String resourceType, int amount) {
-        try {
-            TenantResourceUsage usage = getOrCreateUsage(tenantId);
-            
-            switch (resourceType.toLowerCase()) {
-                case "users":
-                    usage.setCurrentUsers(usage.getCurrentUsers() + amount);
-                    break;
-                case "dashboards":
-                    usage.setCurrentDashboards(usage.getCurrentDashboards() + amount);
-                    break;
-                case "alerts":
-                    usage.setAlertsToday(usage.getAlertsToday() + amount);
-                    break;
-                case "storage_mb":
-                    usage.setStorageUsedMb(usage.getStorageUsedMb() + amount);
-                    break;
-                default:
-                    log.warn("Unknown resource type: {}", resourceType);
-                    return;
-            }
+    public static class QuotaViolationEvent {
+        private UUID tenantId;
+        private String resource;
+        private int currentUsage;
+        private int limit;
 
-            usage.setLastUpdated(LocalDateTime.now());
-            usageCache.put(tenantId, usage);
-
-            // Persist usage periodically or on significant changes
-            if (shouldPersistUsage(usage)) {
-                persistUsageMetrics(tenantId, usage);
-            }
-
-        } catch (Exception e) {
-            log.error("Error recording resource usage for tenant: {}", tenantId, e);
+        public QuotaViolationEvent(UUID tenantId, String resource, int currentUsage, int limit) {
+            this.tenantId = tenantId;
+            this.resource = resource;
+            this.currentUsage = currentUsage;
+            this.limit = limit;
         }
+
+        public UUID getTenantId() { return tenantId; }
+        public String getResource() { return resource; }
+        public int getCurrentUsage() { return currentUsage; }
+        public int getLimit() { return limit; }
     }
 
-    /**
-     * Get current resource usage for tenant
-     */
-    public TenantResourceUsage getTenantResourceUsage(UUID tenantId) {
-        return getOrCreateUsage(tenantId);
-    }
-
-    /**
-     * Get resource quota status
-     */
     public ResourceQuotaStatus getResourceQuotaStatus(UUID tenantId) {
         try {
-            UtmTenant tenant = tenantRepository.findById(tenantId)
-                .orElseThrow(() -> new IllegalArgumentException("Tenant not found: " + tenantId));
-
-            JsonNode limits = objectMapper.readTree(tenant.getResourceLimits());
-            TenantResourceUsage usage = getOrCreateUsage(tenantId);
-
-            ResourceQuotaStatus status = new ResourceQuotaStatus();
-            status.setTenantId(tenantId);
-            status.setTier(tenant.getTier());
-
-            // Calculate usage percentages
-            status.setUserUsage(calculateUsagePercentage(usage.getCurrentUsers(), limits.get("max_users").asInt()));
-            status.setDashboardUsage(calculateUsagePercentage(usage.getCurrentDashboards(), limits.get("max_dashboards").asInt()));
-            status.setStorageUsage(calculateUsagePercentage(usage.getStorageUsedMb(), limits.get("storage_gb").asInt() * 1024));
-            status.setDailyAlertUsage(calculateUsagePercentage(usage.getAlertsToday(), limits.get("max_alerts_per_day").asInt()));
-
-            // Determine overall status
-            double maxUsage = Math.max(Math.max(status.getUserUsage(), status.getDashboardUsage()),
-                                     Math.max(status.getStorageUsage(), status.getDailyAlertUsage()));
-            
-            if (maxUsage >= 95) {
-                status.setOverallStatus("CRITICAL");
-            } else if (maxUsage >= 80) {
-                status.setOverallStatus("WARNING");
-            } else {
-                status.setOverallStatus("OK");
+            UtmTenant tenant = tenantRepository.findById(tenantId).orElse(null);
+            if (tenant == null) {
+                ResourceQuotaStatus status = new ResourceQuotaStatus();
+                status.setOverallStatus("TENANT_NOT_FOUND");
+                return status;
             }
 
+            Map<String, Integer> usage = getTenantResourceUsage(tenantId).getUsage();
+            Map<String, Integer> limits = getTenantResourceLimits(tenantId);
+
+            boolean withinLimits = true;
+            for (String resource : usage.keySet()) {
+                int currentUsage = usage.get(resource);
+                int limit = limits.getOrDefault(resource, DEFAULT_QUOTAS.getOrDefault(resource, Integer.MAX_VALUE));
+                if (currentUsage > limit) {
+                    withinLimits = false;
+                    break;
+                }
+            }
+
+            ResourceQuotaStatus status = new ResourceQuotaStatus();
+            status.setOverallStatus(withinLimits ? "WITHIN_LIMITS" : "QUOTA_EXCEEDED");
+            status.setUsage(usage);
+            status.setLimits(limits);
             return status;
 
         } catch (Exception e) {
-            log.error("Error getting resource quota status for tenant: {}", tenantId, e);
-            ResourceQuotaStatus errorStatus = new ResourceQuotaStatus();
-            errorStatus.setTenantId(tenantId);
-            errorStatus.setOverallStatus("ERROR");
-            return errorStatus;
+            log.error("Failed to get resource quota status for tenant: {}", tenantId, e);
+            ResourceQuotaStatus status = new ResourceQuotaStatus();
+            status.setOverallStatus("ERROR");
+            return status;
         }
     }
 
-    /**
-     * Check if quotas are properly configured for tenant
-     */
-    public boolean areQuotasConfigured(UUID tenantId) {
+    public void updateTenantResourceLimits(UUID tenantId, Map<String, Integer> resourceLimits) {
         try {
             UtmTenant tenant = tenantRepository.findById(tenantId).orElse(null);
-            if (tenant == null || tenant.getResourceLimits() == null) {
-                return false;
+            if (tenant == null) {
+                throw new RuntimeException("Tenant not found: " + tenantId);
             }
 
-            JsonNode limits = objectMapper.readTree(tenant.getResourceLimits());
-            return limits.has("max_users") && limits.has("max_dashboards") && 
-                   limits.has("max_alerts_per_day") && limits.has("storage_gb");
+            for (Map.Entry<String, Integer> entry : resourceLimits.entrySet()) {
+                String configKey = entry.getKey();
+                String configValue = entry.getValue().toString();
 
-        } catch (Exception e) {
-            log.error("Error checking quota configuration for tenant: {}", tenantId, e);
-            return false;
-        }
-    }
+                UtmTenantConfig config = tenantConfigRepository
+                    .findByTenantIdAndConfigKey(tenantId, configKey)
+                    .orElse(new UtmTenantConfig());
 
-    /**
-     * Update tenant resource limits
-     */
-    public void updateTenantResourceLimits(UUID tenantId, Map<String, Integer> newLimits) {
-        try {
-            UtmTenant tenant = tenantRepository.findById(tenantId)
-                .orElseThrow(() -> new IllegalArgumentException("Tenant not found: " + tenantId));
+                config.setTenant(tenant);
+                config.setConfigKey(configKey);
+                config.setConfigValue(configValue);
+                config.setConfigType("LIMIT");
 
-            JsonNode currentLimits = objectMapper.readTree(tenant.getResourceLimits());
-            Map<String, Object> updatedLimits = objectMapper.convertValue(currentLimits, Map.class);
-            
-            newLimits.forEach(updatedLimits::put);
-            
-            String updatedLimitsJson = objectMapper.writeValueAsString(updatedLimits);
-            tenant.setResourceLimits(updatedLimitsJson);
-            tenant.setUpdatedAt(Instant.now());
-            tenantRepository.save(tenant);
+                tenantConfigRepository.save(config);
+            }
 
             log.info("Updated resource limits for tenant: {}", tenantId);
-
         } catch (Exception e) {
-            log.error("Error updating resource limits for tenant: {}", tenantId, e);
+            log.error("Failed to update resource limits for tenant: {}", tenantId, e);
             throw new RuntimeException("Failed to update resource limits", e);
         }
     }
 
-    /**
-     * Reset daily usage counters (called by scheduled job)
-     */
-    public void resetDailyUsageCounters() {
-        log.info("Resetting daily usage counters for all tenants");
-        
-        usageCache.values().forEach(usage -> {
-            usage.setAlertsToday(0);
-            usage.setLastUpdated(LocalDateTime.now());
-        });
-    }
-
-    /**
-     * Cleanup tenant quotas during deprovisioning
-     */
-    public void cleanupTenantQuotas(UUID tenantId) {
-        log.info("Cleaning up quotas for tenant: {}", tenantId);
-        usageCache.remove(tenantId);
-    }
-
-    private TenantResourceUsage getOrCreateUsage(UUID tenantId) {
-        return usageCache.computeIfAbsent(tenantId, id -> {
-            TenantResourceUsage usage = new TenantResourceUsage();
-            usage.setTenantId(id);
-            usage.setLastUpdated(LocalDateTime.now());
-            return usage;
-        });
-    }
-
-    private QuotaCheckResult performQuotaCheck(JsonNode limits, TenantResourceUsage usage, 
-                                             String resourceType, int requestedAmount) {
-        switch (resourceType.toLowerCase()) {
-            case "users":
-                int maxUsers = limits.get("max_users").asInt();
-                int currentUsers = usage.getCurrentUsers();
-                if (currentUsers + requestedAmount > maxUsers) {
-                    return QuotaCheckResult.denied("User limit exceeded", maxUsers, currentUsers);
-                }
-                break;
-                
-            case "dashboards":
-                int maxDashboards = limits.get("max_dashboards").asInt();
-                int currentDashboards = usage.getCurrentDashboards();
-                if (currentDashboards + requestedAmount > maxDashboards) {
-                    return QuotaCheckResult.denied("Dashboard limit exceeded", maxDashboards, currentDashboards);
-                }
-                break;
-                
-            case "alerts":
-                int maxAlerts = limits.get("max_alerts_per_day").asInt();
-                int currentAlerts = usage.getAlertsToday();
-                if (currentAlerts + requestedAmount > maxAlerts) {
-                    return QuotaCheckResult.denied("Daily alert limit exceeded", maxAlerts, currentAlerts);
-                }
-                break;
-                
-            case "storage_mb":
-                int maxStorageGb = limits.get("storage_gb").asInt();
-                int maxStorageMb = maxStorageGb * 1024;
-                int currentStorageMb = usage.getStorageUsedMb();
-                if (currentStorageMb + requestedAmount > maxStorageMb) {
-                    return QuotaCheckResult.denied("Storage limit exceeded", maxStorageMb, currentStorageMb);
-                }
-                break;
-                
-            default:
-                return QuotaCheckResult.error("Unknown resource type: " + resourceType);
-        }
-        
-        return QuotaCheckResult.allowed();
-    }
-
-    private String generateResourceLimitsForTier(String tier) {
-        Map<String, Integer> limits = new HashMap<>();
-        
-        switch (tier.toLowerCase()) {
-            case "enterprise":
-                limits.put("max_users", 1000);
-                limits.put("max_dashboards", 100);
-                limits.put("max_alerts_per_day", 1000000);
-                limits.put("storage_gb", 1000);
-                break;
-            case "professional":
-                limits.put("max_users", 100);
-                limits.put("max_dashboards", 50);
-                limits.put("max_alerts_per_day", 100000);
-                limits.put("storage_gb", 100);
-                break;
-            case "standard":
-            default:
-                limits.put("max_users", 25);
-                limits.put("max_dashboards", 10);
-                limits.put("max_alerts_per_day", 10000);
-                limits.put("storage_gb", 10);
-                break;
-        }
-        
+    public TenantResourceUsage getTenantResourceUsage(UUID tenantId) {
         try {
-            return objectMapper.writeValueAsString(limits);
-        } catch (JsonProcessingException e) {
-            log.error("Error serializing resource limits", e);
-            return "{}";
+            Map<String, Integer> usage = resourceUsageCache.getOrDefault(tenantId, new HashMap<>());
+            
+            // Initialize with zero usage if not exists
+            for (String resource : DEFAULT_QUOTAS.keySet()) {
+                usage.putIfAbsent(resource, 0);
+            }
+
+            TenantResourceUsage resourceUsage = new TenantResourceUsage();
+            resourceUsage.setUsage(usage);
+            return resourceUsage;
+
+        } catch (Exception e) {
+            log.error("Failed to get resource usage for tenant: {}", tenantId, e);
+            TenantResourceUsage resourceUsage = new TenantResourceUsage();
+            resourceUsage.setUsage(new HashMap<>());
+            return resourceUsage;
         }
     }
 
-    private double calculateUsagePercentage(int current, int max) {
-        if (max == 0) return 0.0;
-        return (double) current / max * 100.0;
-    }
+    public QuotaCheckResult checkResourceQuota(UUID tenantId, String resource, int amount) {
+        try {
+            Map<String, Integer> usage = getTenantResourceUsage(tenantId).getUsage();
+            Map<String, Integer> limits = getTenantResourceLimits(tenantId);
 
-    private boolean shouldPersistUsage(TenantResourceUsage usage) {
-        // Persist every 5 minutes or on significant changes
-        return usage.getLastUpdated().isBefore(LocalDateTime.now().minusMinutes(5));
-    }
+            int currentUsage = usage.getOrDefault(resource, 0);
+            int limit = limits.getOrDefault(resource, DEFAULT_QUOTAS.getOrDefault(resource, Integer.MAX_VALUE));
 
-    private void persistUsageMetrics(UUID tenantId, TenantResourceUsage usage) {
-        // In production, this would persist to database or metrics store
-        log.debug("Persisting usage metrics for tenant: {} - Users: {}, Dashboards: {}, Storage: {}MB, Alerts: {}",
-                tenantId, usage.getCurrentUsers(), usage.getCurrentDashboards(), 
-                usage.getStorageUsedMb(), usage.getAlertsToday());
-    }
+            boolean allowed = (currentUsage + amount) <= limit;
 
-    // Inner classes for data models
-    public static class TenantResourceUsage {
-        private UUID tenantId;
-        private int currentUsers = 0;
-        private int currentDashboards = 0;
-        private int alertsToday = 0;
-        private int storageUsedMb = 0;
-        private LocalDateTime lastUpdated;
-
-        // Getters and setters
-        public UUID getTenantId() { return tenantId; }
-        public void setTenantId(UUID tenantId) { this.tenantId = tenantId; }
-
-        public int getCurrentUsers() { return currentUsers; }
-        public void setCurrentUsers(int currentUsers) { this.currentUsers = currentUsers; }
-
-        public int getCurrentDashboards() { return currentDashboards; }
-        public void setCurrentDashboards(int currentDashboards) { this.currentDashboards = currentDashboards; }
-
-        public int getAlertsToday() { return alertsToday; }
-        public void setAlertsToday(int alertsToday) { this.alertsToday = alertsToday; }
-
-        public int getStorageUsedMb() { return storageUsedMb; }
-        public void setStorageUsedMb(int storageUsedMb) { this.storageUsedMb = storageUsedMb; }
-
-        public LocalDateTime getLastUpdated() { return lastUpdated; }
-        public void setLastUpdated(LocalDateTime lastUpdated) { this.lastUpdated = lastUpdated; }
-    }
-
-    public static class QuotaCheckResult {
-        private boolean allowed;
-        private String reason;
-        private int limit;
-        private int current;
-
-        public static QuotaCheckResult allowed() {
             QuotaCheckResult result = new QuotaCheckResult();
-            result.allowed = true;
+            result.setAllowed(allowed);
+            result.setCurrentUsage(currentUsage);
+            result.setLimit(limit);
+            result.setRequestedAmount(amount);
+
+            if (!allowed) {
+                log.warn("Quota check failed for tenant {} resource {}: current={}, requested={}, limit={}", 
+                    tenantId, resource, currentUsage, amount, limit);
+            }
+
+            return result;
+
+        } catch (Exception e) {
+            log.error("Failed to check resource quota for tenant: {} resource: {}", tenantId, resource, e);
+            QuotaCheckResult result = new QuotaCheckResult();
+            result.setAllowed(false);
             return result;
         }
-
-        public static QuotaCheckResult denied(String reason, int limit, int current) {
-            QuotaCheckResult result = new QuotaCheckResult();
-            result.allowed = false;
-            result.reason = reason;
-            result.limit = limit;
-            result.current = current;
-            return result;
-        }
-
-        public static QuotaCheckResult error(String reason) {
-            QuotaCheckResult result = new QuotaCheckResult();
-            result.allowed = false;
-            result.reason = reason;
-            return result;
-        }
-
-        // Getters and setters
-        public boolean isAllowed() { return allowed; }
-        public void setAllowed(boolean allowed) { this.allowed = allowed; }
-
-        public String getReason() { return reason; }
-        public void setReason(String reason) { this.reason = reason; }
-
-        public int getLimit() { return limit; }
-        public void setLimit(int limit) { this.limit = limit; }
-
-        public int getCurrent() { return current; }
-        public void setCurrent(int current) { this.current = current; }
     }
 
-    public static class ResourceQuotaStatus {
-        private UUID tenantId;
-        private String tier;
-        private String overallStatus;
-        private double userUsage;
-        private double dashboardUsage;
-        private double storageUsage;
-        private double dailyAlertUsage;
+    public void recordResourceUsage(UUID tenantId, String resource, int amount) {
+        try {
+            resourceUsageCache.computeIfAbsent(tenantId, k -> new ConcurrentHashMap<>());
+            resourceUsageCache.get(tenantId).merge(resource, amount, Integer::sum);
 
-        // Getters and setters
-        public UUID getTenantId() { return tenantId; }
-        public void setTenantId(UUID tenantId) { this.tenantId = tenantId; }
+            log.debug("Recorded resource usage for tenant {} resource {}: +{}", tenantId, resource, amount);
 
-        public String getTier() { return tier; }
-        public void setTier(String tier) { this.tier = tier; }
-
-        public String getOverallStatus() { return overallStatus; }
-        public void setOverallStatus(String overallStatus) { this.overallStatus = overallStatus; }
-
-        public double getUserUsage() { return userUsage; }
-        public void setUserUsage(double userUsage) { this.userUsage = userUsage; }
-
-        public double getDashboardUsage() { return dashboardUsage; }
-        public void setDashboardUsage(double dashboardUsage) { this.dashboardUsage = dashboardUsage; }
-
-        public double getStorageUsage() { return storageUsage; }
-        public void setStorageUsage(double storageUsage) { this.storageUsage = storageUsage; }
-
-        public double getDailyAlertUsage() { return dailyAlertUsage; }
-        public void setDailyAlertUsage(double dailyAlertUsage) { this.dailyAlertUsage = dailyAlertUsage; }
+        } catch (Exception e) {
+            log.error("Failed to record resource usage for tenant: {} resource: {}", tenantId, resource, e);
+        }
     }
 
-    // Event class for quota violations
-    public static class QuotaViolationEvent {
-        private final UUID tenantId;
-        private final String resourceType;
-        private final long currentUsage;
-        private final long quotaLimit;
-        private final double usagePercentage;
+    private Map<String, Integer> getTenantResourceLimits(UUID tenantId) {
+        Map<String, Integer> limits = new HashMap<>(DEFAULT_QUOTAS);
 
-        public QuotaViolationEvent(UUID tenantId, String resourceType, long currentUsage, long quotaLimit, double usagePercentage) {
-            this.tenantId = tenantId;
-            this.resourceType = resourceType;
-            this.currentUsage = currentUsage;
-            this.quotaLimit = quotaLimit;
-            this.usagePercentage = usagePercentage;
+        try {
+            var configs = tenantConfigRepository.findByTenantIdAndConfigType(tenantId, "LIMIT");
+            for (UtmTenantConfig config : configs) {
+                try {
+                    int value = Integer.parseInt(config.getConfigValue());
+                    limits.put(config.getConfigKey(), value);
+                } catch (NumberFormatException e) {
+                    log.warn("Invalid limit value for tenant {} config {}: {}", 
+                        tenantId, config.getConfigKey(), config.getConfigValue());
+                }
+            }
+        } catch (Exception e) {
+            log.error("Failed to get resource limits for tenant: {}", tenantId, e);
         }
 
-        public UUID getTenantId() { return tenantId; }
-        public String getResourceType() { return resourceType; }
-        public long getCurrentUsage() { return currentUsage; }
-        public long getQuotaLimit() { return quotaLimit; }
-        public double getUsagePercentage() { return usagePercentage; }
+        return limits;
+    }
+
+    public void incrementResourceUsage(UUID tenantId, String resource) {
+        recordResourceUsage(tenantId, resource, 1);
+    }
+
+    public void decrementResourceUsage(UUID tenantId, String resource) {
+        recordResourceUsage(tenantId, resource, -1);
+    }
+
+    public boolean enforceQuota(UUID tenantId, String resource, int amount) {
+        QuotaCheckResult result = checkResourceQuota(tenantId, resource, amount);
+        if (!result.isAllowed()) {
+            throw new QuotaExceededException(
+                String.format("Quota exceeded for resource %s: current=%d, requested=%d, limit=%d",
+                    resource, result.getCurrentUsage(), amount, result.getLimit()));
+        }
+        recordResourceUsage(tenantId, resource, amount);
+        return true;
     }
 }

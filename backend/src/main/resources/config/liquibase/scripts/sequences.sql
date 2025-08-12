@@ -12,12 +12,7 @@ CREATE SEQUENCE IF NOT EXISTS public.jhi_persistent_audit_event_event_id_seq
     NO MAXVALUE
     CACHE 1;
 
-CREATE SEQUENCE IF NOT EXISTS public.jhi_user_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+-- Removed jhi_user_id_seq as user ID is now UUID
 
 CREATE SEQUENCE IF NOT EXISTS public.utm_agent_manager_id_seq
     START WITH 1

@@ -1,6 +1,6 @@
 package com.park.utmstack.security;
 
-import com.park.utmstack.config.Constants;
+// import com.park.utmstack.config.Constants;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +14,6 @@ public class SpringSecurityAuditorAware implements AuditorAware<String> {
 
     @Override
     public Optional<String> getCurrentAuditor() {
-        return Optional.of(SecurityUtils.getCurrentUserLogin().orElse(Constants.SYSTEM_ACCOUNT));
+        return Optional.of(SecurityUtils.getCurrentUserLogin().orElse("system"));
     }
 }

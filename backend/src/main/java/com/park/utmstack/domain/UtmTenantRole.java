@@ -169,6 +169,13 @@ public class UtmTenantRole implements Serializable {
         this.parentRole = parentRole;
     }
 
+    public void setTenantId(UUID tenantId) {
+        if (this.tenant == null) {
+            this.tenant = new UtmTenant();
+        }
+        this.tenant.setId(tenantId);
+    }
+
     @PreUpdate
     public void preUpdate() {
         this.updatedAt = Instant.now();
