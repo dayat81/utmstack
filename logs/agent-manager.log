@@ -1,0 +1,20 @@
+panic: failed to connect to `user=postgres database=`: [::1]:5432 (localhost): failed SASL auth: FATAL: password authentication failed for user "postgres" (SQLSTATE 28P01)
+
+goroutine 1 [running]:
+github.com/utmstack/UTMStack/agent-manager/config.InitDb.func1()
+	/home/hidayat/utmstack/agent-manager/config/db.go:31 +0x33a
+sync.(*Once).doSlow(0xc000271db0?, 0x4781c5?)
+	/home/hidayat/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.2.linux-amd64/src/sync/once.go:78 +0xab
+sync.(*Once).Do(...)
+	/home/hidayat/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.2.linux-amd64/src/sync/once.go:69
+github.com/utmstack/UTMStack/agent-manager/config.InitDb()
+	/home/hidayat/utmstack/agent-manager/config/db.go:19 +0x2c
+github.com/utmstack/UTMStack/agent-manager/config.GetDB(...)
+	/home/hidayat/utmstack/agent-manager/config/db.go:38
+github.com/utmstack/UTMStack/agent-manager/repository.GetLastSeenRepository(...)
+	/home/hidayat/utmstack/agent-manager/repository/last_seen_repository.go:16
+github.com/utmstack/UTMStack/agent-manager/service.NewLastSeenService()
+	/home/hidayat/utmstack/agent-manager/service/last_seen_service.go:22 +0x25
+github.com/utmstack/UTMStack/agent-manager/agent.init()
+	/home/hidayat/utmstack/agent-manager/agent/utmgrpc.go:16 +0xabf
+exit status 2

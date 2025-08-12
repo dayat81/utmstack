@@ -3,7 +3,8 @@ package com.park.utmstack.service.elasticsearch;
 import com.park.utmstack.domain.UtmTenant;
 import com.park.utmstack.service.TenantService;
 import org.opensearch.client.opensearch.indices.PutIndexTemplateRequest;
-import org.opensearch.client.opensearch.ilm.PutLifecycleRequest;
+// Temporarily commented out - OpenSearch ILM not available
+// import org.opensearch.client.opensearch.ilm.PutLifecycleRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

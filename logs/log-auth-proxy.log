@@ -1,0 +1,4 @@
+2025-08-10T12:02:18.019815833Z INFO 58323117-fd48-49c1-afc4-661f696773bb /home/hidayat/utmstack/log-auth-proxy/main.go 20 Starting Log Auth Proxy...
+2025-08-10T12:02:18.019956413Z ERROR 4edd01af-5786-4e86-b49d-0c1790e3d512 /home/hidayat/utmstack/log-auth-proxy/logservice/auth_service.go 124 Failed to get connection key: Get "/api/federation-service/token": unsupported protocol scheme ""
+2025-08-10T12:02:18.019970923Z ERROR f572295b-dd1c-4042-aeb7-78d000d3db40 /home/hidayat/utmstack/log-auth-proxy/logservice/auth_service.go 57 Failed to get the SERVER_ADDRESS 
+exit status 1
