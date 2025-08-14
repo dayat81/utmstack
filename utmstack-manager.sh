@@ -32,9 +32,11 @@ print_usage() {
     echo -e "  ${GREEN}stop${NC}    - Stop all UTMStack services"
     echo -e "  ${GREEN}status${NC}  - Show status of all services"
     echo -e "  ${GREEN}restart${NC} - Restart all services (stop + start)"
+    echo -e "  ${GREEN}init${NC}    - Run initial setup (admin:admin, disable 2FA)"
     echo -e ""
     echo -e "Examples:"
     echo -e "  $0 start     # Start all services"
+    echo -e "  $0 init      # Configure admin:admin credentials and disable 2FA"
     echo -e "  $0 status    # Check service status"
     echo -e "  $0 stop      # Stop all services"
 }
@@ -227,6 +229,10 @@ start_all_services() {
     echo -e "\n${BLUE}Logs:${NC}"
     echo -e "  Frontend: $LOG_DIR/frontend.log"
     echo -e "  Docker services: 'docker-compose logs [service]'"
+    
+    echo -e "\n${YELLOW}⚡ NEXT: Run initial setup to configure admin credentials:${NC}"
+    echo -e "  ${CYAN}./initial-setup.sh${NC}"
+    echo -e "  or: ${CYAN}./utmstack-manager.sh init${NC}"
 }
 
 # Function to stop all services
@@ -260,6 +266,19 @@ show_status() {
     echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 }
 
+# Function to run initial setup
+run_initial_setup() {
+    echo -e "${BLUE}Running UTMStack Initial Setup...${NC}"
+    
+    if [ -f "$BASE_DIR/initial-setup.sh" ]; then
+        "$BASE_DIR/initial-setup.sh"
+    else
+        echo -e "${RED}✗ initial-setup.sh not found${NC}"
+        echo -e "${YELLOW}Please ensure initial-setup.sh is in the same directory as this script${NC}"
+        exit 1
+    fi
+}
+
 # Main execution
 case "${1:-}" in
     start)
@@ -277,6 +296,9 @@ case "${1:-}" in
         echo -e "\n${BLUE}Waiting before restart...${NC}"
         sleep 5
         start_all_services
+        ;;
+    init)
+        run_initial_setup
         ;;
     *)
         print_usage

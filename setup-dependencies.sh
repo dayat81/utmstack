@@ -15,7 +15,7 @@ PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
 # Base directory
-BASE_DIR="/home/ptsec/utmstack"
+BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 CONFIG_FILE="$BASE_DIR/config/utmstack.yml"
 
 # System information
@@ -96,7 +96,7 @@ setup_nodejs() {
     
     # Install global packages
     echo -e "${BLUE}Installing global npm packages...${NC}"
-    sudo npm install -g @angular/cli@7.3.6 || npm install -g @angular/cli@7.3.6
+    sudo npm install -g @angular/cli@7.3.9 || npm install -g @angular/cli@7.3.9
     
     echo -e "${GREEN}✓ Node.js setup complete${NC}"
 }
@@ -321,22 +321,9 @@ setup_docker() {
     else
         echo -e "${BLUE}Installing Docker...${NC}"
         
-        # Install prerequisites
-        install_package apt-transport-https
-        install_package ca-certificates
-        install_package curl
-        install_package gnupg
-        install_package lsb-release
-        
-        # Add Docker's official GPG key
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-        
-        # Add Docker repository
-        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-        
-        # Install Docker
-        sudo apt-get update
-        sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+        # Try Ubuntu package first (simpler and more reliable)
+        install_package docker.io
+        install_package containerd
     fi
     
     # Check if Docker service is running
@@ -362,11 +349,95 @@ setup_docker() {
         echo -e "${GREEN}✓ Docker Compose already installed${NC}"
     else
         echo -e "${BLUE}Installing Docker Compose...${NC}"
-        sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
+        
+        # Try package manager first
+        if install_package docker-compose-plugin 2>/dev/null || install_package docker-compose 2>/dev/null; then
+            echo -e "${GREEN}✓ Docker Compose installed via package manager${NC}"
+        else
+            echo -e "${YELLOW}Package manager version not available, installing via pip...${NC}"
+            if ! command_exists pip3; then
+                install_package python3-pip
+            fi
+            # Install with break-system-packages for Ubuntu 24.04+
+            sudo pip3 install --break-system-packages docker-compose 2>/dev/null || pip3 install docker-compose
+        fi
     fi
     
     echo -e "${GREEN}✓ Docker setup complete${NC}"
+}
+
+# Function to setup Playwright and testing dependencies
+setup_playwright() {
+    print_section "Playwright and Testing Dependencies Setup"
+    
+    # Install Playwright via npm if Node.js is available
+    if command_exists npm; then
+        echo -e "${BLUE}Installing Playwright...${NC}"
+        npm install -D @playwright/test 2>/dev/null || {
+            echo -e "${YELLOW}Installing Playwright globally...${NC}"
+            sudo npm install -g @playwright/test
+        }
+        
+        # Install Playwright browsers and system dependencies
+        if command_exists npx; then
+            echo -e "${BLUE}Installing Playwright browsers...${NC}"
+            npx playwright install
+            
+            echo -e "${BLUE}Installing Playwright system dependencies...${NC}"
+            sudo npx playwright install-deps
+        fi
+    else
+        echo -e "${YELLOW}⚠ Node.js not found, skipping Playwright installation${NC}"
+    fi
+    
+    # Install essential system dependencies for browser automation
+    local playwright_deps=(
+        "libxkbcommon0" "libxdamage1" "libcairo2" "libpango-1.0-0" 
+        "libatk1.0-0" "libatspi2.0-0" "libgtk-3-0" "libgdk-pixbuf2.0-0"
+        "libxss1" "libasound2" "libxtst6" "libxrandr2" "libx11-6"
+        "xvfb" "fonts-noto-color-emoji" "libgbm1"
+    )
+    
+    echo -e "${BLUE}Installing browser automation system dependencies...${NC}"
+    for dep in "${playwright_deps[@]}"; do
+        install_package "$dep" 2>/dev/null || echo -e "${YELLOW}⚠ Could not install $dep${NC}"
+    done
+    
+    echo -e "${GREEN}✓ Playwright and testing dependencies setup complete${NC}"
+}
+
+# Function to setup SSL certificates for development
+setup_ssl_certificates() {
+    print_section "SSL Certificates Setup"
+    
+    local cert_dir="$BASE_DIR/cert"
+    local cert_file="$cert_dir/utm.crt"
+    local key_file="$cert_dir/utm.key"
+    
+    if [ -f "$cert_file" ] && [ -f "$key_file" ]; then
+        echo -e "${GREEN}✓ SSL certificates already exist${NC}"
+        return 0
+    fi
+    
+    echo -e "${BLUE}Creating SSL certificates for development...${NC}"
+    mkdir -p "$cert_dir"
+    
+    # Generate self-signed certificate for development
+    openssl req -x509 -newkey rsa:4096 -keyout "$key_file" -out "$cert_file" -days 365 -nodes \
+        -subj "/C=US/ST=State/L=City/O=Organization/OU=OrgUnit/CN=localhost" 2>/dev/null || {
+        echo -e "${YELLOW}⚠ OpenSSL not available, trying to install...${NC}"
+        install_package openssl
+        openssl req -x509 -newkey rsa:4096 -keyout "$key_file" -out "$cert_file" -days 365 -nodes \
+            -subj "/C=US/ST=State/L=City/O=Organization/OU=OrgUnit/CN=localhost"
+    }
+    
+    if [ -f "$cert_file" ] && [ -f "$key_file" ]; then
+        echo -e "${GREEN}✓ SSL certificates created successfully${NC}"
+        echo -e "${CYAN}  Certificate: $cert_file${NC}"
+        echo -e "${CYAN}  Private Key: $key_file${NC}"
+    else
+        echo -e "${RED}✗ Failed to create SSL certificates${NC}"
+    fi
 }
 
 # Function to setup system tools
@@ -374,7 +445,7 @@ setup_system_tools() {
     print_section "System Tools Setup"
     
     # Essential tools
-    local tools=("curl" "wget" "git" "unzip" "build-essential" "lsof" "net-tools" "htop" "tree")
+    local tools=("curl" "wget" "git" "unzip" "build-essential" "lsof" "net-tools" "htop" "tree" "jq" "ca-certificates" "gnupg" "software-properties-common")
     
     for tool in "${tools[@]}"; do
         if command_exists "${tool%% *}"; then  # Extract command name from package name
@@ -414,7 +485,18 @@ install_project_dependencies() {
         # Set Node.js options for Angular 7 compatibility
         export NODE_OPTIONS="--openssl-legacy-provider"
         
-        npm install --legacy-peer-deps
+        # Install dependencies with Angular 7 compatibility options
+        npm install --legacy-peer-deps || {
+            echo -e "${YELLOW}Retrying npm install with force...${NC}"
+            npm install --legacy-peer-deps --force
+        }
+        
+        # Verify Angular CLI is available locally or globally
+        if ! command_exists ng && ! npx ng version >/dev/null 2>&1; then
+            echo -e "${BLUE}Installing Angular CLI locally...${NC}"
+            npm install --save-dev @angular/cli@7.3.9
+        fi
+        
         echo -e "${GREEN}✓ Frontend dependencies installed${NC}"
     fi
     
@@ -510,9 +592,30 @@ verify_installation() {
         else
             echo -e "${YELLOW}⚠ Docker service not running${NC}"
         fi
+        
+        # Check Docker Compose
+        if command_exists docker-compose; then
+            echo -e "${GREEN}✓ Docker Compose: $(docker-compose --version)${NC}"
+        else
+            echo -e "${YELLOW}⚠ Docker Compose not found${NC}"
+        fi
     else
         echo -e "${RED}✗ Docker not found${NC}"
         errors=$((errors + 1))
+    fi
+    
+    # Check Playwright
+    if command_exists npx && npx playwright --version >/dev/null 2>&1; then
+        echo -e "${GREEN}✓ Playwright: $(npx playwright --version)${NC}"
+    else
+        echo -e "${YELLOW}⚠ Playwright not found or not properly installed${NC}"
+    fi
+    
+    # Check Angular CLI
+    if command_exists ng || npx ng version >/dev/null 2>&1; then
+        echo -e "${GREEN}✓ Angular CLI available${NC}"
+    else
+        echo -e "${YELLOW}⚠ Angular CLI not found${NC}"
     fi
     
     if [ $errors -eq 0 ]; then
@@ -602,6 +705,8 @@ main() {
     setup_postgresql
     setup_elasticsearch
     setup_docker
+    setup_playwright
+    setup_ssl_certificates
     install_project_dependencies
     create_environment_config
     
@@ -612,6 +717,7 @@ main() {
         echo -e "1. Source the environment: ${CYAN}source $BASE_DIR/.env${NC}"
         echo -e "2. Start services: ${CYAN}./utmstack-manager.sh start${NC}"
         echo -e "3. Check status: ${CYAN}./utmstack-manager.sh status${NC}"
+        echo -e "4. Run frontend tests: ${CYAN}npx playwright test frontend-verification.spec.js${NC}"
         echo -e "\n${YELLOW}Note: If you were added to the docker group, please log out and back in.${NC}"
     else
         echo -e "\n${YELLOW}Setup completed with some issues. Please review the output above.${NC}"
