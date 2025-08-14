@@ -6,3 +6,4 @@ vendor/
 installer/installer
 */.vscode
 correlation/blocks-*.csv
+frontend/test-results/
