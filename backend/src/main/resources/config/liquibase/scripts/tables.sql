@@ -75,8 +75,8 @@ CREATE TABLE IF NOT EXISTS public.jhi_user_authority
 
 CREATE TABLE IF NOT EXISTS public.utm_index_pattern
 (
-    id             bigint DEFAULT nextval('public.utm_index_pattern_id_seq'::regclass) NOT NULL,
-    pattern        character varying(100)                                              NOT NULL,
+    id             uuid DEFAULT gen_random_uuid() NOT NULL,
+    pattern        character varying(100)         NOT NULL,
     pattern_module character varying(500),
     pattern_system boolean,
     is_active      boolean,

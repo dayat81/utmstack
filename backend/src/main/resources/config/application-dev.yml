@@ -18,7 +18,7 @@ spring:
             indent-output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: ${DATABASE_URL:jdbc:postgresql://postgres:5432/utmstack_production}
+        url: ${DATABASE_URL:jdbc:postgresql://localhost:5433/utmstack_production}
         username: ${DATABASE_USERNAME:utmstack_prod}
         password: ${DATABASE_PASSWORD:UTMStack2025!Secure}
         hikari:
@@ -29,7 +29,7 @@ spring:
         database: POSTGRESQL # For Postgresql database
     elasticsearch: # This configuration is for the elasticsearch health indicator, please do not remove
         rest:
-            uris: ${ELASTICSEARCH_HOSTS:http://elasticsearch:9200}
+            uris: ${ELASTICSEARCH_HOSTS:http://localhost:9201}
     liquibase:
         contexts: dev
         change-log: classpath:config/liquibase/master.xml
