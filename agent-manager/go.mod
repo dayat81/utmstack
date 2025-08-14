@@ -2,7 +2,7 @@ module github.com/utmstack/UTMStack/agent-manager
 
 go 1.23.0
 
-toolchain go1.24.2
+toolchain go1.23.4
 
 require (
 	github.com/AtlasInsideCorp/AtlasInsideAES v1.0.0

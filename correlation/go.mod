@@ -2,7 +2,7 @@ module github.com/utmstack/UTMStack/correlation
 
 go 1.23.0
 
-toolchain go1.24.2
+toolchain go1.23.4
 
 require (
 	github.com/fsnotify/fsnotify v1.9.0

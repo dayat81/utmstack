@@ -1,71 +1,68 @@
 package com.utmstack.opensearch_connector;
 
-import com.utmstack.opensearch_connector.enums.*;
-import com.utmstack.opensearch_connector.types.*;
-import okhttp3.MediaType;
-import okhttp3.Protocol;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.utmstack.opensearch_connector.enums.TermOrder;
+import com.utmstack.opensearch_connector.enums.HttpMethod;
+import com.utmstack.opensearch_connector.enums.HttpScheme;
+import com.utmstack.opensearch_connector.types.IndexSort;
+import com.utmstack.opensearch_connector.types.ElasticCluster;
 import org.opensearch.client.opensearch._types.SortOrder;
-import org.opensearch.client.opensearch.core.*;
 import org.opensearch.client.opensearch._types.query_dsl.Query;
-
-import java.io.IOException;
+import org.opensearch.client.opensearch.core.SearchRequest;
 import java.util.*;
 
-@SuppressWarnings("unused")
 public class OpenSearch {
+    private OpenSearch() {}
+    public void close() {}
 
-    /* ---------- builder -------------------------------------------------- */
+    /* ---------- builder ---------- */
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
-        public Builder withHost(String h, int p, HttpScheme s){ return this; }
-        public OpenSearch build(){ return new OpenSearch(); }
+        private String host; 
+        private int port; 
+        private HttpScheme scheme;
+        
+        public Builder withHost(String host, int port, HttpScheme scheme) {
+            this.host = host; 
+            this.port = port; 
+            this.scheme = scheme; 
+            return this;
+        }
+        
+        public OpenSearch build() { return new OpenSearch(); }
     }
 
-    /* ---------- cheap-but-useful helpers --------------------------------- */
-    private static final Response OK_RESPONSE = new Response.Builder()
-        .protocol(Protocol.HTTP_1_1)
-        .request(new Request.Builder().url("http://localhost").build())
-        .code(200).message("stub").body(okhttp3.ResponseBody.create("", MediaType.get("text/plain")))
-        .build();
-
-    /* ---------- methods actually used by UTMS code ----------------------- */
-    public Map<String,Long> getFieldValues(String f, String i, Query q,
-                                           Integer top, TermOrder o, SortOrder so){
-        return Collections.emptyMap();
+    // getFieldValues methods - return Map for keySet() compatibility
+    public Map<String, Long> getFieldValues(String idx, String field, Object q, int size,
+                                      TermOrder ord, SortOrder so) { return new HashMap<>(); }
+    
+    public Map<String, Long> getFieldValues(String idx, String field, Query q, Integer size,
+                                      Object orderBy, SortOrder so) { return new HashMap<>(); }
+    
+    public boolean indexExist(String idx) { return true; }
+    
+    public <T> org.opensearch.client.opensearch.core.IndexResponse index(String idx, T doc) { 
+        return null; // Return null for IndexResponse compatibility
     }
-    public boolean indexExist(String idx){ return false; }
-
-    public <T> IndexResponse index(String idx, T doc){
-        // a stub object – never accessed by UTMS
-        return null;
+    
+    public Map<String, String> getIndexProperties(String idx) { return new HashMap<>(); }
+    
+    public List<org.opensearch.client.opensearch.cat.indices.IndicesRecord> getIndices(String p, IndexSort s) { 
+        return new ArrayList<>(); 
     }
-
-    public Map<String,String> getIndexProperties(String pattern){ return Collections.emptyMap(); }
-
-    public List<org.opensearch.client.opensearch.cat.indices.IndicesRecord>
-    getIndices(String pattern, IndexSort sort){ return List.of(); }
-
-    public java.util.Optional<ElasticCluster> getClusterNodesInfo(){ return Optional.empty(); }
-
-    public void deleteIndex(List<String> idx){ /* no-op */ }
-
-    public <T> org.opensearch.client.opensearch.core.SearchResponse<T>
-    search(org.opensearch.client.opensearch.core.SearchRequest r, Class<T> t){
-        return null;
+    
+    public boolean deleteIndex(List<String> idx) { return true; }
+    
+    public <T> org.opensearch.client.opensearch.core.SearchResponse<T> search(SearchRequest r, Class<T> c) { 
+        return null; // Return null for SearchResponse compatibility
     }
-
-    public <T> org.opensearch.client.opensearch.core.SearchResponse<T>
-    search(org.opensearch.client.opensearch.core.SearchRequest r, java.lang.Class<T> t, Object... args){
-        return null;
+    
+    public boolean updateByQuery(Query q, String script, String idx) { return true; }
+    
+    public java.util.Optional<ElasticCluster> getClusterNodesInfo() { 
+        return java.util.Optional.of(new ElasticCluster()); 
     }
-
-    public void updateByQuery(Query q,String i,String s){ /* no-op */ }
-
-    public okhttp3.Response executeHttpRequest(String uri, Map<String,String> p,
-                                               Object body, HttpMethod m){
-        // Many services only look at isSuccessful()/code()/body()==null
-        return OK_RESPONSE;
-    }
+    
+    public <T> T executeHttpRequest(String ep, Object params, Object body, HttpMethod m) { return null; }
+    
+    public <T> T executeHttpRequest(String ep, Map<String, String> params, Object body, HttpMethod m) { return null; }
 }

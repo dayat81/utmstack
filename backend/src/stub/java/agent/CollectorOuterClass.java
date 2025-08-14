@@ -8,12 +8,31 @@ public final class CollectorOuterClass {
     private CollectorOuterClass(){}
 
     /* ---------------- enums ---------------- */
-    public enum CollectorModule { UNKNOWN, AS_400 }
+    public enum CollectorModule { 
+        UNKNOWN, AS_400
+    }
 
     /* ---------------- "messages" ----------- */
 
     public static final class Collector {
+        private String id = "1";
+        private String status = "active";
+        private String lastSeen = "2023-01-01T00:00:00Z";
+        private String version = "1.0.0";
+        private String ip = "127.0.0.1";
+        private String hostname = "localhost";
+        private String collectorKey = "test-key";
+        private CollectorModule module = CollectorModule.UNKNOWN;
+        
         public static Collector getDefaultInstance(){ return new Collector(); }
+        public String getId() { return id; }
+        public String getStatus() { return status; }
+        public String getLastSeen() { return lastSeen; }
+        public String getVersion() { return version; }
+        public String getIp() { return ip; }
+        public String getHostname() { return hostname; }
+        public String getCollectorKey() { return collectorKey; }
+        public CollectorModule getModule() { return module; }
     }
 
     public static final class CollectorDelete {
@@ -80,6 +99,7 @@ public final class CollectorOuterClass {
     public static final class ConfigRequest {
         public static Builder newBuilder(){ return new Builder(); }
         public static final class Builder{
+            public Builder setModule(CollectorModule module) { return this; }
             public ConfigRequest build(){ return new ConfigRequest(); }
         }
     }

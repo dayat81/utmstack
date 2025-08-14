@@ -1,8 +1,22 @@
+# Stage 1: Build the Go binary
+FROM golang:1.23-alpine AS builder
+
+WORKDIR /src
+
+# Copy go.mod and go.sum to download dependencies first
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy the rest of the source code
+COPY . .
+
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app/log-auth-proxy -v .
+
+# Stage 2: Create the final image
 FROM ubuntu:24.04
 
-COPY log-auth-proxy /app/
-
-# Install jq
+# Install runtime dependencies
 RUN apt-get update && \
     apt-get install -y ca-certificates jq wget && \
     update-ca-certificates && \
@@ -16,6 +30,8 @@ RUN GRPCURL_VERSION=1.8.1 && \
     rm /tmp/grpcurl.tar.gz && \
     chmod +x /usr/local/bin/grpcurl
 
+# Copy the built binary from the builder stage
+COPY --from=builder /app/log-auth-proxy /app/log-auth-proxy
 
 # Expose the gRPC log-auth-proxy port
 EXPOSE 50051

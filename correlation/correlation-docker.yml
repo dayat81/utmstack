@@ -1,0 +1,9 @@
+rulesFolder: /app/rulesets/
+elasticsearch: "http://elasticsearch:9200"
+postgresql:
+  server: postgres
+  port: 5432
+  user: postgres
+  password: "admin"
+  database: utmstack
+errorLevel: debug

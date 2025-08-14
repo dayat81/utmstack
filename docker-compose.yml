@@ -1,0 +1,80 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - LOGSTASH_URL=http://logstash:9600
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=utmstack
+      - DB_USER=postgres
+      - DB_PASS=admin
+      - ELASTICSEARCH_HOST=elasticsearch
+      - ELASTICSEARCH_PORT=9200
+    depends_on:
+      - postgres
+      - elasticsearch
+  correlation:
+    build: ./correlation
+    ports:
+      - "8085:8085"
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=utmstack
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+    volumes:
+      - ./correlation/correlation-docker.yml:/app/config.yml:ro
+    depends_on:
+      - postgres
+  agent-manager:
+    build: ./agent-manager
+    ports:
+      - "9000:8080"
+      - "50051:50051"
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=utmstack
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+      - SERVER_ADDRESS=http://backend:8080
+    depends_on:
+      - postgres
+  log-auth-proxy:
+    build: ./log-auth-proxy
+    ports:
+      - "8081:8080"
+      - "50052:50051"
+    environment:
+      - SERVER_ADDRESS=http://backend:8080
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=utmstack
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=false
+    ports:
+      - "9202:9200"
+      - "9302:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+volumes:
+  postgres_data:
+  elasticsearch_data:
