@@ -16,9 +16,8 @@
              [ngClass]="{'active-menu':isActiveChildren(menu.childrens,menu.actions,menu.id)}"
              data-toggle="dropdown"
              ngbDropdownToggle>
-             <span *ngIf="menu.menuIcon" class="svg-icon svg-icon-md mr-2"
-                   [ngClass]="isActiveChildren(menu.childrens, menu.actions,menu.id)?'svg-icon-active':'svg-icon-primary'"
-                   [inlineSVG]="iconPath+menu.menuIcon"></span>
+             <svg-icon *ngIf="menu.menuIcon" [src]="iconPath+menu.menuIcon" class="svg-icon svg-icon-md mr-2"
+                   [ngClass]="isActiveChildren(menu.childrens, menu.actions,menu.id)?'svg-icon-active':'svg-icon-primary'"></svg-icon>
             {{menu.name | titlecase}}
           </a>
           <div [ngClass]="i===0?'first':i===list.length-1?'last':''" class="dropdown-menu scroll-menu-y" ngbDropdownMenu
@@ -51,9 +50,8 @@
               [hidden]="!menu.menuActive" class="nav-item mr-1">
             <a class="utm-nav-link breadcrumb-elements-item text-capitalize"
                [ngClass]="{'active-menu':isActive(menu)}">
-                <span *ngIf="menu.menuIcon" class="svg-icon svg-icon-md  mr-2"
-                      [ngClass]="isActive(menu)?'svg-icon-active':'svg-icon-primary'"
-                      [inlineSVG]="iconPath+menu.menuIcon"></span>
+                <svg-icon *ngIf="menu.menuIcon" [src]="iconPath+menu.menuIcon" class="svg-icon svg-icon-md  mr-2"
+                      [ngClass]="isActive(menu)?'svg-icon-active':'svg-icon-primary'"></svg-icon>
               {{menu.name | titlecase}}
             </a>
           </li>

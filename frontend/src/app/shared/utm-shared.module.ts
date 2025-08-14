@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {TranslateModule} from '@ngx-translate/core';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {NgxFlagIconCssModule} from 'ngx-flag-icon-css';
 import {NgxJsonViewerModule} from 'ngx-json-viewer';
 import {NgxSortableModule} from 'ngx-sortable-2';
@@ -226,7 +226,7 @@ import {FilterPipe} from "./pipes/filter.pipe";
 
 @NgModule({
   imports: [
-    InlineSVGModule,
+    AngularSvgIconModule,
     CommonModule,
     ReactiveFormsModule,
     TranslateModule,

@@ -186,7 +186,7 @@ start_all_services() {
     if [ -f "$BASE_DIR/backend/mvnw" ]; then
         echo -e "${BLUE}Building backend with Maven Wrapper...${NC}"
         cd "$BASE_DIR/backend"
-        ./mvnw clean package -DskipTests
+        ./mvnw clean package -Dmaven.test.skip=true -DskipITs
         cd "$BASE_DIR"
         echo -e "${GREEN}✓ Backend build complete${NC}"
     else

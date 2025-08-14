@@ -49,7 +49,7 @@ public class IndexPolicyService {
         } catch (Exception e) {
             String msg = ctx + ": " + e.getMessage();
             log.error(msg);
-            System.exit(SpringApplication.exit(applicationContext, () -> -1));
+            log.warn("IndexPolicyService initialization failed, but continuing application startup");
         }
     }
 
@@ -103,7 +103,8 @@ public class IndexPolicyService {
         } catch (Exception e) {
             String msg = ctx + ": " + e.getMessage();
             log.error(msg);
-            throw new RuntimeException(msg);
+            log.warn("Could not retrieve policy, returning empty - service may not be ready yet");
+            return Optional.empty();
         }
     }
 

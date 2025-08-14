@@ -24,6 +24,7 @@ public final class Common {
             public Builder setPageNumber(int pageNumber) { return this; }
             public Builder setPageSize(int pageSize) { return this; }
             public Builder setSearchQuery(String query) { return this; }
+            public Builder setSortBy(String sortBy) { return this; }
             public ListRequest build(){ return new ListRequest(); }
         }
     }

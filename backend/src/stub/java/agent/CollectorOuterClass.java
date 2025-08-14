@@ -10,13 +10,19 @@ public final class CollectorOuterClass {
     /* ---------------- enums ---------------- */
     public enum CollectorModule { 
         UNKNOWN, AS_400
+        // name() method is inherited from Enum and works automatically
+    }
+    
+    public enum CollectorStatus {
+        ACTIVE, INACTIVE, UNKNOWN
+        // name() method is inherited from Enum and works automatically
     }
 
     /* ---------------- "messages" ----------- */
 
     public static final class Collector {
         private String id = "1";
-        private String status = "active";
+        private CollectorStatus status = CollectorStatus.ACTIVE;
         private String lastSeen = "2023-01-01T00:00:00Z";
         private String version = "1.0.0";
         private String ip = "127.0.0.1";
@@ -26,7 +32,7 @@ public final class CollectorOuterClass {
         
         public static Collector getDefaultInstance(){ return new Collector(); }
         public String getId() { return id; }
-        public String getStatus() { return status; }
+        public CollectorStatus getStatus() { return status; }
         public String getLastSeen() { return lastSeen; }
         public String getVersion() { return version; }
         public String getIp() { return ip; }

@@ -41,7 +41,13 @@ public class OpenSearch {
     public boolean indexExist(String idx) { return true; }
     
     public <T> org.opensearch.client.opensearch.core.IndexResponse index(String idx, T doc) { 
-        return null; // Return null for IndexResponse compatibility
+        // Return a mock IndexResponse with essential fields
+        return new org.opensearch.client.opensearch.core.IndexResponse.Builder()
+            .id("mock-id")
+            .index(idx)
+            .result(org.opensearch.client.opensearch._types.Result.Created)
+            .version(1L)
+            .build();
     }
     
     public Map<String, String> getIndexProperties(String idx) { return new HashMap<>(); }
@@ -52,11 +58,34 @@ public class OpenSearch {
     
     public boolean deleteIndex(List<String> idx) { return true; }
     
+    @SuppressWarnings("unchecked")
     public <T> org.opensearch.client.opensearch.core.SearchResponse<T> search(SearchRequest r, Class<T> c) { 
-        return null; // Return null for SearchResponse compatibility
+        // Create a mock SearchResponse with properly structured hits and aggregations
+        org.opensearch.client.opensearch.core.search.HitsMetadata<T> hits = 
+            new org.opensearch.client.opensearch.core.search.HitsMetadata.Builder<T>()
+                .total(new org.opensearch.client.opensearch.core.search.TotalHits.Builder()
+                    .value(0L)
+                    .relation(org.opensearch.client.opensearch.core.search.TotalHitsRelation.Eq)
+                    .build())
+                .hits(new ArrayList<>())
+                .build();
+                
+        return new org.opensearch.client.opensearch.core.SearchResponse.Builder<T>()
+            .took(1L)
+            .timedOut(false)
+            .shards(new org.opensearch.client.opensearch._types.ShardStatistics.Builder()
+                .total(1)
+                .successful(1)
+                .failed(0)
+                .build())
+            .hits(hits)
+            .aggregations(new HashMap<>())
+            .build();
     }
     
-    public boolean updateByQuery(Query q, String script, String idx) { return true; }
+    public boolean updateByQuery(Query q, String script, String idx) throws com.utmstack.opensearch_connector.exceptions.OpenSearchException { 
+        return true; 
+    }
     
     public java.util.Optional<ElasticCluster> getClusterNodesInfo() { 
         return java.util.Optional.of(new ElasticCluster()); 

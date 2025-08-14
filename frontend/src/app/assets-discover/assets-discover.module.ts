@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {ResizableModule} from 'angular-resizable-element';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {IncidentResponseSharedModule} from '../incident-response/shared/incident-response-shared.module';
@@ -107,7 +107,7 @@ import {UtmDatePipe} from "../shared/pipes/date.pipe";
         AssetsApplyNoteModule,
         AssetsApplyTypeModule,
         AssetsGroupAddModule,
-        InlineSVGModule
+        AngularSvgIconModule
     ],
   providers: [
     UtmDatePipe

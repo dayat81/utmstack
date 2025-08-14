@@ -29,8 +29,7 @@
 
     <div (click)="selectIcon()" *ngIf="isContainer || !menu.parentId"
          class="text-blue-800 mb-3 d-flex align-items-center justify-content-start">
-       <span *ngIf="menu.menuIcon" class="svg-icon svg-icon-2x svg-icon-dark mr-2"
-             [inlineSVG]="iconPath+menu.menuIcon"></span>
+       <svg-icon *ngIf="menu.menuIcon" [src]="iconPath+menu.menuIcon" class="svg-icon svg-icon-2x svg-icon-dark mr-2"></svg-icon>
       Choose menu icon
     </div>
 

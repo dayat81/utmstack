@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {TranslateModule} from '@ngx-translate/core';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {NgxJsonViewerModule} from 'ngx-json-viewer';
 import {IncidentResponseSharedModule} from '../../../incident-response/shared/incident-response-shared.module';
@@ -157,7 +157,7 @@ import {StatusFilterComponent} from './components/filters/status-filter/status-f
     IncidentResponseSharedModule,
     DataMgmtSharedModule,
     RouterModule,
-    InlineSVGModule,
+    AngularSvgIconModule,
   ]
 })
 export class AlertManagementSharedModule {

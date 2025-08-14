@@ -11,11 +11,25 @@ services:
       - DB_NAME=utmstack
       - DB_USER=postgres
       - DB_PASS=admin
+      - DB_PASSWORD=admin
       - ELASTICSEARCH_HOST=elasticsearch
       - ELASTICSEARCH_PORT=9200
+      - GRPC_AGENT_MANAGER_HOST=agent-manager
+      - GRPC_AGENT_MANAGER_PORT=50051
+      - INTERNAL_KEY=utm-internal-key-2025
+      - ENCRYPTION_KEY=utm-encryption-key-2025-secure
+      - SERVER_NAME=utmstack-backend
+      - SKIP_SNAPSHOT_REPO=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/ping"]
+      interval: 10s
+      retries: 30
+      start_period: 60s
     depends_on:
-      - postgres
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
+      postgres:
+        condition: service_started
   correlation:
     build: ./correlation
     ports:
@@ -42,17 +56,27 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=admin
       - SERVER_ADDRESS=http://backend:8080
+    volumes:
+      - ./cert:/cert:ro
     depends_on:
-      - postgres
+      backend:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
   log-auth-proxy:
     build: ./log-auth-proxy
     ports:
       - "8081:8080"
       - "50052:50051"
     environment:
-      - SERVER_ADDRESS=http://backend:8080
+      - UTM_HOST=http://backend:8080
+      - UTM_AGENT_MANAGER_HOST=agent-manager:50051
+      - INTERNAL_KEY=utm-internal-key-2025
+    volumes:
+      - ./cert:/cert:ro
     depends_on:
-      - postgres
+      backend:
+        condition: service_healthy
   postgres:
     image: postgres:13
     environment:
@@ -63,18 +87,28 @@ services:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      retries: 10
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
+    image: opensearchproject/opensearch:2.13.0
+    container_name: elasticsearch
     environment:
       - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - xpack.security.enabled=false
-      - bootstrap.memory_lock=false
+      - DISABLE_SECURITY_PLUGIN=true
+      - OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g
     ports:
       - "9202:9200"
       - "9302:9300"
     volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data
+      - elasticsearch_data:/usr/share/opensearch/data
+      - ./opensearch-backups:/usr/share/opensearch/backups
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 15s
+      retries: 20
+      start_period: 60s
 volumes:
   postgres_data:
   elasticsearch_data:

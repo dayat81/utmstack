@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {UtmSharedModule} from '../../shared/utm-shared.module';
 import {AppModuleActivateButtonComponent} from './components/app-module-activate-button/app-module-activate-button.component';
 import {AppModuleActivateModalComponent} from './components/app-module-activate-modal/app-module-activate-modal.component';
@@ -19,7 +19,7 @@ import {NgSelectModule} from "@ng-select/ng-select";
   imports: [
     CommonModule,
     UtmSharedModule,
-    InlineSVGModule,
+    AngularSvgIconModule,
     NgbModule,
     ReactiveFormsModule,
     NgSelectModule,

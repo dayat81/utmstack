@@ -55,7 +55,7 @@
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.21",
     "net": "^1.0.2",
-    "ng-inline-svg": "^8.6.0",
+    "angular-svg-icon": "7.2.1",
     "ng-jhipster": "^0.9.1",
     "ng2-tel-input": "^1.0.16",
     "ng5-slider": "^1.2.4",

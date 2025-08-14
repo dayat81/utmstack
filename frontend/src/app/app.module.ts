@@ -8,7 +8,7 @@ import {NgbDatepickerConfig, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import * as moment from 'moment';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 import {ToastrModule} from 'ng6-toastr-notifications';
 import {CookieService} from 'ngx-cookie-service';
@@ -46,7 +46,7 @@ export function initTimezoneFormat(timezoneService: TimezoneFormatService) {
     AppComponent,
   ],
   imports: [
-    InlineSVGModule.forRoot(),
+    AngularSvgIconModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

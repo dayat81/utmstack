@@ -3,7 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgSelectModule} from '@ng-select/ng-select';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {DndModule} from 'ngx-drag-drop';
 import {NgxGaugeModule} from 'ngx-gauge';
 import {NgxSortableModule} from 'ngx-sortable-2';
@@ -94,7 +94,7 @@ import {UtmApiDocComponent} from './utm-api-doc/utm-api-doc.component';
     ComplianceManagementModule,
     DndModule,
     NgxSortableModule,
-    InlineSVGModule,
+    AngularSvgIconModule,
     NgxGaugeModule,
   ],
   exports: [

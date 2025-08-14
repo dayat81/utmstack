@@ -3,7 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgSelectModule} from '@ng-select/ng-select';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {UtmSharedModule} from '../shared/utm-shared.module';
 import {AppModuleRoutingModuleRouting} from './app-module-routing.module';
 import {AppModuleViewComponent} from './app-module-view/app-module-view.component';
@@ -120,7 +120,7 @@ import {AgentInstallSelectorComponent} from './guides/shared/components/agent-in
     AppModuleRoutingModuleRouting,
     AppModuleSharedModule,
     UtmSharedModule,
-    InlineSVGModule,
+    AngularSvgIconModule,
     FormsModule,
     NgbModule,
     ReactiveFormsModule,

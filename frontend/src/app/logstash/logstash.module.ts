@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {InlineSVGModule} from 'ng-inline-svg';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import {AlertManagementSharedModule} from '../data-management/alert-management/shared/alert-management-shared.module';
 import {UtmSharedModule} from '../shared/utm-shared.module';
 import {LogstashFilterCreateComponent} from './logstash-filters/logstash-filter-create/logstash-filter-create.component';
@@ -18,7 +18,7 @@ import {LogstashRoutingModule} from './logstash-routing.module';
     FormsModule,
     NgbModule,
     LogstashRoutingModule,
-    InlineSVGModule,
+    AngularSvgIconModule,
     AlertManagementSharedModule
   ],
   entryComponents: [LogstashFilterCreateComponent]

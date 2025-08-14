@@ -8,7 +8,7 @@
     <div (click)="selectIcon(icon)" *ngFor="let icon of icons"
          [ngClass]="{'card-chart-selected':(iconSelected!==undefined && icon === iconSelected)}"
          class="card-icon cursor-pointer">
-      <span class="svg-icon svg-icon-2x svg-icon-dark" [inlineSVG]="iconPath+icon"></span>
+      <svg-icon [src]="iconPath+icon" class="svg-icon svg-icon-2x svg-icon-dark"></svg-icon>
     </div>
   </div>
 
